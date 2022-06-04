@@ -8,28 +8,32 @@ using UnityEngine.UI;
 public class test : MonoBehaviour
 {
     public Text textdisplay;
+    public Text stepcounterStatus;
+    private StepCounter stepCounter;
+    public static int currentSteps = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-#if PLATFORM_ANDROID
-        if (!Permission.HasUserAuthorizedPermission("android.permission.ACTIVITY_RECOGNITION"))
-        {
-            Permission.RequestUserPermission("android.permission.ACTIVITY_RECOGNITION");
-        }
+        
+        
 
-        InputSystem.EnableDevice(StepCounter.current);
-        InputSystem.AddDevice<StepCounter>();
-
-#endif
-
-
+   
     }
 
     // Update is called once per frame
     void Update()
     {
-        textdisplay.text = StepCounter.current.stepCounter.ReadValue().ToString();
+        stepCounter = StepCounter.current;
+        InputSystem.EnableDevice(stepCounter);
+        if (stepCounter.enabled)
+        {
+            stepcounterStatus.text = "enabled";
+            currentSteps = stepCounter.stepCounter.ReadValue();
+        }
+
+
+        textdisplay.text = currentSteps.ToString();
 
 
     }
