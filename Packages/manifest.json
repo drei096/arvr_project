@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.ptc.vuforia.engine": "file:C:/Users/drei0/Documents/ACADS/GD-ARVR/mp/com.ptc.vuforia.engine-10.5.5.tgz",
+    "com.ptc.vuforia.engine": "file:C:/Users/11929057/Desktop/Programming Softwares/arvr_project/Packages/com.ptc.vuforia.engine-10.5.5.tgz",
     "com.unity.collab-proxy": "1.15.13",
     "com.unity.ide.rider": "2.0.7",
     "com.unity.ide.visualstudio": "2.0.14",

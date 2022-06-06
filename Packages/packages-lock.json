@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.ptc.vuforia.engine": {
-      "version": "file:C:/Users/drei0/Documents/ACADS/GD-ARVR/mp/com.ptc.vuforia.engine-10.5.5.tgz",
+      "version": "file:C:/Users/11929057/Desktop/Programming Softwares/arvr_project/Packages/com.ptc.vuforia.engine-10.5.5.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
