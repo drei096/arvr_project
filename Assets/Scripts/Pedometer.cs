@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Android;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class test : MonoBehaviour
+public class Pedometer : MonoBehaviour
 {
     public Text textdisplay;
     public Text stepcounterStatus;
-    private StepCounter stepCounter;
+    //private StepCounter stepCounter;
     public static int currentSteps = 0;
 
     // Start is called before the first frame update
@@ -24,6 +24,7 @@ public class test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         stepCounter = StepCounter.current;
         InputSystem.EnableDevice(stepCounter);
         if (stepCounter.enabled)
@@ -35,6 +36,6 @@ public class test : MonoBehaviour
 
         textdisplay.text = currentSteps.ToString();
 
-
+        */
     }
 }
