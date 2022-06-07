@@ -5,7 +5,20 @@ using UnityEngine.UI;
 
 public class StepCount : MonoBehaviour
 {
-    public Text acc;
+    // Singleton
+    private static StepCount instance = null;
+
+    public static StepCount Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = new StepCount();
+            return instance;
+        }
+    }
+
+    //public Text acc;
  
     public float loLim = 0.005f; // level to fall to the low state 
     public float hiLim = 0.1f; // level to go to high state (and detect step) 
@@ -21,14 +34,19 @@ public class StepCount : MonoBehaviour
     public int wait_time = 30;
     private int old_steps;
     private int counter = 30;
+
+   
  
-    void Awake() {
+    void Awake() 
+    {
         avgAcc = Input.acceleration.magnitude; // initialize avg filter
         old_steps = steps;
     }
  
-    void Update() {
-        if (counter > 0) {
+    void Update() 
+    {
+        if (counter > 0) 
+        {
             counter--;
             return;
         }
@@ -40,22 +58,42 @@ public class StepCount : MonoBehaviour
         old_steps = steps;
     }
  
-    void FixedUpdate(){ // filter input.acceleration using Lerp
+    void FixedUpdate()
+    { // filter input.acceleration using Lerp
         curAcc = Mathf.Lerp(curAcc, Input.acceleration.magnitude, Time.deltaTime * fHigh);
         avgAcc = Mathf.Lerp(avgAcc, Input.acceleration.magnitude, Time.deltaTime * fLow);
         float delta = curAcc-avgAcc; // gets the acceleration pulses
-        if (!stateH){ // if state == low...
-            if (delta>hiLim){ // only goes high if input > hiLim
+
+        if (!stateH)
+        { // if state == low...
+            if (delta>hiLim)
+            { // only goes high if input > hiLim
                 stateH = true; 
                 steps++; // count step when comp goes high 
-                acc.text = "steps:" + steps;
+                //acc.text = "steps:" + steps;
             } 
-        } else { 
-            if (delta<loLim){ // only goes low if input < loLim 
+        } 
+        else 
+        { 
+            if (delta<loLim)
+            { // only goes low if input < loLim 
                 stateH = false; 
             } 
         } 
     }
+
+    public void checkForEncounter()
+    {
+        if (steps % 10 == 0 && steps != 0)
+        {
+            GameManager.Instance.Encounter();
+        }
+        else
+        {
+            
+        }
+    }
+
 
 }
 

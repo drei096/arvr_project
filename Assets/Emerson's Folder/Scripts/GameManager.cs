@@ -22,10 +22,12 @@ public class GameManager
 
     public float timer;
 
-    public static void Encounter()
-    {
 
+    public void Encounter()
+    {
+        Debug.Log("trigger encounter here");
     }
+
     public static void ResetGame()
     {
 
