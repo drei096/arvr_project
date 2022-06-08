@@ -49,6 +49,14 @@ public enum TrainerCode
     Joey
 };
 
+public enum EncounterType
+{
+    // Write here Trainer Names
+    NONE = -1,
+    POKEMON_ENCOUNTER,
+    TRAINER_ENCOUNTER
+};
+
 public class EnumsHandler
 {
     // Singleton

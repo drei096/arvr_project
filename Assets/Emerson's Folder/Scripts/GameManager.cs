@@ -20,12 +20,47 @@ public class GameManager
     public const int MAX_PARTY_SIZE = 6;
     public const int MAX_INVENTORY_SIZE = 100;
 
-    public float timer;
+    //FOR RANDOMIZER
+    private float timer;
+    private EncounterType encounterType;
+    private int encounterChooser;
 
+    //GROUND PLANE STAGE REFERENCE
+    private GameObject groundPlaneGO;
 
     public void Encounter()
     {
-        Debug.Log("trigger encounter here");
+        groundPlaneGO = GameObject.FindGameObjectWithTag("GroundPlane");
+        encounterChooser = Random.Range(1, 3);
+        if (encounterChooser == 1)
+        {
+            encounterType = EncounterType.POKEMON_ENCOUNTER;
+
+            //SPAWN MODEL OF POKEMON HERE
+
+            //CALL FUNCTION FOR POKEMON ENCOUNTERS
+            pokemonEncounter();
+
+        }
+        else if (encounterChooser == 2)
+        {
+            encounterType = EncounterType.TRAINER_ENCOUNTER;
+
+            //SPAWN TRAINER MODEL HERE
+
+            //CALL FUNCTION FOR TRAINER BATTLE
+            trainerEncounter();
+        }
+    }
+
+    private void pokemonEncounter()
+    {
+
+    }
+
+    private void trainerEncounter()
+    {
+
     }
 
     public static void ResetGame()

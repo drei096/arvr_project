@@ -54,6 +54,8 @@ public class MarkerlessSpawningHandler : MonoBehaviour
         {
             groundPlaneGO.SetActive(true);
             planeFinderGO.SetActive(true);
+
+
         }
         //ELSE IF STEPS IS NOT A MULTIPLE OF 10 OR IS ZERO
         else
@@ -72,5 +74,10 @@ public class MarkerlessSpawningHandler : MonoBehaviour
     private void disableNoEncounterAnim()
     {
         uiControllerReference.triggerNoEncounterAnim(false);
+    }
+
+    public void startEncounter()
+    {
+        gameManagerReference.Encounter();
     }
 }
