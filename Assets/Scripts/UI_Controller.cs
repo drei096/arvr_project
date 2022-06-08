@@ -6,26 +6,33 @@ using UnityEngine.UI;
 public class UI_Controller : MonoBehaviour
 {
     // Singleton
-    private static UI_Controller instance = null;
+    public static UI_Controller Instance;
 
-    public static UI_Controller Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = new UI_Controller();
-            return instance;
-        }
-    }
+    
 
 
     //public Text noEncounterText;
     public Text stepsText;
     [SerializeField] private Animator encounterAnim;
     [SerializeField] private Animator noEncounterAnim;
+    [SerializeField] private Animator lookingForAnim;
 
 
     private StepCount stepCounterReference;
+
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+
+        DontDestroyOnLoad(this);
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +43,12 @@ public class UI_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stepsText.text = "Steps: " + stepCounterReference.steps.ToString();
         //count steps, if it is a multiple of 10, do a UI alert of encounter
         if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0)
         {
             //disable no encounter anim
             triggerNoEncounterAnim(false);
+            triggerLookingForAnim(false);
 
             //prompt to tap
             triggerEncounterAnim(true);
@@ -50,23 +57,30 @@ public class UI_Controller : MonoBehaviour
         else
         {
             //show UI alert that there is no encounter yet
-            triggerNoEncounterAnim(true);
+            triggerEncounterAnim(false);
+            triggerLookingForAnim(true);
         }
 
     }
 
-    private void triggerNoEncounterAnim(bool value)
+    public void triggerNoEncounterAnim(bool value)
     {
         noEncounterAnim.SetBool("isTriggered", value);
     }
 
-    private void triggerEncounterAnim(bool value)
+    public void triggerEncounterAnim(bool value)
     {
         encounterAnim.SetBool("isTriggered", value);
     }
 
-    private void disableAllEncounterAnim()
+    public void triggerLookingForAnim(bool value)
     {
+        lookingForAnim.SetBool("isTriggered", value);
+    }
+
+    public void disableAllEncounterAnim()
+    {
+        lookingForAnim.SetBool("isTriggered", false);
         noEncounterAnim.SetBool("isTriggered", false);
         encounterAnim.SetBool("isTriggered", false);
     }
