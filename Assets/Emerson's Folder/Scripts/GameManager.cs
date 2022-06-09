@@ -56,11 +56,18 @@ public class GameManager
     private void pokemonEncounter()
     {
 
+
+        //at the end, reenable step counter again
+        StepCount.Instance.gameObject.SetActive(true);
     }
 
     private void trainerEncounter()
     {
 
+
+
+        //at the end, reenable step counter again
+        StepCount.Instance.gameObject.SetActive(true);
     }
 
     public static void ResetGame()

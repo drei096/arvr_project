@@ -52,14 +52,18 @@ public class MarkerlessSpawningHandler : MonoBehaviour
         //IF THE STEPS IS A MULTIPLE OF 10
         if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0)
         {
+            //ENABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(true);
             planeFinderGO.SetActive(true);
-
-
+            
+            //DISABLE STEP COUNTER
+            stepCounterReference.gameObject.SetActive(false);
         }
+
         //ELSE IF STEPS IS NOT A MULTIPLE OF 10 OR IS ZERO
         else
         {
+            //DISABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(false);
             planeFinderGO.SetActive(false);
 
