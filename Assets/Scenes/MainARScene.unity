@@ -1322,8 +1322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalObjs: []
-  maxPoolSizePerObj: 20
-  existingSpawnSize: 2
+  maxPoolSizePerObj: 5
   fixedAllocation: 1
 --- !u!114 &1902221961
 MonoBehaviour:
@@ -1338,8 +1337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalObjs: []
-  maxPoolSizePerObj: 20
-  existingSpawnSize: 2
+  maxPoolSizePerObj: 3
   fixedAllocation: 1
 --- !u!114 &1902221962
 MonoBehaviour:
@@ -1354,8 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalObjs: []
-  maxPoolSizePerObj: 20
-  existingSpawnSize: 2
+  maxPoolSizePerObj: 4
   fixedAllocation: 1
 --- !u!4 &1902221963
 Transform:
