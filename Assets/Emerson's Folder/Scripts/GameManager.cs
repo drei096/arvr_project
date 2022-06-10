@@ -31,6 +31,7 @@ public class GameManager
     public void Encounter()
     {
         groundPlaneGO = GameObject.FindGameObjectWithTag("GroundPlane");
+
         encounterChooser = Random.Range(1, 3);
         if (encounterChooser == 1)
         {
@@ -55,7 +56,9 @@ public class GameManager
 
     private void pokemonEncounter()
     {
-
+        
+        
+        //add statement here that disables another encounter after this current one 
 
         //at the end, reenable step counter again
         StepCount.Instance.gameObject.SetActive(true);
@@ -64,7 +67,7 @@ public class GameManager
     private void trainerEncounter()
     {
 
-
+        //add statement here that disables another encounter after this current one
 
         //at the end, reenable step counter again
         StepCount.Instance.gameObject.SetActive(true);

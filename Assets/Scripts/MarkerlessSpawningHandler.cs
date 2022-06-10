@@ -55,9 +55,6 @@ public class MarkerlessSpawningHandler : MonoBehaviour
             //ENABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(true);
             planeFinderGO.SetActive(true);
-            
-            //DISABLE STEP COUNTER
-            stepCounterReference.gameObject.SetActive(false);
         }
 
         //ELSE IF STEPS IS NOT A MULTIPLE OF 10 OR IS ZERO
@@ -82,6 +79,9 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
     public void startEncounter()
     {
+        //DISABLE STEP COUNTER
+        stepCounterReference.gameObject.SetActive(false);
+
         gameManagerReference.Encounter();
     }
 }
