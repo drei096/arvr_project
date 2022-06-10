@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class ObjectPool
@@ -103,7 +104,7 @@ public class ObjectPool
         }
     }
 
-    public void RequestPoolable(StructHandler.OnRequestStruct info)
+    public GameObject RequestPoolable(StructHandler.OnRequestStruct info)
     {
         usedObjects.Add(availableObjects[0]);
         availableObjects.RemoveAt(0);
@@ -111,8 +112,10 @@ public class ObjectPool
         this.poolFunctions.onRequestGo(info);
         //poolable now exist in the game
         usedObjects[usedObjects.Count - 1].SetActive(true);
+
+        return usedObjects[usedObjects.Count - 1];
     }
-    public void RequestPoolable(PokemonCode pokemonCode, StructHandler.OnRequestStruct info)
+    public GameObject RequestPoolable(PokemonCode pokemonCode, StructHandler.OnRequestStruct info)
     {
         for (int i = 0; i < availableObjects.Count; i++)
         {
@@ -126,11 +129,15 @@ public class ObjectPool
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
                 this.poolFunctions.onRequestGo(info);
+
+                return usedObjects[usedObjects.Count - 1];
             }
         }
+
+        return null;
     }
 
-    public void RequestPoolable(PokeballCode pokeballCode, StructHandler.OnRequestStruct info)
+    public GameObject RequestPoolable(PokeballCode pokeballCode, StructHandler.OnRequestStruct info)
     {
         for (int i = 0; i < availableObjects.Count; i++)
         {
@@ -144,10 +151,14 @@ public class ObjectPool
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
                 this.poolFunctions.onRequestGo(info);
+
+                return usedObjects[usedObjects.Count - 1];
             }
         }
+
+        return null;
     }
-    public void RequestPoolable(TrainerCode trainerCode, StructHandler.OnRequestStruct info)
+    public GameObject RequestPoolable(TrainerCode trainerCode, StructHandler.OnRequestStruct info)
     {
         for (int i = 0; i < availableObjects.Count; i++)
         {
@@ -161,8 +172,12 @@ public class ObjectPool
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
                 this.poolFunctions.onRequestGo(info);
+
+                return usedObjects[usedObjects.Count - 1];
             }
         }
+
+        return null;
     }
 
     public void ReleasePoolable(int index, StructHandler.OnReleaseStruct info)

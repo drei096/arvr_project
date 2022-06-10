@@ -38,14 +38,17 @@ public sealed class Pokedex
         caughtPokemon = new Dictionary<PokemonCode, bool>();
         pokemonInfo = new Dictionary<PokemonCode, StructHandler.PokemonInfo>();
         pokeballInfo = new Dictionary<PokeballCode, StructHandler.PokeballInfo>();
+        moveInfo = new Dictionary<MoveCode, StructHandler.MoveInfo>();
+        trainerInfo = new Dictionary<TrainerCode, StructHandler.TrainerInfo>();
+
         foreach (var i in Enum.GetValues(typeof(PokemonCode)))
         {
             if ((PokemonCode)i != PokemonCode.NONE)
                 caughtPokemon.Add((PokemonCode)i, false);
         }
+        EnumsHandler.AddMoveData(ref moveInfo);
         EnumsHandler.AddPokemonData(ref pokemonInfo);
         EnumsHandler.AddPokeballData(ref pokeballInfo);
-        EnumsHandler.AddMoveData(ref moveInfo);
         EnumsHandler.AddTrainerData(ref trainerInfo);
     }
     public static void ShowPokedex()

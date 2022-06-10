@@ -28,6 +28,23 @@ public class GameManager
     //GROUND PLANE STAGE REFERENCE
     private GameObject groundPlaneGO;
 
+    //POOL MANAGER REFERENCES
+    private GameObject poolManager;
+    private PokemonPool pokemonPool;
+    private TrainerPool trainerPool;
+    private PokeballPool pokeballPool;
+    private GameObject placedPokemon;
+
+    //CONSTRUCTOR
+    private GameManager()
+    {
+        poolManager = GameObject.Find("PoolManager");
+        pokemonPool = poolManager.GetComponent<PokemonPool>();
+        trainerPool = poolManager.GetComponent<TrainerPool>();
+        pokeballPool = poolManager.GetComponent<PokeballPool>();
+
+    }
+
     public void Encounter()
     {
         groundPlaneGO = GameObject.FindGameObjectWithTag("GroundPlane");
@@ -38,6 +55,7 @@ public class GameManager
             encounterType = EncounterType.POKEMON_ENCOUNTER;
 
             //SPAWN MODEL OF POKEMON HERE
+            placedPokemon = pokemonPool.itemPool.RequestPoolable(PokemonCode.PIKACHU, new StructHandler.OnRequestStruct() {parent = groundPlaneGO.transform, position = groundPlaneGO.transform.position} );
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
             pokemonEncounter();
@@ -59,6 +77,7 @@ public class GameManager
         
         
         //add statement here that disables another encounter after this current one 
+        //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
 
         //at the end, reenable step counter again
         StepCount.Instance.gameObject.SetActive(true);
