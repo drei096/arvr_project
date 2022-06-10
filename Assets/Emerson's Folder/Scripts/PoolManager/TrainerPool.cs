@@ -12,6 +12,8 @@ public class TrainerPool : MonoBehaviour, IPoolFunctions
     //transform location of the poolStorage and spawn locations
     private Transform poolableLocation;
     private List<Transform> spawnLocations = new List<Transform>();
+    // pool original parent
+    private Transform originalParent = null;
 
     //max size of the pool and if its size isDynamic
     [SerializeField] private int maxPoolSizePerObj = 20; //default
@@ -23,6 +25,7 @@ public class TrainerPool : MonoBehaviour, IPoolFunctions
             this.spawnLocations, PoolType.TRAINER, this.GetComponent<IPoolFunctions>());
         poolableLocation = this.transform;
         this.itemPool.Initialize(ref originalObjs, poolableLocation, this);
+        originalParent = this.transform;
     }
 
 
@@ -31,29 +34,21 @@ public class TrainerPool : MonoBehaviour, IPoolFunctions
     {
 
     }
-
-    public void setCurrentColorPosition(Transform trans = null)
-    {
-        if(trans != null)
-        {
-            this.itemPool.usedObjects[this.itemPool.usedObjects.Count - 1].transform.SetParent(trans);
-            this.itemPool.usedObjects[this.itemPool.usedObjects.Count - 1].transform.position = trans.position;
-        }
-        else
-        {
-
-        }
-    }
+    
 
     //start of "IPoolFunctions" functions 
     //**
-    public void onRequestGo(List<Transform> spawnLocations)
+    public void onRequestGo(StructHandler.OnRequestStruct info)
     {
-
+        // place the pool object to the specified position and parent
+        this.itemPool.usedObjects[this.itemPool.usedObjects.Count - 1].transform.SetParent(info.parent);
+        this.itemPool.usedObjects[this.itemPool.usedObjects.Count - 1].transform.position = info.position;
     }
-    public void onReleaseGo()
+    public void onReleaseGo(StructHandler.OnReleaseStruct info)
     {
-
+        // returns the pool object to its original parent and position
+        this.itemPool.usedObjects[this.itemPool.availableObjects.Count - 1].transform.SetParent(originalParent);
+        this.itemPool.usedObjects[this.itemPool.availableObjects.Count - 1].transform.position = originalParent.position;
     }
     //**
     //end of "IPoolFunctions" functions 

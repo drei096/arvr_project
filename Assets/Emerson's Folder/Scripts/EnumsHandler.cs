@@ -72,9 +72,9 @@ public class EnumsHandler
         }
     }
     // Write here the permanent data info
-    public static void AddPokemonData(ref Dictionary<PokemonCode, PokemonInfo> pokemonInfo)
+    public static void AddPokemonData(ref Dictionary<PokemonCode, StructHandler.PokemonInfo> pokemonInfo)
     {
-        PokemonInfo temp = new PokemonInfo()
+        StructHandler.PokemonInfo temp = new StructHandler.PokemonInfo()
         {
             name = "Oddish", pokemonCode = PokemonCode.ODDISH, 
             type = "Grass", typeCode = TypeCode.GRASS, 
@@ -84,7 +84,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.POISON_STING]
         };
         pokemonInfo.Add(PokemonCode.ODDISH, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Vulpix", pokemonCode = PokemonCode.VULPIX, 
             type = "Fire", typeCode = TypeCode.FIRE, 
@@ -94,7 +94,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.GROWL]
         };
         pokemonInfo.Add(PokemonCode.VULPIX, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Growlithe", pokemonCode = PokemonCode.GROWLITHE, 
             type = "Fire", typeCode = TypeCode.FIRE, 
@@ -104,7 +104,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.SAND_ATTACK]
         };
         pokemonInfo.Add(PokemonCode.GROWLITHE, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Charmander", pokemonCode = PokemonCode.CHARMANDER, 
             type = "Fire", typeCode = TypeCode.FIRE, 
@@ -114,7 +114,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.GROWTH]
         };
         pokemonInfo.Add(PokemonCode.CHARMANDER, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "NidoranF", pokemonCode = PokemonCode.NIDORANF, 
             type = "Poison", typeCode = TypeCode.POISON, 
@@ -124,7 +124,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.POISON_STING]
         };
         pokemonInfo.Add(PokemonCode.NIDORANF, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Cuebone", pokemonCode = PokemonCode.CUEBONE, 
             type = "Ground", typeCode = TypeCode.GROUND, 
@@ -134,7 +134,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.MUD_SLAP]
         };
         pokemonInfo.Add(PokemonCode.CUEBONE, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Seel", pokemonCode = PokemonCode.SEEL, 
             type = "Water", typeCode = TypeCode.WATER, 
@@ -144,7 +144,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.TAIL_WHIP]
         };
         pokemonInfo.Add(PokemonCode.SEEL, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "NidoranM", pokemonCode = PokemonCode.NIDORANM, 
             type = "Poison", typeCode = TypeCode.POISON, 
@@ -154,7 +154,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.MUD_SLAP]
         };
         pokemonInfo.Add(PokemonCode.NIDORANM, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Machop", pokemonCode = PokemonCode.MACHOP, 
             type = "Fighting", typeCode = TypeCode.FIGHTING, 
@@ -164,7 +164,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.LOW_KICK]
         };
         pokemonInfo.Add(PokemonCode.MACHOP, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Farfetch'd", pokemonCode = PokemonCode.FARFETCHD, 
             type = "Flying", typeCode = TypeCode.FLYING, 
@@ -174,7 +174,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.SAND_ATTACK]
         };
         pokemonInfo.Add(PokemonCode.FARFETCHD, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Psyduck", pokemonCode = PokemonCode.PSYDUCK, 
             type = "Water", typeCode = TypeCode.WATER, 
@@ -184,7 +184,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.TAIL_WHIP]
         };
         pokemonInfo.Add(PokemonCode.PSYDUCK, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Squirtle", pokemonCode = PokemonCode.SQUIRTLE, 
             type = "Water", typeCode = TypeCode.WATER, 
@@ -194,7 +194,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.TAIL_WHIP]
         };
         pokemonInfo.Add(PokemonCode.SQUIRTLE, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Pidgey", pokemonCode = PokemonCode.PIDGEY, 
             type = "Flying", typeCode = TypeCode.FLYING, 
@@ -204,7 +204,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.LEER]
         };
         pokemonInfo.Add(PokemonCode.PIDGEY, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Eevee", pokemonCode = PokemonCode.EEVEE, 
             type = "Normal", typeCode = TypeCode.NORMAL, 
@@ -214,7 +214,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.HYPNOSIS]
         };
         pokemonInfo.Add(PokemonCode.EEVEE, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Pikachu", pokemonCode = PokemonCode.PIKACHU, 
             type = "Electric", typeCode = TypeCode.ELECTRIC, 
@@ -224,7 +224,7 @@ public class EnumsHandler
             move2 = Pokedex.Instance.moveInfo[MoveCode.SCRATCH]
         };
         pokemonInfo.Add(PokemonCode.PIKACHU, temp);
-        temp = new PokemonInfo()
+        temp = new StructHandler.PokemonInfo()
         {
             name = "Poliwag", pokemonCode = PokemonCode.POLIWAG, 
             type = "Water", typeCode = TypeCode.WATER, 
@@ -236,9 +236,9 @@ public class EnumsHandler
         pokemonInfo.Add(PokemonCode.POLIWAG, temp);
     }
     // Write here the permanent data info
-    public static void AddPokeballData(ref Dictionary<PokeballCode, PokeballInfo> pokeballInfo)
+    public static void AddPokeballData(ref Dictionary<PokeballCode, StructHandler.PokeballInfo> pokeballInfo)
     {
-        PokeballInfo temp = new PokeballInfo()
+        StructHandler.PokeballInfo temp = new StructHandler.PokeballInfo()
         {
             name = "Great Ball", pokeballCode = PokeballCode.GREATBALL, 
             successRate = 0.75f, typeSpecialty = TypeCode.NONE,
@@ -247,121 +247,121 @@ public class EnumsHandler
         pokeballInfo.Add(PokeballCode.GREATBALL, temp);
     }
     // Write here the permanent data info
-    public static void AddMoveData(ref Dictionary<MoveCode, MoveInfo> moveInfo)
+    public static void AddMoveData(ref Dictionary<MoveCode, StructHandler.MoveInfo> moveInfo)
     {
-        MoveInfo temp = new MoveInfo()
+        StructHandler.MoveInfo temp = new StructHandler.MoveInfo()
         {
             name = "Scratch", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 40, description = ""
         };
         moveInfo.Add(MoveCode.SCRATCH, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Sand Attack", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.SAND_ATTACK, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Headbutt", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 70, description = ""
         };
         moveInfo.Add(MoveCode.HEADBUTT, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Tackle", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 40, description = ""
         };
         moveInfo.Add(MoveCode.TACKLE, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Tail Whip", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.TAIL_WHIP, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Poison Sting", type = "Poison",
             typeCode = TypeCode.POISON, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.POISON_STING, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Leer", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.LEER, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Growl", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.GROWL, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Ember", type = "Fire",
             typeCode = TypeCode.FIRE, 
             damage = 40, description = ""
         };
         moveInfo.Add(MoveCode.EMBER, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Water Gun", type = "Water",
             typeCode = TypeCode.WATER, 
             damage = 40, description = ""
         };
         moveInfo.Add(MoveCode.WATER_GUN, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Peck", type = "Flying",
             typeCode = TypeCode.FLYING, 
             damage = 35, description = ""
         };
         moveInfo.Add(MoveCode.PECK, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Low Kick", type = "Fighting",
             typeCode = TypeCode.FIGHTING, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.LOW_KICK, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Absorb", type = "Grass",
             typeCode = TypeCode.GRASS, 
             damage = 20, description = ""
         };
         moveInfo.Add(MoveCode.ABSORB, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Growth", type = "Normal",
             typeCode = TypeCode.NORMAL, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.GROWTH, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Thunder Shock", type = "Electric",
             typeCode = TypeCode.ELECTRIC, 
             damage = 40, description = ""
         };
         moveInfo.Add(MoveCode.THUNDER_SHOCK, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Hypnosis", type = "Psychic",
             typeCode = TypeCode.PSYCHIC, 
             damage = 0, description = ""
         };
         moveInfo.Add(MoveCode.HYPNOSIS, temp);
-        temp = new MoveInfo()
+        temp = new StructHandler.MoveInfo()
         {
             name = "Mud Slap", type = "Ground",
             typeCode = TypeCode.GROUND, 
@@ -370,11 +370,11 @@ public class EnumsHandler
         moveInfo.Add(MoveCode.MUD_SLAP, temp);
     }
     // Write here the permanent data info
-    public static void AddTrainerData(ref Dictionary<TrainerCode, TrainerInfo> trainerInfo)
+    public static void AddTrainerData(ref Dictionary<TrainerCode, StructHandler.TrainerInfo> trainerInfo)
     {
-        TrainerInfo temp = new TrainerInfo()
+        StructHandler.TrainerInfo temp = new StructHandler.TrainerInfo()
         {
-            name = "Joey", description = "Normal Kid, very good!@"
+            name = "Joey", description = "Normal Kid, very good!@", trainerCode = TrainerCode.Joey
         };
         trainerInfo.Add(TrainerCode.Joey, temp);
     }

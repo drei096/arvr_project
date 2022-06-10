@@ -103,81 +103,84 @@ public class ObjectPool
         }
     }
 
-    public void RequestPoolable()
+    public void RequestPoolable(StructHandler.OnRequestStruct info)
     {
         usedObjects.Add(availableObjects[0]);
         availableObjects.RemoveAt(0);
         // calls the onActivate func of the poolable
-        this.poolFunctions.onRequestGo(this.spawnLocations);
+        this.poolFunctions.onRequestGo(info);
         //poolable now exist in the game
         usedObjects[usedObjects.Count - 1].SetActive(true);
     }
-    public void RequestPoolable(PokemonCode pokemonCode)
+    public void RequestPoolable(PokemonCode pokemonCode, StructHandler.OnRequestStruct info)
     {
         for (int i = 0; i < availableObjects.Count; i++)
         {
             // condition for the specific pokemonCode
-            if(true)
+            if(availableObjects[i].GetComponent<APoolable>().PoolType == PoolType.POKEMON && 
+               availableObjects[i].GetComponent<Pokemon>().info.pokemonCode == pokemonCode)
             {
                 usedObjects.Add(availableObjects[i]);
                 availableObjects.RemoveAt(i);
                 //poolable now exist in the game
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
-                this.poolFunctions.onRequestGo(this.spawnLocations);
+                this.poolFunctions.onRequestGo(info);
             }
         }
     }
 
-    public void RequestPoolable(PokeballCode pokeballCode)
+    public void RequestPoolable(PokeballCode pokeballCode, StructHandler.OnRequestStruct info)
     {
         for (int i = 0; i < availableObjects.Count; i++)
         {
-            // condition for the specific pokemonCode
-            if (true)
+            // condition for the specific pokeballCode
+            if(availableObjects[i].GetComponent<APoolable>().PoolType == PoolType.POKEBALL && 
+               availableObjects[i].GetComponent<Pokeball>().info.pokeballCode == pokeballCode)
             {
                 usedObjects.Add(availableObjects[i]);
                 availableObjects.RemoveAt(i);
                 //poolable now exist in the game
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
-                this.poolFunctions.onRequestGo(this.spawnLocations);
+                this.poolFunctions.onRequestGo(info);
             }
         }
     }
-    public void RequestPoolable(TrainerCode trainerCode)
+    public void RequestPoolable(TrainerCode trainerCode, StructHandler.OnRequestStruct info)
     {
         for (int i = 0; i < availableObjects.Count; i++)
         {
-            // condition for the specific pokemonCode
-            if (true)
+            // condition for the specific trainerCode
+            if(availableObjects[i].GetComponent<APoolable>().PoolType == PoolType.TRAINER && 
+               availableObjects[i].GetComponent<AITrainer>().trainerInfo.trainerCode == trainerCode)
             {
                 usedObjects.Add(availableObjects[i]);
                 availableObjects.RemoveAt(i);
                 //poolable now exist in the game
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
-                this.poolFunctions.onRequestGo(this.spawnLocations);
+                this.poolFunctions.onRequestGo(info);
             }
         }
     }
 
-    public void ReleasePoolable(int index)
+    public void ReleasePoolable(int index, StructHandler.OnReleaseStruct info)
     {
         availableObjects.Add(usedObjects[index]);
         usedObjects.RemoveAt(index);
         availableObjects[availableObjects.Count - 1].transform.SetParent(this.poolableLocation);
-        this.poolFunctions.onReleaseGo();
+        this.poolFunctions.onReleaseGo(info);
         availableObjects[availableObjects.Count - 1].SetActive(false);
     }
-    public void ReleasePoolable(GameObject go)
+    public void ReleasePoolable(GameObject go, StructHandler.OnReleaseStruct info)
     {
         if(usedObjects.Contains(go) || go != null)
         {
             availableObjects.Add(go);
             usedObjects.Remove(go);
             availableObjects[availableObjects.Count - 1].transform.SetParent(this.poolableLocation);
-            this.poolFunctions.onReleaseGo();
+            this.poolFunctions.onReleaseGo(info);
             availableObjects[availableObjects.Count - 1].SetActive(false);
         }
         else

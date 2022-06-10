@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pokedex
+public sealed class Pokedex
 {
     // Singleton
     private static Pokedex instance = null;
@@ -13,28 +13,31 @@ public class Pokedex
         get
         {
             if (instance == null)
+            {
                 instance = new Pokedex();
+                instance.Initialize();
+            }
             return instance;
         }
     }
     // Logs whether the main player already caught the pokemon
     public Dictionary<PokemonCode, bool> caughtPokemon;
     // Pokemon and its corresponding info
-    public Dictionary<PokemonCode, PokemonInfo> pokemonInfo;
+    public Dictionary<PokemonCode, StructHandler.PokemonInfo> pokemonInfo;
     // Pokeball and its corresponding info
-    public Dictionary<PokeballCode, PokeballInfo> pokeballInfo;
+    public Dictionary<PokeballCode, StructHandler.PokeballInfo> pokeballInfo;
     // Move and its corresponding info
-    public Dictionary<MoveCode, MoveInfo> moveInfo;
+    public Dictionary<MoveCode, StructHandler.MoveInfo> moveInfo;
     // Trainer and its corresponding info
-    public Dictionary<TrainerCode, TrainerInfo> trainerInfo;
-    
-    //constructor
-    private Pokedex()
+    public Dictionary<TrainerCode, StructHandler.TrainerInfo> trainerInfo;
+
+    private void Initialize()
     {
+        Debug.LogError($"Test");
         // initialize dictionary
         caughtPokemon = new Dictionary<PokemonCode, bool>();
-        pokemonInfo = new Dictionary<PokemonCode, PokemonInfo>();
-        pokeballInfo = new Dictionary<PokeballCode, PokeballInfo>();
+        pokemonInfo = new Dictionary<PokemonCode, StructHandler.PokemonInfo>();
+        pokeballInfo = new Dictionary<PokeballCode, StructHandler.PokeballInfo>();
         foreach (var i in Enum.GetValues(typeof(PokemonCode)))
         {
             if ((PokemonCode)i != PokemonCode.NONE)
@@ -45,7 +48,6 @@ public class Pokedex
         EnumsHandler.AddMoveData(ref moveInfo);
         EnumsHandler.AddTrainerData(ref trainerInfo);
     }
-
     public static void ShowPokedex()
     {
 

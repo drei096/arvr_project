@@ -5,20 +5,15 @@ using UnityEngine;
 public class Pokemon : APoolable
 {
     // Pokemon Info; editable
-    public PokemonInfo info;
+    public StructHandler.PokemonInfo info;
+    public PokemonCode pokemonCode;
     public int exp;
     public int level;
-    
-    // APoolable Overrides
-    [SerializeField] private PoolType poolType;
-    public PoolType PoolType
-    {
-        get { return this.poolType; }
-    }
-    
+
     public override void initialize()
     {
         this.transform.SetParent(this.poolRef.poolableLocation);
+        info = Pokedex.Instance.pokemonInfo[pokemonCode];
     }
 
     public override void onRelease()

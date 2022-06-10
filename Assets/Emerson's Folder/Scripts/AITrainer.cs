@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AITrainer : APoolable
 {
-    public TrainerInfo trainerInfo;
+    public StructHandler.TrainerInfo trainerInfo;
+    public TrainerCode trainerCode;
 
     public void ResetPokemonParty()
     {
@@ -14,16 +15,10 @@ public class AITrainer : APoolable
     {
 
     }
-    // APoolable Overrides
-    [SerializeField] private PoolType poolType;
-    public PoolType PoolType
-    {
-        get { return this.poolType; }
-    }
-    
     public override void initialize()
     {
         this.transform.SetParent(this.poolRef.poolableLocation);
+        //trainerInfo = Pokedex.Instance.trainerInfo[trainerCode];
     }
 
     public override void onRelease()

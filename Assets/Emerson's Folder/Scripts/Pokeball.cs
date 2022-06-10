@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class Pokeball : APoolable
 {
-    public PokeballInfo info;
+    public StructHandler.PokeballInfo info;
     public PokeballCode pokeballCode;
-    
-    // APoolable Overrides
-    [SerializeField] private PoolType poolType;
-    public PoolType PoolType
-    {
-        get { return this.poolType; }
-    }
     
     public override void initialize()
     {
         this.transform.SetParent(this.poolRef.poolableLocation);
+        info = Pokedex.Instance.pokeballInfo[pokeballCode];
     }
 
     public override void onRelease()

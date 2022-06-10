@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public class StructHandler
+{
+    public struct OnRequestStruct
+{
+    public Transform parent;
+    public Vector3 position;
+}
+public struct OnReleaseStruct
+{
+    public Transform parent;
+    public Vector3 position;
+}
 public struct PokemonInfo
 {
     public string name;
@@ -31,6 +44,7 @@ public struct TrainerInfo
 {
     public string name;
     public string description;
+    public TrainerCode trainerCode;
     public List<PokemonCode> pokemonParty;
     // Constructor
     public TrainerInfo(bool create = true)
@@ -39,6 +53,7 @@ public struct TrainerInfo
         pokemonParty = new List<PokemonCode>();
         name = "\0";
         description = "\0";
+        trainerCode = TrainerCode.NONE;
     }
 
 }
@@ -83,7 +98,4 @@ public struct PokeballInfo
     {
     }
 }
-public class StructHandler
-{
-
 }

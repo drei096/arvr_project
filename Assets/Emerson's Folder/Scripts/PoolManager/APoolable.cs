@@ -18,4 +18,10 @@ public abstract class APoolable : MonoBehaviour
 
     //provides a copy of the poolable instance. must be implemented per specific class
     public ObjectPool poolRef;
+    // APoolable Overrides
+    [SerializeField] private PoolType poolType;
+    public PoolType PoolType
+    {
+        get { return this.poolType; }
+    }
 }
