@@ -46,6 +46,7 @@ public struct MoveInfo
 {
     public string name;
     public string description;
+    public string type;
     public TypeCode typeCode;
     public int damage;
     // Constructor
@@ -54,6 +55,7 @@ public struct MoveInfo
         // initialization
         name = "\0";
         description = "\0";
+        type = "\0";
         typeCode = TypeCode.NONE;
         damage = 0;
     }
