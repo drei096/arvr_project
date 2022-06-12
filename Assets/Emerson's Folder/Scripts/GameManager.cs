@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager
 {
@@ -34,6 +36,7 @@ public class GameManager
     private TrainerPool trainerPool;
     private PokeballPool pokeballPool;
     private GameObject placedPokemon;
+    private GameObject placedTrainer;
 
     //CONSTRUCTOR
     private GameManager()
@@ -55,7 +58,7 @@ public class GameManager
             encounterType = EncounterType.POKEMON_ENCOUNTER;
 
             //SPAWN MODEL OF POKEMON HERE
-            placedPokemon = pokemonPool.itemPool.RequestPoolable(PokemonCode.PIKACHU, new StructHandler.OnRequestStruct() {parent = groundPlaneGO.transform, position = groundPlaneGO.transform.position} );
+            placedPokemon = pokemonPool.itemPool.RequestPoolable(pokemonSpawnRandomizer(), new StructHandler.OnRequestStruct() {parent = groundPlaneGO.transform, position = groundPlaneGO.transform.position} );
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
             pokemonEncounter();
@@ -66,6 +69,7 @@ public class GameManager
             encounterType = EncounterType.TRAINER_ENCOUNTER;
 
             //SPAWN TRAINER MODEL HERE
+            placedTrainer = trainerPool.itemPool.RequestPoolable(trainerSpawnRandomizer(), new StructHandler.OnRequestStruct() {parent = groundPlaneGO.transform, position = groundPlaneGO.transform.position} );
 
             //CALL FUNCTION FOR TRAINER BATTLE
             trainerEncounter();
@@ -87,9 +91,24 @@ public class GameManager
     {
 
         //add statement here that disables another encounter after this current one
+        //trainerPool.itemPool.ReleasePoolable(placedTrainer, new StructHandler.OnReleaseStruct() {parent = trainerPool.transform, position = trainerPool.transform.position} );
 
         //at the end, reenable step counter again
         StepCount.Instance.gameObject.SetActive(true);
+    }
+
+    private PokemonCode pokemonSpawnRandomizer()
+    {
+        int pokemonMaxSize = Enum.GetValues(typeof(PokemonCode)).Length;
+        int chosenPokemon = Random.Range(0, pokemonMaxSize);
+        return (PokemonCode) chosenPokemon;
+    }
+
+    private TrainerCode trainerSpawnRandomizer()
+    {
+        int trainerMaxSize = Enum.GetValues(typeof(TrainerCode)).Length;
+        int chosenTrainerModel = Random.Range(0, trainerMaxSize);
+        return (TrainerCode) chosenTrainerModel;
     }
 
     public static void ResetGame()
