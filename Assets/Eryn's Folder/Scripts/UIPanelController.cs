@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIPanelController : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class UIPanelController : MonoBehaviour
     {
         PokemonCode code = (PokemonCode)pokemonCode;
         info.setInfo(code);
+        info.pokemonImage.sprite = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
         setActive(pokemonPanel);
     }
 
