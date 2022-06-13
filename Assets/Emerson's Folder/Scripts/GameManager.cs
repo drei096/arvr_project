@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 public class GameManager
@@ -27,9 +28,6 @@ public class GameManager
     private EncounterType encounterType;
     private int encounterChooser;
 
-    //GROUND PLANE STAGE REFERENCE
-    private GameObject groundPlaneGO;
-
     //POOL MANAGER REFERENCES
     private GameObject poolManager;
     private PokemonPool pokemonPool;
@@ -38,6 +36,9 @@ public class GameManager
     private GameObject placedPokemon;
     private GameObject placedTrainer;
 
+    // Other scripts
+    private GameObjectHandler GOhandler;
+
     //CONSTRUCTOR
     private GameManager()
     {
@@ -45,20 +46,20 @@ public class GameManager
         pokemonPool = poolManager.GetComponent<PokemonPool>();
         trainerPool = poolManager.GetComponent<TrainerPool>();
         pokeballPool = poolManager.GetComponent<PokeballPool>();
-
+        GOhandler = GameObject.FindObjectOfType<GameObjectHandler>();
     }
 
     public void Encounter()
     {
-        groundPlaneGO = GameObject.FindGameObjectWithTag("GroundPlane");
-
         encounterChooser = Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
 
             //SPAWN MODEL OF POKEMON HERE
-            placedPokemon = pokemonPool.itemPool.RequestPoolable(pokemonSpawnRandomizer(), new StructHandler.OnRequestStruct() {parent = groundPlaneGO.transform, position = groundPlaneGO.transform.position} );
+            placedPokemon = pokemonPool.itemPool.RequestPoolable(pokemonSpawnRandomizer(), 
+                new StructHandler.OnRequestStruct() {parent = GOhandler.opPokemonPos.transform, 
+                    position = GOhandler.opPokemonPos.transform.position} );
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
             pokemonEncounter();
@@ -69,7 +70,9 @@ public class GameManager
             encounterType = EncounterType.TRAINER_ENCOUNTER;
 
             //SPAWN TRAINER MODEL HERE
-            placedTrainer = trainerPool.itemPool.RequestPoolable(trainerSpawnRandomizer(), new StructHandler.OnRequestStruct() {parent = groundPlaneGO.transform, position = groundPlaneGO.transform.position} );
+            placedTrainer = trainerPool.itemPool.RequestPoolable(trainerSpawnRandomizer(),
+                new StructHandler.OnRequestStruct() {parent = GOhandler.opTrainerPos.transform,
+                    position = GOhandler.opTrainerPos.transform.position} );
 
             //CALL FUNCTION FOR TRAINER BATTLE
             trainerEncounter();
