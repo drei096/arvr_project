@@ -51,13 +51,13 @@ public class GameManager
 
     public void Encounter()
     {
-        encounterChooser = Random.Range(1, 3);
+        encounterChooser = 1; //Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
 
             //SPAWN MODEL OF POKEMON HERE
-            placedPokemon = pokemonPool.itemPool.RequestPoolable(pokemonSpawnRandomizer(), 
+            placedPokemon = pokemonPool.itemPool.RequestPoolable(PokemonCode.PIKACHU, 
                 new StructHandler.OnRequestStruct() {parent = GOhandler.opPokemonPos.transform, 
                     position = GOhandler.opPokemonPos.transform.position} );
 
