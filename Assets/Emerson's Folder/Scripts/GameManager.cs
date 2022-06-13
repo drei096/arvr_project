@@ -28,6 +28,9 @@ public class GameManager
     private EncounterType encounterType;
     private int encounterChooser;
 
+    //GROUND PLANE REFERENCE
+    private GameObject groundPlaneObject;
+
     //POOL MANAGER REFERENCES
     private GameObject poolManager;
     private PokemonPool pokemonPool;
@@ -36,8 +39,6 @@ public class GameManager
     private GameObject placedPokemon;
     private GameObject placedTrainer;
 
-    // Other scripts
-    private GameObjectHandler GOhandler;
 
     //CONSTRUCTOR
     private GameManager()
@@ -46,11 +47,12 @@ public class GameManager
         pokemonPool = poolManager.GetComponent<PokemonPool>();
         trainerPool = poolManager.GetComponent<TrainerPool>();
         pokeballPool = poolManager.GetComponent<PokeballPool>();
-        GOhandler = GameObject.FindObjectOfType<GameObjectHandler>();
     }
 
     public void Encounter()
     {
+        groundPlaneObject = GameObject.FindGameObjectWithTag("GroundPlane");
+
         encounterChooser = 1; //Random.Range(1, 3);
         if (encounterChooser == 1)
         {
@@ -58,8 +60,8 @@ public class GameManager
 
             //SPAWN MODEL OF POKEMON HERE
             placedPokemon = pokemonPool.itemPool.RequestPoolable(PokemonCode.PIKACHU, 
-                new StructHandler.OnRequestStruct() {parent = GOhandler.opPokemonPos.transform, 
-                    position = GOhandler.opPokemonPos.transform.position} );
+                new StructHandler.OnRequestStruct() {parent = groundPlaneObject.transform, 
+                    position = groundPlaneObject.transform.position} );
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
             pokemonEncounter();
@@ -71,8 +73,8 @@ public class GameManager
 
             //SPAWN TRAINER MODEL HERE
             placedTrainer = trainerPool.itemPool.RequestPoolable(trainerSpawnRandomizer(),
-                new StructHandler.OnRequestStruct() {parent = GOhandler.opTrainerPos.transform,
-                    position = GOhandler.opTrainerPos.transform.position} );
+                new StructHandler.OnRequestStruct() {parent = groundPlaneObject.transform,
+                    position = groundPlaneObject.transform.position} );
 
             //CALL FUNCTION FOR TRAINER BATTLE
             trainerEncounter();

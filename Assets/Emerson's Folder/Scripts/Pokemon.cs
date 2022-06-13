@@ -47,7 +47,7 @@ public class Pokemon : APoolable
         // change orientation based on the direction
         float angle = Mathf.Atan2(norm.y, norm.x) * Mathf.Rad2Deg - 270F;
         // Add smooth rotation 
-        transform.rotation = Quaternion.Slerp
+        transform.localRotation = Quaternion.Slerp
             (transform.rotation, Quaternion.Euler(0.0f, angle, 0.0f), rotate_interval);
     }
 
