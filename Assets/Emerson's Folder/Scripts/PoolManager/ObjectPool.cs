@@ -159,6 +159,7 @@ public class ObjectPool
     }
     public GameObject RequestPoolable(TrainerCode trainerCode, StructHandler.OnRequestStruct info)
     {
+        Debug.LogError($"Trainer");
         for (int i = 0; i < availableObjects.Count; i++)
         {
             // condition for the specific trainerCode

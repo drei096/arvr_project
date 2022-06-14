@@ -22,7 +22,7 @@ public class PokeballPool : MonoBehaviour, IPoolFunctions
     void Start()
     {
         itemPool = new ObjectPool(this.maxPoolSizePerObj, this.fixedAllocation,
-            this.spawnLocations, PoolType.POKEBALL, this.GetComponent<IPoolFunctions>());
+            this.spawnLocations, PoolType.POKEBALL, this.GetComponent<PokeballPool>());
         poolableLocation = this.transform;
         this.itemPool.Initialize(ref originalObjs, poolableLocation, this);
         originalParent = this.transform;

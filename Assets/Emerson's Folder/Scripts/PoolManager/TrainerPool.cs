@@ -22,7 +22,7 @@ public class TrainerPool : MonoBehaviour, IPoolFunctions
     void Start()
     {
         itemPool = new ObjectPool(this.maxPoolSizePerObj, this.fixedAllocation,
-            this.spawnLocations, PoolType.TRAINER, this.GetComponent<IPoolFunctions>());
+            this.spawnLocations, PoolType.TRAINER, this.GetComponent<TrainerPool>());
         poolableLocation = this.transform;
         this.itemPool.Initialize(ref originalObjs, poolableLocation, this);
         originalParent = this.transform;

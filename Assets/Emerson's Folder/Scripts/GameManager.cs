@@ -36,6 +36,9 @@ public class GameManager
     private GameObject placedPokemon;
     private GameObject placedTrainer;
 
+    // attribute fields
+    public MainPlayer mainPlayerRef = null;
+
     // other scripts
     private GameObjectHandler GOHandler;
 
@@ -47,6 +50,7 @@ public class GameManager
         trainerPool = poolManager.GetComponent<TrainerPool>();
         pokeballPool = poolManager.GetComponent<PokeballPool>();
         GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
+        mainPlayerRef = new MainPlayer();
     }
 
     public void Encounter()

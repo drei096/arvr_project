@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -173,7 +174,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.PIKACHU,
             type = "Electric",
             typeCode = TypeCode.ELECTRIC,
-            healthPoints = 40,
+            healthPoints = 400,
             description = "When several of these POKÈMON gather, their electricity could build and cause lightning storms.",
             move1 = Pokedex.Instance.moveInfo[MoveCode.THUNDER_SHOCK],
             move2 = Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK]
@@ -404,10 +405,14 @@ public class EnumsHandler
             name = "Thunder Shock",
             type = "Electric",
             typeCode = TypeCode.ELECTRIC,
-            damage = 40,
-            description = "A jolt of electricity is hurled at the foe."
+            damage = 80,
+            description = "A jolt of electricity is hurled at the foe.",
         };
         moveInfo.Add(MoveCode.THUNDER_SHOCK, temp);
+        moveInfo[MoveCode.THUNDER_SHOCK].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
+        {
+            x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.THUNDER_SHOCK].damage);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -418,6 +423,10 @@ public class EnumsHandler
             description = "Lets the user get in the first hit."
         };
         moveInfo.Add(MoveCode.QUICK_ATTACK, temp);
+        moveInfo[MoveCode.QUICK_ATTACK].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
+        {
+            x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].damage);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -543,7 +552,8 @@ public class EnumsHandler
     {
         StructHandler.TrainerInfo temp = new StructHandler.TrainerInfo()
         {
-            name = "Joey", description = "Normal Kid, very good!@", trainerCode = TrainerCode.Joey
+            name = "Joey", description = "Normal Kid, very good!@", trainerCode = TrainerCode.Joey,
+            pokemonParty = new List<StructHandler.PokemonInfo>()
         };
         trainerInfo.Add(TrainerCode.Joey, temp);
     }

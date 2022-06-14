@@ -11,14 +11,13 @@ public class AITrainer : APoolable
     {
 
     }
-    public void RandomAttack()
-    {
-
-    }
     public override void initialize()
     {
         this.transform.SetParent(this.poolRef.poolableLocation);
-        //trainerInfo = Pokedex.Instance.trainerInfo[trainerCode];
+        trainerInfo = Pokedex.Instance.trainerInfo[trainerCode];
+        // temporary first pokemon is pikachu
+        StructHandler.PokemonInfo temp = (StructHandler.PokemonInfo)Pokedex.Instance.pokemonInfo[PokemonCode.PIKACHU].ShallowCopy();
+        trainerInfo.pokemonParty.Add(temp);
     }
 
     public override void onRelease()

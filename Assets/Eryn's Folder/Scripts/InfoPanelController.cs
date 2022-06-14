@@ -24,8 +24,8 @@ public class InfoPanelController : MonoBehaviour
         type1.text = temp.type;
         type2.text = "NONE";
         description.text = temp.description;
-        move1.text = temp.move1.Value.name;
-        move2.text = temp.move2.Value.name;
+        move1.text = temp.move1.name;
+        move2.text = temp.move2.name;
     }
 
 }
