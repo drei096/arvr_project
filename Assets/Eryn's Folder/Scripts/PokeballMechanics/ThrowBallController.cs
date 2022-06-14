@@ -463,12 +463,13 @@ public class ThrowBallController : MonoBehaviour
         //get rigidbody
         Rigidbody ballRigidbody = currentBall.GetComponent<Rigidbody>();
         //enable collider
-        currentBall.GetComponent<Collider>().enabled = true;
+        currentBall.GetComponent<SphereCollider>().enabled = true;
         ballRigidbody.useGravity = true;
 
-        ballRigidbody.AddForce(force * factor);
+        ballRigidbody.AddExplosionForce(500000.0f, ballRigidbody.gameObject.transform.position, 10.0f);
+        //ballRigidbody.AddForce(force * factor);
 
-        StartCoroutine(GetBallNow());
+        //StartCoroutine(GetBallNow());
 
         //currentBall = null;
     }

@@ -91,10 +91,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7765349838218377540}
   - component: {fileID: 4091249346077045239}
-  - component: {fileID: 6013354616773629850}
   - component: {fileID: 8157175603559066406}
-  - component: {fileID: 7093941744495670845}
-  - component: {fileID: 4089474170786459890}
+  - component: {fileID: 6013354616773629850}
+  - component: {fileID: -3038324018396287741}
   m_Layer: 6
   m_Name: PokeballContainer
   m_TagString: Untagged
@@ -110,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565987648555522117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -492.1602, z: 1808.915}
+  m_LocalPosition: {x: 0, y: -0.039229274, z: -7.75}
   m_LocalScale: {x: 249.99998, y: 249.99998, z: 249.99998}
   m_Children:
   - {fileID: 1583273379696575405}
@@ -125,19 +124,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5565987648555522117}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &6013354616773629850
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5565987648555522117}
-  m_Material: {fileID: 13400000, guid: 38010b442461c3440857a0b28b26f6ee, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8157175603559066406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,7 +140,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7093941744495670845
+--- !u!135 &6013354616773629850
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5565987648555522117}
+  m_Material: {fileID: 13400000, guid: 38010b442461c3440857a0b28b26f6ee, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3038324018396287741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,25 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5565987648555522117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f73e48c03c0f0e45955419833af57e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cd66ff29e88f54498422f2cac223dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectScale: 0.25
-  initialScale: {x: 0, y: 0, z: 0}
-  cam: {fileID: 0}
-  canvas: {fileID: 0}
---- !u!138 &4089474170786459890
-FixedJoint:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5565987648555522117}
-  m_ConnectedBody: {fileID: 0}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  throwSpeed: 35
