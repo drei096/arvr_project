@@ -28,4 +28,5 @@ public class InfoPanelController : MonoBehaviour
         move2.text = temp.move2.name;
     }
 
+
 }

@@ -85,8 +85,8 @@ public class GameManager
 
     private void pokemonEncounter()
     {
-        
-        
+        GameObject.FindObjectOfType<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+
         //add statement here that disables another encounter after this current one 
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
 
