@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4802962071487955082}
   - component: {fileID: 8718735460032122687}
   - component: {fileID: 3294224345117750736}
+  - component: {fileID: 989244728517599461}
   m_Layer: 0
   m_Name: Vulpix
   m_TagString: Untagged
@@ -65,9 +66,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 0
-  pokemonCode: 7
+  pokemonCode: 6
   exp: 0
   level: 0
+--- !u!65 &989244728517599461
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4802962071487955083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0978128, y: 1.2346567, z: 1}
+  m_Center: {x: 0.0489064, y: 0.649942, z: 0}
 --- !u!1001 &4802962072038227836
 PrefabInstance:
   m_ObjectHideFlags: 0

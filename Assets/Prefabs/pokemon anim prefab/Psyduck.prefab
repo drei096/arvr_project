@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 110599231623521582}
   - component: {fileID: 7496227572404856697}
   - component: {fileID: 7678091929944069059}
+  - component: {fileID: 7263374882352025500}
   m_Layer: 0
   m_Name: Psyduck
   m_TagString: Untagged
@@ -65,9 +66,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 0
-  pokemonCode: 9
+  pokemonCode: 8
   exp: 0
   level: 0
+--- !u!65 &7263374882352025500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110599231623521583}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7863269, y: 1.7455462, z: 1.4828196}
+  m_Center: {x: 0.066999555, y: 0.86914593, z: 0.24141002}
 --- !u!1001 &110599230451664884
 PrefabInstance:
   m_ObjectHideFlags: 0

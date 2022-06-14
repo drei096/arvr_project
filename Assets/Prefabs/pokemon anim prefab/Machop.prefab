@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9137423111585233547}
   - component: {fileID: 6542297097252962890}
   - component: {fileID: -1912135622442697488}
+  - component: {fileID: 2913245521082448506}
   m_Layer: 0
   m_Name: Machop
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 11
   exp: 0
   level: 0
+--- !u!65 &2913245521082448506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137423111585233546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3622048, y: 1.7554333, z: 1}
+  m_Center: {x: 0.011315465, y: 0.8482007, z: 0}
 --- !u!1001 &9137423111029221624
 PrefabInstance:
   m_ObjectHideFlags: 0

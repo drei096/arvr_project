@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3736756967719402282}
   - component: {fileID: 3736996897421910163}
   - component: {fileID: 4519199559536300074}
+  - component: {fileID: 6489720877279407936}
   m_Layer: 0
   m_Name: Farfetch'd
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 12
   exp: 0
   level: 0
+--- !u!65 &6489720877279407936
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3736756967719402293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.7412124, y: 1.8518809, z: 1.5820866}
+  m_Center: {x: -0.26133537, y: 0.83713824, z: 0.29104352}
 --- !u!1001 &3736756967020807289
 PrefabInstance:
   m_ObjectHideFlags: 0

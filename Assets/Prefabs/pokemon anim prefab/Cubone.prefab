@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7225456330103772740}
   - component: {fileID: 2777789339971323642}
   - component: {fileID: 4351246462527683235}
+  - component: {fileID: 6917073283783440537}
   m_Layer: 0
   m_Name: Cubone
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 14
   exp: 0
   level: 0
+--- !u!65 &6917073283783440537
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225456330103772743}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.049944, z: 1}
+  m_Center: {x: 0, y: 0.5386906, z: 0}
 --- !u!1001 &7225456331459131444
 PrefabInstance:
   m_ObjectHideFlags: 0

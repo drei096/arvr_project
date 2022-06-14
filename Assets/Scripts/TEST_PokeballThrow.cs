@@ -61,7 +61,7 @@ public class TEST_PokeballThrow : MonoBehaviour
     void Reset()
     {
         CancelInvoke();
-        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.1f, Camera.main.nearClipPlane * 7.5f));
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.2f, (Camera.main.nearClipPlane * 7.5f) + 1.0f));
         newPosition = transform.position;
         thrown = holding = false;
 

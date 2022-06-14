@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2360824131793052254}
   - component: {fileID: 4356474690944856192}
   - component: {fileID: 7344035568925665310}
+  - component: {fileID: 6992832269348140757}
   m_Layer: 0
   m_Name: Charmander
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 1
   exp: 0
   level: 0
+--- !u!65 &6992832269348140757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2360824131793052255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.3860743, z: 1}
+  m_Center: {x: 0, y: 0.7364372, z: 0}
 --- !u!1001 &2360824132166797208
 PrefabInstance:
   m_ObjectHideFlags: 0

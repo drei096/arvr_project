@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2028246414448325533}
   - component: {fileID: 1202172039256049176}
   - component: {fileID: 1091430175013065965}
+  - component: {fileID: 3382884141753151872}
   m_Layer: 0
   m_Name: Poliwag
   m_TagString: Untagged
@@ -65,9 +66,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 0
-  pokemonCode: 11
+  pokemonCode: 10
   exp: 0
   level: 0
+--- !u!65 &3382884141753151872
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028246414448325532}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.9720306, z: 1}
+  m_Center: {x: 0, y: 0.46692112, z: 0}
 --- !u!1001 &4654723617723896745
 PrefabInstance:
   m_ObjectHideFlags: 0

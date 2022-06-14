@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2260357448653199458}
   - component: {fileID: 3790630678242828177}
   - component: {fileID: 4130807683247298736}
+  - component: {fileID: 2426643353212842869}
   m_Layer: 0
   m_Name: PikachuM
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 4
   exp: 0
   level: 0
+--- !u!65 &2426643353212842869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260357448653199459}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.2236787, z: 0.8748643}
+  m_Center: {x: 0, y: 0.59154433, z: -0.06256786}
 --- !u!1001 &2260357449787323885
 PrefabInstance:
   m_ObjectHideFlags: 0

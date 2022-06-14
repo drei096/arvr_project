@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4921009222571916265}
   - component: {fileID: 4987088200518462437}
   - component: {fileID: 5148117569148360309}
+  - component: {fileID: 3266197872943357420}
   m_Layer: 0
   m_Name: NidoranM
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 5
   exp: 0
   level: 0
+--- !u!65 &3266197872943357420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921009222571916262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6607617, y: 1.3084645, z: 1.7354829}
+  m_Center: {x: 0.03108865, y: 0.6741159, z: 0.21099901}
 --- !u!1001 &4921009223558864695
 PrefabInstance:
   m_ObjectHideFlags: 0

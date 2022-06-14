@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2183357197900539871}
   - component: {fileID: 2328695949557105334}
   - component: {fileID: 1481986826339067688}
+  - component: {fileID: 378492826999603632}
   m_Layer: 0
   m_Name: Growlithe
   m_TagString: Untagged
@@ -68,6 +69,19 @@ MonoBehaviour:
   pokemonCode: 9
   exp: 0
   level: 0
+--- !u!65 &378492826999603632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2183357197900539868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.7890619, z: 2.0250115}
+  m_Center: {x: 0, y: 0.8906074, z: -0.51250553}
 --- !u!1001 &2183357198094303966
 PrefabInstance:
   m_ObjectHideFlags: 0
