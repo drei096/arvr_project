@@ -17,4 +17,20 @@ public class Inventory
             pokeballs.Add((PokeballCode)i, 0);
         }
     }
+
+    public void addPokeball(PokeballCode pokeballCode, int amount)
+    {
+        pokeballs[pokeballCode] += amount;
+
+        if (pokeballs[pokeballCode] >= 99)
+            pokeballs[pokeballCode] = 99;
+    }
+
+    public void removePokeball(PokeballCode pokeballCode, int amount)
+    {
+        pokeballs[pokeballCode] -= amount;
+
+        if (pokeballs[pokeballCode] <= 0)
+            pokeballs[pokeballCode] = 0;
+    }
 }
