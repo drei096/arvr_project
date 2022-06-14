@@ -21,7 +21,7 @@ public enum PokemonCode
     SQUIRTLE,
     PIDGEY,
     PIKACHU,
-    NIDORAN,
+    NIDORANF,
     VULPIX,
     ODDISH,
     PSYDUCK,
@@ -115,36 +115,7 @@ public class EnumsHandler
     // Write here the permanent data info
     public static void AddPokemonData(ref Dictionary<PokemonCode, StructHandler.PokemonInfo> pokemonInfo)
     {
-        StructHandler.PokemonInfo temp;
-        /*
-        temp = new StructHandler.PokemonInfo()
-        {
-            name = "Vulpix",
-            pokemonCode = PokemonCode.VULPIX,
-            type = "Fire",
-            typeCode = TypeCode.FIRE,
-            healthPoints = 38,
-            description = "At the time of birth, it has just one tail. The tail splits from its tip as it grows older.",
-            move1 = Pokedex.Instance.moveInfo[MoveCode.EMBER],
-            move2 = Pokedex.Instance.moveInfo[MoveCode.GROWL]
-        };
-        pokemonInfo.Add(PokemonCode.VULPIX, temp);
-        
-        temp = new StructHandler.PokemonInfo()
-        {
-            name = "",
-            pokemonCode = PokemonCode.,
-            type = "",
-            typeCode = TypeCode.,
-            healthPoints = ,
-            description = "",
-            move1 = Pokedex.Instance.moveInfo[MoveCode.],
-            move2 = Pokedex.Instance.moveInfo[MoveCode.]
-        };
-        pokemonInfo.Add(PokemonCode., temp);
-        */
-
-        temp = new StructHandler.PokemonInfo()
+        StructHandler.PokemonInfo temp = new StructHandler.PokemonInfo()
         {
             name = "Bulbasaur",
             pokemonCode = PokemonCode.BULBASAUR,
@@ -212,7 +183,7 @@ public class EnumsHandler
         temp = new StructHandler.PokemonInfo()
         {
             name = "Nidoran",
-            pokemonCode = PokemonCode.NIDORAN,
+            pokemonCode = PokemonCode.NIDORANF,
             type = "Poison",
             typeCode = TypeCode.POISON,
             healthPoints = 55,
@@ -220,7 +191,7 @@ public class EnumsHandler
             move1 = Pokedex.Instance.moveInfo[MoveCode.POISON_STING],
             move2 = Pokedex.Instance.moveInfo[MoveCode.LOW_KICK]
         };
-        pokemonInfo.Add(PokemonCode.NIDORAN, temp);
+        pokemonInfo.Add(PokemonCode.NIDORANF, temp);
 
         temp = new StructHandler.PokemonInfo()
         {

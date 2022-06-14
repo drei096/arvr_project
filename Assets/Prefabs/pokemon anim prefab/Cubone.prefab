@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7225456330103772740}
   - component: {fileID: 2777789339971323642}
+  - component: {fileID: 4351246462527683235}
   m_Layer: 0
   m_Name: Cubone
   m_TagString: Untagged
@@ -51,6 +52,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4351246462527683235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7225456330103772743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8810d7867d1fe24cbdf84bfe257b00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0
+  pokemonCode: 14
+  exp: 0
+  level: 0
 --- !u!1001 &7225456331459131444
 PrefabInstance:
   m_ObjectHideFlags: 0

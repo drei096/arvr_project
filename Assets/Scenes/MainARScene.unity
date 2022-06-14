@@ -248,6 +248,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &205828463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205828464}
+  m_Layer: 0
+  m_Name: Pokemon(Op)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &205828464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205828463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1081351765}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &218380116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218380117}
+  m_Layer: 0
+  m_Name: Trainer(Pl)
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &218380117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218380116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 0, z: -0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1081351765}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &372480730
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +664,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &895582238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 895582239}
+  m_Layer: 0
+  m_Name: Trainer(Op)
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &895582239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895582238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1081351765}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &969617971
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +789,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969617971}
   m_CullTransparentMesh: 1
+--- !u!1 &1031372794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1031372795}
+  m_Layer: 0
+  m_Name: Pokemon(Pl)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1031372795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031372794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1081351765}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1081351762
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +883,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 895582239}
+  - {fileID: 205828464}
+  - {fileID: 218380117}
+  - {fileID: 1031372795}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1004,6 +1128,54 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -50}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &1769829151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769829153}
+  - component: {fileID: 1769829152}
+  m_Layer: 0
+  m_Name: Scripts
+  m_TagString: ScriptsHolder
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1769829152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769829151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a40646f4f7eaa43ae2255bf4f8e803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPlaneStage: {fileID: 1081351762}
+  opTrainerPos: {fileID: 895582239}
+  opPokemonPos: {fileID: 205828464}
+  plTrainerPos: {fileID: 218380117}
+  plPokemonPos: {fileID: 1031372795}
+--- !u!4 &1769829153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769829151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1857748120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1428,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalObjs:
-  - {fileID: 426463343980118759, guid: 486d6ae3b2677d34291e4b4b2c8be4b7, type: 3}
+  - {fileID: 679335145804961634, guid: 1b39323773fea654187299bc8abc579f, type: 3}
+  - {fileID: 2360824131793052255, guid: 21c8e4e4a24ee2a459dd5c1411c16b8c, type: 3}
+  - {fileID: 7225456330103772743, guid: 492003a8a14c6b748a85e9cc81decc70, type: 3}
+  - {fileID: 8172135698953285108, guid: 6c22c015019b42b4f839057731349f11, type: 3}
+  - {fileID: 3736756967719402293, guid: 5b8a6e420a596c746bea802c400b07df, type: 3}
+  - {fileID: 2183357197900539868, guid: 51c69ecaae016ae4cb32abc53a5cb37d, type: 3}
+  - {fileID: 9137423111585233546, guid: 26b3f85d55079b844ab8be83fff16c0e, type: 3}
+  - {fileID: 3805694958273404695, guid: 0b39bb12bf4829249a7d5343697023d9, type: 3}
+  - {fileID: 5032721215634370863, guid: 99a10af1db4892d449276780df9abe05, type: 3}
+  - {fileID: 3358547710554325415, guid: a6db6256f4ec83449be10e25198d6d30, type: 3}
+  - {fileID: 2260357448653199459, guid: ede762854824c6d4c96ba9777d34bcd9, type: 3}
+  - {fileID: 2028246414448325532, guid: 98088ca2eb135224ea59f46e7b9ad6c3, type: 3}
+  - {fileID: 110599231623521583, guid: 44346eef1d17f314aa0bf22029c0aec7, type: 3}
+  - {fileID: 1728049716699623103, guid: eca55b8a876c7f54687b4fa51ec98202, type: 3}
+  - {fileID: 6470788919911274394, guid: bb3d5965e45503441b5d39a891acca77, type: 3}
+  - {fileID: 4802962071487955083, guid: 58ba66abed7d6a2439b74e8048684abf, type: 3}
   maxPoolSizePerObj: 4
   fixedAllocation: 1
 --- !u!4 &1902221963
