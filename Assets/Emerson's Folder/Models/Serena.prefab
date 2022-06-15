@@ -703,6 +703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3360823479542500508}
   - component: {fileID: 4586656188575220416}
+  - component: {fileID: 9044453933307713157}
   m_Layer: 0
   m_Name: Serena
   m_TagString: Untagged
@@ -740,6 +741,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolType: 2
   trainerCode: 0
+--- !u!65 &9044453933307713157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733644882045048358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8718743, y: 3.532737, z: 1}
+  m_Center: {x: -0.029267073, y: 1.7637676, z: 0}
 --- !u!1 &2759192120203947252
 GameObject:
   m_ObjectHideFlags: 0

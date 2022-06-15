@@ -54,8 +54,12 @@ public class GameManager
     }
 
     public void Encounter()
-    {   
-        encounterChooser = Random.Range(1, 3);
+    {
+        GOHandler.planeFinder.SetActive(false);
+        //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
+
+
+        encounterChooser = 1;//Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
@@ -64,6 +68,8 @@ public class GameManager
             placedPokemon = pokemonPool.itemPool.RequestPoolable(pokemonSpawnRandomizer(), 
                 new StructHandler.OnRequestStruct() {parent = GOHandler.opPokemonPos.transform, 
                     position = GOHandler.opPokemonPos.transform.position} );
+
+            Debug.Log("encounter called");
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
             pokemonEncounter();

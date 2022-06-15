@@ -116,6 +116,8 @@ public class ObjectPool
     }
     public GameObject RequestPoolable(PokemonCode pokemonCode, StructHandler.OnRequestStruct info)
     {
+        Debug.Log("request called");
+
         for (int i = 0; i < availableObjects.Count; i++)
         {
             // condition for the specific pokemonCode

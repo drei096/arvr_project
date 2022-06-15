@@ -17,7 +17,7 @@ public class TEST_PokeballThrow : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        //Reset();
+        Reset();
     }
 
     void Update()
@@ -101,6 +101,6 @@ public class TEST_PokeballThrow : MonoBehaviour
         thrown = true;
 
         //Invoke("GameObject.FindObjectOfType<EncounterSystem>().ThrownPokeball(this.GetComponent<Pokeball>().pokeballCode)", 5.0f);
-        //Invoke("Reset", 5.0f);
+        Invoke("Reset", 5.0f);
     }
 }
