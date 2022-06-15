@@ -41,6 +41,7 @@ public class GameManager
 
     // other scripts
     private GameObjectHandler GOHandler;
+    private BattleSystem battleSystem;
 
     //CONSTRUCTOR
     private GameManager()
@@ -51,6 +52,7 @@ public class GameManager
         pokeballPool = poolManager.GetComponent<PokeballPool>();
         GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
         mainPlayerRef = new MainPlayer();
+        battleSystem = GameObject.FindObjectOfType<BattleSystem>();
     }
 
     public void Encounter()
@@ -105,6 +107,9 @@ public class GameManager
 
         //add statement here that disables another encounter after this current one
         //trainerPool.itemPool.ReleasePoolable(placedTrainer, new StructHandler.OnReleaseStruct() {parent = trainerPool.transform, position = trainerPool.transform.position} );
+
+        // starts the battle with the player
+        battleSystem.StartBattle(mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
 
         //at the end, reenable step counter again
         StepCount.Instance.gameObject.SetActive(true);

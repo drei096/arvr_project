@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 
@@ -41,8 +40,8 @@ public class PokemonInfo
     public string type;
     public TypeCode typeCode;
     public int healthPoints;
-    [CanBeNull] public MoveInfo move1;
-    [CanBeNull] public MoveInfo move2;
+    public MoveInfo move1;
+    public MoveInfo move2;
 
     public void SetHealth(int damage)
     {
