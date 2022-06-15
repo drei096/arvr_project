@@ -137,6 +137,9 @@ public class BattleSystem : MonoBehaviour
             if (++playerCurrentPokemon >= GameManager.MAX_PARTY_SIZE || playerParty.Count < playerCurrentPokemon)
             {
                 // finish battle, proceed with walking; disable the buttons
+
+                // terminate battle system
+                return;
             }
             // spawns the next pokemon
             FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(playerParty[playerCurrentPokemon].pokemonCode,
@@ -163,6 +166,14 @@ public class BattleSystem : MonoBehaviour
             if (++opponentCurrentPokemon >= GameManager.MAX_PARTY_SIZE || opponentParty.Count < opponentCurrentPokemon)
             {
                 // finish battle, proceed with walking; disable the buttons
+                FindObjectOfType<TrainerPool>().itemPool.ReleasePoolable(opponent.gameObject,
+                    new StructHandler.OnReleaseStruct()
+                    {
+                        parent = GOHandler.PoolManager.transform,
+                        position = GOHandler.PoolManager.transform.position
+                    });
+                // terminate battle system
+                return;
             }
             // spawns the next pokemon
             FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(opponentParty[opponentCurrentPokemon].pokemonCode,

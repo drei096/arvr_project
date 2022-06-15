@@ -54,7 +54,7 @@ public class GameManager
         scriptsHolder = GameObject.FindGameObjectWithTag("ScriptsHolder");
         GOHandler = scriptsHolder.GetComponent<GameObjectHandler>();
         mainPlayerRef = new MainPlayer();
-        battleSystem = GameObject.FindObjectOfType<BattleSystem>();
+        battleSystem = GameObject.Find("Scripts").GetComponent<BattleSystem>();
     }
 
     public void Encounter()
@@ -63,7 +63,7 @@ public class GameManager
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
 
-        encounterChooser = 1;//Random.Range(1, 3);
+        encounterChooser = 2;//Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
@@ -111,7 +111,7 @@ public class GameManager
         //trainerPool.itemPool.ReleasePoolable(placedTrainer, new StructHandler.OnReleaseStruct() {parent = trainerPool.transform, position = trainerPool.transform.position} );
 
         // starts the battle with the player
-        battleSystem.StartBattle(mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
+        battleSystem.StartBattle(GameManager.Instance.mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
 
         //at the end, reenable step counter again
         StepCount.Instance.gameObject.SetActive(true);
@@ -120,14 +120,14 @@ public class GameManager
     private PokemonCode pokemonSpawnRandomizer()
     {
         int pokemonMaxSize = Enum.GetValues(typeof(PokemonCode)).Length;
-        int chosenPokemon = Random.Range(0, pokemonMaxSize);
+        int chosenPokemon = Random.Range(0, pokemonMaxSize - 1);
         return (PokemonCode) chosenPokemon;
     }
 
     private TrainerCode trainerSpawnRandomizer()
     {
         int trainerMaxSize = Enum.GetValues(typeof(TrainerCode)).Length;
-        int chosenTrainerModel = Random.Range(0, trainerMaxSize);
+        int chosenTrainerModel = Random.Range(0, trainerMaxSize - 1);
         return (TrainerCode) chosenTrainerModel;
     }
 

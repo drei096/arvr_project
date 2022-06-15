@@ -528,7 +528,7 @@ MonoBehaviour:
   acc: {fileID: 1529112862}
   loLim: 0.005
   hiLim: 0.1
-  steps: 0
+  steps: 10
   fHigh: 10
   curAcc: 0
   fLow: 0.1
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   plTrainerPos: {fileID: 218380117}
   plPokemonPos: {fileID: 1031372795}
   planeFinder: {fileID: 203585063}
-  PoolManager: {fileID: 0}
+  PoolManager: {fileID: 1902221959}
   pokeballPos: {fileID: 1065275310}
 --- !u!4 &1769829153
 Transform:
@@ -2168,7 +2168,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalObjs:
-  - {fileID: 2733644882045048358, guid: 3d807b9f6efa2e948b752a2c5ccdde73, type: 3}
+  - {fileID: 5982167241557677609, guid: 24022c23ac373ac41b7358b0d6a204f2, type: 3}
+  - {fileID: 5912096705616266325, guid: 6fbcf35f1c46ce44a81674d69d7cb4ef, type: 3}
+  - {fileID: 962962686541756130, guid: ac10bb64af21d5341b438e43a03ef9f7, type: 3}
+  - {fileID: 4503537861618788833, guid: 6534ce9e8e89eca44ac1c6ec4284936f, type: 3}
+  - {fileID: 7488346366034064367, guid: d127a5ebc598a6543a01f304dfb7030a, type: 3}
   maxPoolSizePerObj: 3
   fixedAllocation: 1
 --- !u!114 &1902221962
@@ -2189,7 +2193,7 @@ MonoBehaviour:
   - {fileID: 7225456330103772743, guid: 492003a8a14c6b748a85e9cc81decc70, type: 3}
   - {fileID: 8172135698953285108, guid: 6c22c015019b42b4f839057731349f11, type: 3}
   - {fileID: 3736756967719402293, guid: 5b8a6e420a596c746bea802c400b07df, type: 3}
-  - {fileID: 2183357197900539868, guid: 51c69ecaae016ae4cb32abc53a5cb37d, type: 3}
+  - {fileID: 8837629248081247579, guid: 51c69ecaae016ae4cb32abc53a5cb37d, type: 3}
   - {fileID: 9137423111585233546, guid: 26b3f85d55079b844ab8be83fff16c0e, type: 3}
   - {fileID: 3805694958273404695, guid: 0b39bb12bf4829249a7d5343697023d9, type: 3}
   - {fileID: 5032721215634370863, guid: 99a10af1db4892d449276780df9abe05, type: 3}
@@ -2200,7 +2204,7 @@ MonoBehaviour:
   - {fileID: 1728049716699623103, guid: eca55b8a876c7f54687b4fa51ec98202, type: 3}
   - {fileID: 6470788919911274394, guid: bb3d5965e45503441b5d39a891acca77, type: 3}
   - {fileID: 4802962071487955083, guid: 58ba66abed7d6a2439b74e8048684abf, type: 3}
-  maxPoolSizePerObj: 8
+  maxPoolSizePerObj: 4
   fixedAllocation: 1
 --- !u!4 &1902221963
 Transform:

@@ -88,7 +88,7 @@ public enum TrainerCode
 {
     // Write here Trainer Names
     NONE = -1,
-    Joey
+    CYRUS, AQUA, SERENA, GIOVANNI, CALEM
 };
 
 public enum EncounterType
@@ -624,9 +624,38 @@ public class EnumsHandler
     {
         StructHandler.TrainerInfo temp = new StructHandler.TrainerInfo()
         {
-            name = "Joey", description = "Normal Kid, very good!@", trainerCode = TrainerCode.Joey,
+            name = "Calem", description = "Normal Kid, very good!@", trainerCode = TrainerCode.CALEM,
             pokemonParty = new List<StructHandler.PokemonInfo>()
         };
-        trainerInfo.Add(TrainerCode.Joey, temp);
+        trainerInfo.Add(TrainerCode.CALEM, temp);
+        
+        temp = new StructHandler.TrainerInfo()
+
+        {
+            name = "Giovanni", description = "Normal Kid, very good!@", trainerCode = TrainerCode.GIOVANNI,
+            pokemonParty = new List<StructHandler.PokemonInfo>()
+        };
+        trainerInfo.Add(TrainerCode.GIOVANNI, temp);
+
+        temp = new StructHandler.TrainerInfo()
+        {
+            name = "Serena", description = "Normal Kid, very good!@", trainerCode = TrainerCode.SERENA,
+            pokemonParty = new List<StructHandler.PokemonInfo>()
+        };
+        trainerInfo.Add(TrainerCode.SERENA, temp);
+
+        temp = new StructHandler.TrainerInfo()
+        {
+            name = "Cyrus", description = "Normal Kid, very good!@", trainerCode = TrainerCode.CYRUS,
+            pokemonParty = new List<StructHandler.PokemonInfo>()
+        };
+        trainerInfo.Add(TrainerCode.CYRUS, temp);
+
+        temp = new StructHandler.TrainerInfo()
+        {
+            name = "Aqua", description = "Normal Kid, very good!@", trainerCode = TrainerCode.AQUA,
+            pokemonParty = new List<StructHandler.PokemonInfo>()
+        };
+        trainerInfo.Add(TrainerCode.AQUA, temp);
     }
 }
