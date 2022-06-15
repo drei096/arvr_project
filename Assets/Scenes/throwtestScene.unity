@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 1027344429, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mDisplayAdvanced: 0
+  mDisplayAdvanced: 1
   OnInputReceivedEvent:
     m_PersistentCalls:
       m_Calls:

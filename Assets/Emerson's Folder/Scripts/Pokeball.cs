@@ -88,7 +88,8 @@ public class Pokeball : APoolable
         CancelInvoke();
         //transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 0.5f);
         //transform.position = GOHandler.pokeballPos.transform.position;
-        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, (Camera.main.nearClipPlane * 7.5f)));
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, (Camera.main.nearClipPlane)));
+
         newPosition = transform.position;
         thrown = holding = false;
 
@@ -96,7 +97,7 @@ public class Pokeball : APoolable
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.Euler(0f, 200f, 0f);
-        transform.SetParent(GOHandler.groundPlaneStage.transform);
+        transform.SetParent(GOHandler.pokeballPos.transform);
         //transform.SetParent(Camera.main.transform);
     }
 
