@@ -7,6 +7,7 @@ TagManager:
   - GroundPlane
   - Undefined
   - ScriptsHolder
+  - PoolManager
   layers:
   - Default
   - TransparentFX

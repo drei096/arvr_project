@@ -354,7 +354,6 @@ public class EnumsHandler
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.SCRATCH].damage);
         };
 
-        
         temp = new StructHandler.MoveInfo()
         {
             name = "Ember",
