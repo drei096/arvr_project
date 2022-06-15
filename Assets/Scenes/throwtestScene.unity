@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114912892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.683}
+  m_LocalPosition: {x: 0, y: 1, z: -1.683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 333494341}
@@ -547,7 +547,7 @@ GameObject:
   - component: {fileID: 761677937}
   m_Layer: 0
   m_Name: PoolManager
-  m_TagString: Untagged
+  m_TagString: PoolManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   - {fileID: 7225456330103772743, guid: 492003a8a14c6b748a85e9cc81decc70, type: 3}
   - {fileID: 8172135698953285108, guid: 6c22c015019b42b4f839057731349f11, type: 3}
   - {fileID: 3736756967719402293, guid: 5b8a6e420a596c746bea802c400b07df, type: 3}
-  - {fileID: 2183357197900539868, guid: 51c69ecaae016ae4cb32abc53a5cb37d, type: 3}
+  - {fileID: 8837629248081247579, guid: 51c69ecaae016ae4cb32abc53a5cb37d, type: 3}
   - {fileID: 9137423111585233546, guid: 26b3f85d55079b844ab8be83fff16c0e, type: 3}
   - {fileID: 3805694958273404695, guid: 0b39bb12bf4829249a7d5343697023d9, type: 3}
   - {fileID: 5032721215634370863, guid: 99a10af1db4892d449276780df9abe05, type: 3}
@@ -832,7 +832,7 @@ MonoBehaviour:
   plTrainerPos: {fileID: 1233242085}
   plPokemonPos: {fileID: 356246464}
   planeFinder: {fileID: 1063168200}
-  PoolManager: {fileID: 0}
+  PoolManager: {fileID: 761677936}
   pokeballPos: {fileID: 114912893}
 --- !u!4 &1494864057
 Transform:
@@ -872,7 +872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561126358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 333494341}

@@ -29,6 +29,7 @@ public class GameManager
     private int encounterChooser;
 
     //POOL MANAGER REFERENCES
+    private GameObject scriptsHolder;
     private GameObject poolManager;
     private PokemonPool pokemonPool;
     private TrainerPool trainerPool;
@@ -50,7 +51,8 @@ public class GameManager
         pokemonPool = poolManager.GetComponent<PokemonPool>();
         trainerPool = poolManager.GetComponent<TrainerPool>();
         pokeballPool = poolManager.GetComponent<PokeballPool>();
-        GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
+        scriptsHolder = GameObject.FindGameObjectWithTag("ScriptsHolder");
+        GOHandler = scriptsHolder.GetComponent<GameObjectHandler>();
         mainPlayerRef = new MainPlayer();
         battleSystem = GameObject.FindObjectOfType<BattleSystem>();
     }
@@ -93,7 +95,7 @@ public class GameManager
 
     private void pokemonEncounter()
     {
-        GameObject.FindObjectOfType<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+        scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
 
         //add statement here that disables another encounter after this current one 
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );

@@ -33,9 +33,9 @@ public class EncounterSystem : MonoBehaviour
         ballTemp = GameObject.FindObjectOfType<PokeballPool>().itemPool.RequestPoolable(pokeballCode,
         new StructHandler.OnRequestStruct()
         {
-            parent = Camera.main.transform,
-            position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.2f, (Camera.main.nearClipPlane * 7.5f) + 1.0f))
-        }) ;
+            parent = GOHandler.pokeballPos.transform,
+            position = GOHandler.pokeballPos.transform.position
+    }) ;
 
         ballTemp.SendMessage("Reset");
     }
@@ -62,9 +62,9 @@ public class EncounterSystem : MonoBehaviour
         ThrownPokeball(pokeballCode);
 
         float successRate = Pokedex.Instance.pokeballInfo[pokeballCode].successRate;
-        float randomFloat = Random.Range(0, 10);
+        float randomFloat = 10;//Random.Range(0, 10);
 
-        if (randomFloat >= 10 / successRate)
+        if (randomFloat >= 10 * successRate)
             return false;
         else
             return true;

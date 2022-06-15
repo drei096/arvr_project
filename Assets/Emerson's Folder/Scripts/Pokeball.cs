@@ -19,8 +19,17 @@ public class Pokeball : APoolable
     private Rigidbody _rigidbody;
     private Vector3 newPosition;
 
+    private float angleChasingSpeed = 1;
+    private float movementSpeed = 1;
+
+    //SCRIPTS HANDLER
+    private GameObject scriptsHolder;
+
     //GO HANDLER
     private GameObjectHandler GOHandler;
+
+    //ENCOUNTER SYSTEM
+    private EncounterSystem encounterSystemRef;
 
     public override void initialize()
     {
@@ -28,7 +37,9 @@ public class Pokeball : APoolable
         info = Pokedex.Instance.pokeballInfo[pokeballCode];
 
         _rigidbody = GetComponent<Rigidbody>();
-        GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
+        scriptsHolder = GameObject.FindGameObjectWithTag("ScriptsHolder");
+        GOHandler = scriptsHolder.GetComponent<GameObjectHandler>();
+        encounterSystemRef = scriptsHolder.GetComponent<EncounterSystem>();
         Reset();
     }
     
@@ -73,7 +84,9 @@ public class Pokeball : APoolable
         { //for pc = if(Input.GetButtonUp(0)){
             if (lastMouseY < Input.GetTouch(0).position.y)
             {
-                ThrowBall(Input.GetTouch(0).position);
+                transform.LookAt(GOHandler.opPokemonPos);
+                throwball2();
+                //ThrowBall(Input.GetTouch(0).position);
             }
         }
 
@@ -99,6 +112,8 @@ public class Pokeball : APoolable
         newPosition = transform.position;
         thrown = holding = false;
 
+       
+
         _rigidbody.useGravity = false;
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
@@ -120,6 +135,11 @@ public class Pokeball : APoolable
 
     void ThrowBall(Vector2 mousePos)
     {
+
+
+
+
+        /*
         _rigidbody.useGravity = true;
 
         float differenceY = (mousePos.y - lastMouseY) / Screen.height * 100;
@@ -132,12 +152,83 @@ public class Pokeball : APoolable
         direction = Camera.main.transform.TransformDirection(direction);
 
         _rigidbody.AddForce((direction * speed / 2f) * 5.0f + (Vector3.up * speed) * 2.0f);
+        
 
         holding = false;
         thrown = true;
 
         //Invoke("GameObject.FindObjectOfType<EncounterSystem>().ThrownPokeball(this.GetComponent<Pokeball>().pokeballCode)", 5.0f);
         Invoke("Reset", 5.0f);
+        */
+    }
+
+    void throwball2()
+    {
+        _rigidbody.useGravity = true;
+        _rigidbody.AddForce(0.0f, 0.0f, 300.0f);
+
+        holding = false;
+        thrown = true;
+
+        Invoke("Reset", 5.0f);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.transform.gameObject.GetComponent<Pokemon>() != null && collision.transform.gameObject.GetComponent<Pokemon>().PoolType == PoolType.POKEMON)
+        {
+            StartCoroutine(catchAnim(collision.transform.gameObject));
+        }
+        else
+        {
+            Debug.Log("not pokemon");
+        }
+    }
+
+    IEnumerator catchAnim(GameObject pokemon)
+    {
+        //DISABLE POKEMON
+        GameObject.FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(pokemon,
+            new StructHandler.OnReleaseStruct()
+            {
+                parent = GOHandler.transform,
+                position = Vector3.zero
+            });
+
+        //KAARTEHAN
+        _rigidbody.AddForce(Vector3.up * 2.0f);
+        yield return new WaitForSeconds(0.25f);
+        _rigidbody.isKinematic = true;
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        yield return new WaitForSeconds(0.25f);
+        _rigidbody.isKinematic = false;
+        yield return new WaitForSeconds(2f);
+
+        //CHECK IF CATCH IS SUCCESSFUL
+        bool isCaught = encounterSystemRef.catchPokemon(this.pokeballCode);
+        if (isCaught)
+        {
+            Debug.Log("POKEMON CAUGHT");
+            yield break;
+        }
+        else
+        {
+            Debug.Log("POKEMON NOT CAUGHT");
+            encounterSystemRef.requestPokeball(this.pokeballCode);
+            Reset();
+        }
+
+        //REQUEST FOR POKEMON IF NOT CAUGHT
+        GameObject.FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(pokemon.GetComponent<Pokemon>().pokemonCode,
+            new StructHandler.OnRequestStruct()
+            {
+                parent = GOHandler.opPokemonPos.transform,
+                position = GOHandler.opPokemonPos.transform.position
+            });
+
+        yield break;
     }
 
     public override GameObject createCopy(ObjectPool pool)
