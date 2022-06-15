@@ -87,8 +87,8 @@ public class Pokeball : APoolable
     {
         CancelInvoke();
         //transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 0.5f);
-        transform.position = GOHandler.pokeballPos.transform.position;
-        //transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.2f, (Camera.main.nearClipPlane * 7.5f) + 1.0f));
+        //transform.position = GOHandler.pokeballPos.transform.position;
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, (Camera.main.nearClipPlane * 7.5f)));
         newPosition = transform.position;
         thrown = holding = false;
 
