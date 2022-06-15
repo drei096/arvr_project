@@ -240,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114912892}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.553}
+  m_LocalPosition: {x: 0, y: 0, z: -1.683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 333494341}
@@ -832,6 +832,7 @@ MonoBehaviour:
   plTrainerPos: {fileID: 1233242085}
   plPokemonPos: {fileID: 356246464}
   planeFinder: {fileID: 1063168200}
+  PoolManager: {fileID: 0}
   pokeballPos: {fileID: 114912893}
 --- !u!4 &1494864057
 Transform:

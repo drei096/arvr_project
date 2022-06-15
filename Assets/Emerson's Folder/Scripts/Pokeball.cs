@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public class Pokeball : APoolable
 {
@@ -83,12 +84,17 @@ public class Pokeball : APoolable
         }
     }
 
+    
+
     void Reset()
     {
+        
+
         CancelInvoke();
         //transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, Camera.main.transform.position.z + 0.5f);
-        //transform.position = GOHandler.pokeballPos.transform.position;
-        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, (Camera.main.nearClipPlane)));
+        transform.position = GOHandler.pokeballPos.transform.position;
+        //transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0.0f, (Camera.main.nearClipPlane) * 1.5f));
+        //transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.1f, Camera.main.nearClipPlane + 0.1f));
 
         newPosition = transform.position;
         thrown = holding = false;
