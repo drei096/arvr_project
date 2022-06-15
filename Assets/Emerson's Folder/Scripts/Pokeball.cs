@@ -211,6 +211,8 @@ public class Pokeball : APoolable
         if (isCaught)
         {
             Debug.Log("POKEMON CAUGHT");
+            StepCount.Instance.canCount = true;
+            StepCount.Instance.steps++;
             yield break;
         }
         else

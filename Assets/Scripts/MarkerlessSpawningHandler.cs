@@ -50,15 +50,16 @@ public class MarkerlessSpawningHandler : MonoBehaviour
     public void checkForEncounter()
     {
         //IF THE STEPS IS A MULTIPLE OF 10
-        if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0)
+        if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0 && stepCounterReference.canCount == true)
         {
             //ENABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(true);
             planeFinderGO.SetActive(true);
+            stepCounterReference.canCount = false;
         }
 
         //ELSE IF STEPS IS NOT A MULTIPLE OF 10 OR IS ZERO
-        else
+        else if (stepCounterReference.steps % 10 != 0 && stepCounterReference.steps == 0 && stepCounterReference.canCount == true)
         {
             //DISABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(false);
@@ -80,7 +81,7 @@ public class MarkerlessSpawningHandler : MonoBehaviour
     public void startEncounter()
     {
         //DISABLE STEP COUNTER
-        stepCounterReference.gameObject.SetActive(false);
+        //stepCounterReference.gameObject.SetActive(false);
 
         gameManagerReference.Encounter();
     }

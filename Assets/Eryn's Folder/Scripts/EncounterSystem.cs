@@ -62,7 +62,7 @@ public class EncounterSystem : MonoBehaviour
         ThrownPokeball(pokeballCode);
 
         float successRate = Pokedex.Instance.pokeballInfo[pokeballCode].successRate;
-        float randomFloat = 10;//Random.Range(0, 10);
+        float randomFloat = Random.Range(0, 10);
 
         if (randomFloat >= 10 * successRate)
             return false;

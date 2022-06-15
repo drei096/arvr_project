@@ -44,6 +44,9 @@ public class GameManager
     private GameObjectHandler GOHandler;
     private BattleSystem battleSystem;
 
+    // encounter checker
+    private bool isEncounter = false;
+
     //CONSTRUCTOR
     private GameManager()
     {
@@ -62,8 +65,7 @@ public class GameManager
         GOHandler.planeFinder.SetActive(false);
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
-
-        encounterChooser = 2;//Random.Range(1, 3);
+        encounterChooser = 1;//Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
@@ -101,7 +103,7 @@ public class GameManager
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
 
         //at the end, reenable step counter again
-        StepCount.Instance.gameObject.SetActive(true);
+        //StepCount.Instance.gameObject.SetActive(true);
     }
 
     private void trainerEncounter()
