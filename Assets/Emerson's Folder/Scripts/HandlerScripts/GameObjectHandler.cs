@@ -9,6 +9,9 @@ public class GameObjectHandler : MonoBehaviour
     public Transform opPokemonPos;
     public Transform plTrainerPos;
     public Transform plPokemonPos;
+    public GameObject planeFinder;
+    public Transform pokeballPos;
+
     void Start()
     {
 

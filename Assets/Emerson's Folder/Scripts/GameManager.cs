@@ -28,9 +28,6 @@ public class GameManager
     private EncounterType encounterType;
     private int encounterChooser;
 
-    //GROUND PLANE REFERENCE
-    private GameObject groundPlaneObject;
-
     //POOL MANAGER REFERENCES
     private GameObject poolManager;
     private PokemonPool pokemonPool;
@@ -39,6 +36,11 @@ public class GameManager
     private GameObject placedPokemon;
     private GameObject placedTrainer;
 
+    // attribute fields
+    public MainPlayer mainPlayerRef = null;
+
+    // other scripts
+    private GameObjectHandler GOHandler;
 
     //CONSTRUCTOR
     private GameManager()
@@ -47,21 +49,27 @@ public class GameManager
         pokemonPool = poolManager.GetComponent<PokemonPool>();
         trainerPool = poolManager.GetComponent<TrainerPool>();
         pokeballPool = poolManager.GetComponent<PokeballPool>();
+        GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
+        mainPlayerRef = new MainPlayer();
     }
 
     public void Encounter()
     {
-        groundPlaneObject = GameObject.FindGameObjectWithTag("GroundPlane");
+        GOHandler.planeFinder.SetActive(false);
+        //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
-        encounterChooser = 1; //Random.Range(1, 3);
+
+        encounterChooser = 1;//Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
 
             //SPAWN MODEL OF POKEMON HERE
-            placedPokemon = pokemonPool.itemPool.RequestPoolable(PokemonCode.PIKACHU, 
-                new StructHandler.OnRequestStruct() {parent = groundPlaneObject.transform, 
-                    position = groundPlaneObject.transform.position} );
+            placedPokemon = pokemonPool.itemPool.RequestPoolable(pokemonSpawnRandomizer(), 
+                new StructHandler.OnRequestStruct() {parent = GOHandler.opPokemonPos.transform, 
+                    position = GOHandler.opPokemonPos.transform.position} );
+
+            Debug.Log("encounter called");
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
             pokemonEncounter();
@@ -73,8 +81,8 @@ public class GameManager
 
             //SPAWN TRAINER MODEL HERE
             placedTrainer = trainerPool.itemPool.RequestPoolable(trainerSpawnRandomizer(),
-                new StructHandler.OnRequestStruct() {parent = groundPlaneObject.transform,
-                    position = groundPlaneObject.transform.position} );
+                new StructHandler.OnRequestStruct() {parent = GOHandler.opTrainerPos.transform,
+                    position = GOHandler.opTrainerPos.transform.position} );
 
             //CALL FUNCTION FOR TRAINER BATTLE
             trainerEncounter();
@@ -83,8 +91,8 @@ public class GameManager
 
     private void pokemonEncounter()
     {
-        
-        
+        GameObject.FindObjectOfType<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+
         //add statement here that disables another encounter after this current one 
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
 

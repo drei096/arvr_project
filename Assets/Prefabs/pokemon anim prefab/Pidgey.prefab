@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3358547710554325414}
   - component: {fileID: 3210743404430685939}
+  - component: {fileID: -8440111226560342436}
+  - component: {fileID: 8190318708044671222}
   m_Layer: 0
   m_Name: Pidgey
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3358547710554325415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 2959230148237150498}
   m_Father: {fileID: 0}
@@ -51,6 +53,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8440111226560342436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358547710554325415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8810d7867d1fe24cbdf84bfe257b00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0
+  pokemonCode: 3
+  exp: 0
+  level: 0
+--- !u!65 &8190318708044671222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358547710554325415}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8474772, y: 0.8594327, z: 1}
+  m_Center: {x: -0.028442025, y: 0.33819765, z: 0}
 --- !u!1001 &3358547711294975689
 PrefabInstance:
   m_ObjectHideFlags: 0

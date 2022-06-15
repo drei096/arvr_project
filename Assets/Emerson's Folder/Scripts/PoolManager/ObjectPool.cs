@@ -25,11 +25,9 @@ public class ObjectPool
         private set { poolType = value; }
     }
 
-    private IPoolFunctions poolFunctions;
-
     //constructor; even though the parameters have default values, it is necessary to assign a value to it in your instantiation
     public ObjectPool(int maxPoolSize = 20, bool fixedAllocation = true, List<Transform> spawnLocations = null, 
-        PoolType poolType = PoolType.NONE, IPoolFunctions poolFunc = null)
+        PoolType poolType = PoolType.NONE)
     {
         if(spawnLocations != null)
         {
@@ -37,7 +35,6 @@ public class ObjectPool
             this.fixedAllocation = fixedAllocation;
             this.spawnLocations = spawnLocations;
             this.PoolType = poolType;
-            this.poolFunctions = poolFunc;
         }
         else
         {
@@ -108,7 +105,7 @@ public class ObjectPool
         usedObjects.Add(availableObjects[0]);
         availableObjects.RemoveAt(0);
         // calls the onActivate func of the poolable
-        this.poolFunctions.onRequestGo(info);
+        usedObjects[usedObjects.Count - 1].GetComponent<APoolable>().onActivate(info);
         //poolable now exist in the game
         usedObjects[usedObjects.Count - 1].SetActive(true);
 
@@ -127,7 +124,7 @@ public class ObjectPool
                 //poolable now exist in the game
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
-                this.poolFunctions.onRequestGo(info);
+                usedObjects[usedObjects.Count - 1].GetComponent<APoolable>().onActivate(info);
 
                 return usedObjects[usedObjects.Count - 1];
             }
@@ -149,7 +146,7 @@ public class ObjectPool
                 //poolable now exist in the game
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
-                this.poolFunctions.onRequestGo(info);
+                usedObjects[usedObjects.Count - 1].GetComponent<APoolable>().onActivate(info);
 
                 return usedObjects[usedObjects.Count - 1];
             }
@@ -159,6 +156,7 @@ public class ObjectPool
     }
     public GameObject RequestPoolable(TrainerCode trainerCode, StructHandler.OnRequestStruct info)
     {
+        Debug.LogError($"Trainer");
         for (int i = 0; i < availableObjects.Count; i++)
         {
             // condition for the specific trainerCode
@@ -170,7 +168,7 @@ public class ObjectPool
                 //poolable now exist in the game
                 usedObjects[usedObjects.Count - 1].SetActive(true);
                 //sets the onActivate func of the poolable
-                this.poolFunctions.onRequestGo(info);
+                usedObjects[usedObjects.Count - 1].GetComponent<APoolable>().onActivate(info);
 
                 return usedObjects[usedObjects.Count - 1];
             }
@@ -184,8 +182,8 @@ public class ObjectPool
         availableObjects.Add(usedObjects[index]);
         usedObjects.RemoveAt(index);
         availableObjects[availableObjects.Count - 1].transform.SetParent(this.poolableLocation);
-        this.poolFunctions.onReleaseGo(info);
         availableObjects[availableObjects.Count - 1].SetActive(false);
+        availableObjects[availableObjects.Count - 1].GetComponent<APoolable>().onRelease(info);
     }
     public void ReleasePoolable(GameObject go, StructHandler.OnReleaseStruct info)
     {
@@ -194,7 +192,7 @@ public class ObjectPool
             availableObjects.Add(go);
             usedObjects.Remove(go);
             availableObjects[availableObjects.Count - 1].transform.SetParent(this.poolableLocation);
-            this.poolFunctions.onReleaseGo(info);
+            availableObjects[availableObjects.Count - 1].GetComponent<APoolable>().onRelease(info);
             availableObjects[availableObjects.Count - 1].SetActive(false);
         }
         else

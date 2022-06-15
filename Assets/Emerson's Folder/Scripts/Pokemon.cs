@@ -30,14 +30,18 @@ public class Pokemon : APoolable
         info = Pokedex.Instance.pokemonInfo[pokemonCode];
     }
 
-    public override void onRelease()
+    public override void onRelease(StructHandler.OnReleaseStruct info)
     {
-
+        // returns the pool object to its original parent and position
+        transform.SetParent(GameObject.FindGameObjectWithTag("PoolManager").transform);
+        transform.position = GameObject.FindGameObjectWithTag("PoolManager").transform.position;
     }
 
-    public override void onActivate()
+    public override void onActivate(StructHandler.OnRequestStruct info)
     {
-
+        // place the pool object to the specified position and parent
+        transform.SetParent(info.parent);
+        transform.position = info.position;
     }
 
     public void LookAtCamera()

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1728049716699623102}
   - component: {fileID: 8329099264341335510}
+  - component: {fileID: 7270100643096472649}
+  - component: {fileID: 1222636047901910560}
   m_Layer: 0
   m_Name: Seel
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1728049716699623103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 1185006845919900613}
   m_Father: {fileID: 0}
@@ -51,6 +53,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7270100643096472649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728049716699623103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8810d7867d1fe24cbdf84bfe257b00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0
+  pokemonCode: 13
+  exp: 0
+  level: 0
+--- !u!65 &1222636047901910560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728049716699623103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5042286, y: 1.6880661, z: 2.0370612}
+  m_Center: {x: 0.067103386, y: 0.84521645, z: 0.51853096}
 --- !u!1001 &1728049716828787758
 PrefabInstance:
   m_ObjectHideFlags: 0

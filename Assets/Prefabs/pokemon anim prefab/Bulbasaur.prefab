@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1995876022947638895}
   - component: {fileID: 842858406666991360}
+  - component: {fileID: 3440466724651700051}
+  - component: {fileID: 1301627205826308786}
   m_Layer: 0
   m_Name: Bulbasaur
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 679335145804961634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 5646083334290975652}
   m_Father: {fileID: 0}
@@ -51,6 +53,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3440466724651700051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679335145804961634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8810d7867d1fe24cbdf84bfe257b00a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 0
+  pokemonCode: 0
+  exp: 0
+  level: 0
+--- !u!65 &1301627205826308786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679335145804961634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.64684653, y: 0.6725549, z: 0.9059262}
+  m_Center: {x: -0.007446766, y: 0.38081816, z: 0.0470369}
 --- !u!1001 &5318843096486104143
 PrefabInstance:
   m_ObjectHideFlags: 0
