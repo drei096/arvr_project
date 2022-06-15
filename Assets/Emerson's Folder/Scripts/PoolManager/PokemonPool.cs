@@ -22,7 +22,7 @@ public class PokemonPool : MonoBehaviour, IPoolFunctions
     void Start()
     {
         itemPool = new ObjectPool(this.maxPoolSizePerObj, this.fixedAllocation,
-            this.spawnLocations, PoolType.POKEMON, this.GetComponent<PokemonPool>());
+            this.spawnLocations, PoolType.POKEMON);
         poolableLocation = this.transform;
         this.itemPool.Initialize(ref originalObjs, poolableLocation, this);
         originalParent = this.transform;
@@ -34,21 +34,5 @@ public class PokemonPool : MonoBehaviour, IPoolFunctions
     {
 
     }
-
-    //start of "IPoolFunctions" functions 
-    //**
-    public void onRequestGo(StructHandler.OnRequestStruct info)
-    {
-        // place the pool object to the specified position and parent
-        this.itemPool.usedObjects[this.itemPool.usedObjects.Count - 1].transform.SetParent(info.parent);
-        this.itemPool.usedObjects[this.itemPool.usedObjects.Count - 1].transform.position = info.position;
-    }
-    public void onReleaseGo(StructHandler.OnReleaseStruct info)
-    {
-        // returns the pool object to its original parent and position
-        this.itemPool.usedObjects[this.itemPool.availableObjects.Count - 1].transform.SetParent(originalParent);
-        this.itemPool.usedObjects[this.itemPool.availableObjects.Count - 1].transform.position = originalParent.position;
-    }
-    //**
-    //end of "IPoolFunctions" functions 
+    
 }
