@@ -11,6 +11,9 @@ public class UIPanelController : MonoBehaviour
     public GameObject pokemonPanel;
     public GameObject settingsPanel;
 
+    public GameObject encounterPanel;
+    public GameObject battlePanel;
+
     public InfoPanelController info;
 
     int previousPanelIndex;
@@ -24,6 +27,8 @@ public class UIPanelController : MonoBehaviour
         panelOrder.Add(pokedexPanel);
         panelOrder.Add(pokemonPanel);
         panelOrder.Add(settingsPanel);
+        panelOrder.Add(encounterPanel);
+        panelOrder.Add(battlePanel);
 
         info = pokemonPanel.GetComponent<InfoPanelController>();
 
@@ -96,6 +101,24 @@ public class UIPanelController : MonoBehaviour
         info.setInfo(code);
         info.pokemonImage.sprite = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
         setActive(pokemonPanel);
+    }
+
+    public void Encounter()
+    {
+        setAllInactive();
+        encounterPanel.SetActive(true);
+    }
+
+    public void Battle()
+    {
+        setAllInactive();
+        battlePanel.SetActive(true);
+    }
+
+    public void ReturnToMenu()
+    {
+        setAllInactive();
+        mainPanel.SetActive(true);
     }
 
     //for finding index of previous panel opened

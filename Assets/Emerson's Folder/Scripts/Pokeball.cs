@@ -213,6 +213,7 @@ public class Pokeball : APoolable
             Debug.Log("POKEMON CAUGHT");
             StepCount.Instance.canCount = true;
             StepCount.Instance.steps++;
+            GameManager.Instance.panelController.ReturnToMenu();
             yield break;
         }
         else

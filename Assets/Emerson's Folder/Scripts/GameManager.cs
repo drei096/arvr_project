@@ -43,6 +43,7 @@ public class GameManager
     // other scripts
     private GameObjectHandler GOHandler;
     private BattleSystem battleSystem;
+    public UIPanelController panelController;
 
     // encounter checker
     private bool isEncounter = false;
@@ -58,6 +59,7 @@ public class GameManager
         GOHandler = scriptsHolder.GetComponent<GameObjectHandler>();
         mainPlayerRef = new MainPlayer();
         battleSystem = GameObject.Find("Scripts").GetComponent<BattleSystem>();
+        panelController = scriptsHolder.GetComponent<UIPanelController>();
     }
 
     public void Encounter()
@@ -97,7 +99,9 @@ public class GameManager
 
     private void pokemonEncounter()
     {
+
         scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+        panelController.Encounter();
 
         //add statement here that disables another encounter after this current one 
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
