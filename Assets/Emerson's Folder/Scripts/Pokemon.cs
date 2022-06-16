@@ -19,7 +19,7 @@ public class Pokemon : APoolable
         mainCamera = Camera.main;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         LookAtCamera();
     }
@@ -48,11 +48,23 @@ public class Pokemon : APoolable
     {
         // normalize cam position
         Vector3 norm = mainCamera.transform.position.normalized;
-        // change orientation based on the direction
-        float angle = Mathf.Atan2(norm.y, norm.x) * Mathf.Rad2Deg - 270F;
-        // Add smooth rotation 
-        transform.localRotation = Quaternion.Slerp
-            (transform.rotation, Quaternion.Euler(0.0f, angle, 0.0f), rotate_interval);
+        // if this is the player's pokemon, then it should be facing backward
+        if (transform.parent.tag == "PokemonPlPos")
+        {
+            // change orientation based on the direction
+            float angle = Mathf.Atan2(norm.z, norm.x) * Mathf.Rad2Deg - 270F;
+            // Add smooth rotation 
+            transform.localRotation = Quaternion.Slerp
+                (transform.localRotation, Quaternion.Euler(0.0f, -angle, 0.0f), rotate_interval);
+        }
+        else
+        {
+            // change orientation based on the direction
+            float angle = Mathf.Atan2(norm.z, norm.x) * Mathf.Rad2Deg - 90F;
+            // Add smooth rotation 
+            transform.localRotation = Quaternion.Slerp
+                (transform.localRotation, Quaternion.Euler(0.0f, -angle, 0.0f), rotate_interval);
+        }
     }
 
     public override GameObject createCopy(ObjectPool pool)

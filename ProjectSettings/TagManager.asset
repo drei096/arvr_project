@@ -9,6 +9,7 @@ TagManager:
   - ScriptsHolder
   - PoolManager
   - CatchPokemonPanel
+  - PokemonPlPos
   layers:
   - Default
   - TransparentFX

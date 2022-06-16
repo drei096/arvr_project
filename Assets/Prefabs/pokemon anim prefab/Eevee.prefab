@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4485756152267558899}
   - component: {fileID: 4020483306019727514}
   m_Layer: 0
-  m_Name: Eevee 1
+  m_Name: Eevee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

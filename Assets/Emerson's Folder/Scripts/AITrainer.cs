@@ -8,6 +8,24 @@ public class AITrainer : APoolable
 {
     public StructHandler.TrainerInfo trainerInfo;
     public TrainerCode trainerCode;
+    // how smooth the rotation of the player should be
+    float rotate_interval = 0.1f;
+
+    void FixedUpdate()
+    {
+        LookAtCamera();
+    }
+
+    public void LookAtCamera()
+    {
+        // normalize cam position
+        Vector3 norm = Camera.main.transform.position.normalized;
+        // change orientation based on the direction
+        float angle = Mathf.Atan2(norm.z, norm.x) * Mathf.Rad2Deg - 90F;
+        // Add smooth rotation 
+        transform.localRotation = Quaternion.Slerp
+            (transform.localRotation, Quaternion.Euler(0.0f, -angle, 0.0f), rotate_interval);
+    }
 
     public void ResetPokemonParty()
     {
