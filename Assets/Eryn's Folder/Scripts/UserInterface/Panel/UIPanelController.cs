@@ -144,6 +144,13 @@ public class UIPanelController : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        // only for CatchPokemonPanel UI; hides the panel after clicking 'okay'
+        if (UnityEngine.EventSystems.EventSystem.current.
+                currentSelectedGameObject.transform.parent.parent.gameObject.tag == "CatchPokemonPanel")
+        {
+            UnityEngine.EventSystems.EventSystem.current.
+                currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
+        }
         setAllInactive();
         mainPanel.SetActive(true);
     }
