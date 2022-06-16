@@ -34,7 +34,7 @@ public class GameManager
     private PokemonPool pokemonPool;
     private TrainerPool trainerPool;
     private PokeballPool pokeballPool;
-    private GameObject placedPokemon;
+    [HideInInspector] public GameObject placedPokemon;
     private GameObject placedTrainer;
 
     // attribute fields
@@ -69,7 +69,7 @@ public class GameManager
         GOHandler.planeFinder.SetActive(false);
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
-        encounterChooser = 1;//Random.Range(1, 3);
+        encounterChooser = Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
@@ -108,8 +108,8 @@ public class GameManager
         //add statement here that disables another encounter after this current one 
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
 
-        //at the end, reenable step counter again
-        //StepCount.Instance.gameObject.SetActive(true);
+        //reset encounter type to NONE
+        encounterType = EncounterType.NONE;
     }
 
     private void trainerEncounter()
@@ -121,8 +121,10 @@ public class GameManager
         // starts the battle with the player
         battleSystem.StartBattle(GameManager.Instance.mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
 
-        //at the end, reenable step counter again
-        StepCount.Instance.gameObject.SetActive(true);
+        //reset encounter type to NONE
+        encounterType = EncounterType.NONE;
+
+        //MAKE SURE TO SET StepCount.Instance.canCount to TRUE when the encounter is over
     }
 
     private PokemonCode pokemonSpawnRandomizer()

@@ -80,9 +80,6 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
     public void startEncounter()
     {
-        //DISABLE STEP COUNTER
-        //stepCounterReference.gameObject.SetActive(false);
-
         gameManagerReference.Encounter();
     }
 }

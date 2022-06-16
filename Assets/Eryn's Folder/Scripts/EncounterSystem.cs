@@ -70,5 +70,29 @@ public class EncounterSystem : MonoBehaviour
             return true;
     }
 
+    public void RunFromEncounter()
+    {
+        //RELEASE POKEMON POOLABLE OBJ
+        GameObject.FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(GameManager.Instance.placedPokemon,
+            new StructHandler.OnReleaseStruct()
+            {
+                parent = GOHandler.transform,
+                position = Vector3.zero
+            });
+
+        //RELEASE POKEBALL POOLABLE OBJ
+        releasePokeball();
+
+        //ENABLE STEP COUNTER AGAIN
+        StepCount.Instance.canCount = true;
+        StepCount.Instance.steps++;
+
+        //TRIGGER A RUN PANEL?
+
+        //REDIRECT BACK TO MAIN PANEL
+        GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<UIPanelController>().ReturnToMenu();
+
+    }
+
 
 }
