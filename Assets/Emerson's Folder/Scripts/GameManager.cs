@@ -69,7 +69,7 @@ public class GameManager
         GOHandler.planeFinder.SetActive(false);
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
-        encounterChooser = Random.Range(1, 2);
+        encounterChooser = Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
