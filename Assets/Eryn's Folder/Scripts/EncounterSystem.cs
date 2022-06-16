@@ -33,9 +33,9 @@ public class EncounterSystem : MonoBehaviour
         ballTemp = GameObject.FindObjectOfType<PokeballPool>().itemPool.RequestPoolable(pokeballCode,
         new StructHandler.OnRequestStruct()
         {
-            parent = Camera.main.transform,
-            position = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.2f, (Camera.main.nearClipPlane * 7.5f) + 1.0f))
-        }) ;
+            parent = GOHandler.pokeballPos.transform,
+            position = GOHandler.pokeballPos.transform.position
+    }) ;
 
         ballTemp.SendMessage("Reset");
     }
@@ -54,7 +54,7 @@ public class EncounterSystem : MonoBehaviour
     public void ThrownPokeball(PokeballCode pokeballCode)
     {
         releasePokeball();
-        inventory.removePokeball(pokeballCode, 1);
+        Debug.Log(inventory.getRemainingPokeball(pokeballCode));
     }
 
     public bool catchPokemon(PokeballCode pokeballCode)
@@ -64,10 +64,34 @@ public class EncounterSystem : MonoBehaviour
         float successRate = Pokedex.Instance.pokeballInfo[pokeballCode].successRate;
         float randomFloat = Random.Range(0, 10);
 
-        if (randomFloat >= 10 / successRate)
+        if (randomFloat >= 10 * successRate)
             return false;
         else
             return true;
+    }
+
+    public void RunFromEncounter()
+    {
+        //RELEASE POKEMON POOLABLE OBJ
+        GameObject.FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(GameManager.Instance.placedPokemon,
+            new StructHandler.OnReleaseStruct()
+            {
+                parent = GOHandler.transform,
+                position = Vector3.zero
+            });
+
+        //RELEASE POKEBALL POOLABLE OBJ
+        releasePokeball();
+
+        //ENABLE STEP COUNTER AGAIN
+        StepCount.Instance.canCount = true;
+        StepCount.Instance.steps++;
+
+        //TRIGGER A RUN PANEL?
+
+        //REDIRECT BACK TO MAIN PANEL
+        GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<UIPanelController>().ReturnToMenu();
+
     }
 
 

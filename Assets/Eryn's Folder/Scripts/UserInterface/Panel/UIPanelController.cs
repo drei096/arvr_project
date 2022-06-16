@@ -5,13 +5,37 @@ using UnityEngine.UI;
 
 public class UIPanelController : MonoBehaviour
 {
+    [Header("Main Panels")]
+    //main panels
     public GameObject mainPanel;
     public GameObject mainOptionsPanel;
     public GameObject pokedexPanel;
     public GameObject pokemonPanel;
     public GameObject settingsPanel;
 
+    [Space]
+
+    [Header("Encounter Panels")]
+    //encounter panels
+    public GameObject encounterPanel;
+    public GameObject battlePanel;
+
+    [Space]
+
+    //pokemon encounter panels (Extras)
+    [Header("Pokemon Encounter Panels")]
+    public GameObject catchPanel;
+
+    [Space]
+
+    [Header("Info Controller")]
     public InfoPanelController info;
+
+
+    [Space]
+
+    [Header("Text UI")]
+    public Text remainingPokeball;
 
     int previousPanelIndex;
 
@@ -24,10 +48,17 @@ public class UIPanelController : MonoBehaviour
         panelOrder.Add(pokedexPanel);
         panelOrder.Add(pokemonPanel);
         panelOrder.Add(settingsPanel);
+        panelOrder.Add(encounterPanel);
+        panelOrder.Add(battlePanel);
 
         info = pokemonPanel.GetComponent<InfoPanelController>();
 
         Debug.Log(panelOrder.Count);
+    }
+
+    void Update()
+    {
+        remainingPokeball.text = GameManager.Instance.mainPlayerRef.inventory.getRemainingPokeball(PokeballCode.GREATBALL).ToString();
     }
 
     //sets all to inactive
@@ -96,6 +127,35 @@ public class UIPanelController : MonoBehaviour
         info.setInfo(code);
         info.pokemonImage.sprite = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
         setActive(pokemonPanel);
+    }
+
+    public void Encounter()
+    {
+        setAllInactive();
+        encounterPanel.SetActive(true);
+        GameManager.Instance.animController.triggerAnim(GameManager.Instance.animController.startEncounter);
+    }
+
+    public void Battle()
+    {
+        setAllInactive();
+        battlePanel.SetActive(true);
+    }
+
+    public void ReturnToMenu()
+    {
+        setAllInactive();
+        mainPanel.SetActive(true);
+    }
+
+    public void setUIPanelInactive(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+    public void setUIPanelActive(GameObject panel)
+    {
+        panel.SetActive(true);
     }
 
     //for finding index of previous panel opened

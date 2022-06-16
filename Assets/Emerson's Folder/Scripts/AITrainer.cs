@@ -19,9 +19,7 @@ public class AITrainer : APoolable
         for (int i = 0; i < GameManager.MAX_PARTY_SIZE; i++)
         {
             int pokemonMaxSize = Enum.GetValues(typeof(PokemonCode)).Length;
-            int chosenPokemon = Random.Range(0, pokemonMaxSize);
-            Debug.LogError($"Random Number: {chosenPokemon}");
-            Debug.LogError($"Code: {(PokemonCode)chosenPokemon}");
+            int chosenPokemon = Random.Range(0, pokemonMaxSize - 1);
             StructHandler.PokemonInfo temp = 
                 (StructHandler.PokemonInfo)Pokedex.Instance.pokemonInfo[(PokemonCode)chosenPokemon].ShallowCopy();
             trainerInfo.pokemonParty.Add(temp);
@@ -51,7 +49,7 @@ public class AITrainer : APoolable
         RandomPokemonParty();
         //temporary first pokemon is pikachu
         int pokemonMaxSize = Enum.GetValues(typeof(PokemonCode)).Length;
-        int chosenPokemon = Random.Range(0, pokemonMaxSize);
+        int chosenPokemon = Random.Range(0, pokemonMaxSize - 1);
     }
 
     public override GameObject createCopy(ObjectPool pool)

@@ -14,23 +14,28 @@ public class Inventory
         pokeballs = new Dictionary<PokeballCode, int>();
         foreach (var i in Enum.GetValues(typeof(PokeballCode)))
         {
-            pokeballs.Add((PokeballCode)i, 0);
+            pokeballs.Add((PokeballCode)i, 99);
         }
     }
 
     public void addPokeball(PokeballCode pokeballCode, int amount)
     {
-        pokeballs[pokeballCode] += amount;
+        this.pokeballs[pokeballCode] += amount;
 
-        if (pokeballs[pokeballCode] >= 99)
-            pokeballs[pokeballCode] = 99;
+        if (this.pokeballs[pokeballCode] >= 99)
+            this.pokeballs[pokeballCode] = 99;
     }
 
     public void removePokeball(PokeballCode pokeballCode, int amount)
     {
-        pokeballs[pokeballCode] -= amount;
+        this.pokeballs[pokeballCode] -= amount;
 
-        if (pokeballs[pokeballCode] <= 0)
-            pokeballs[pokeballCode] = 0;
+        if (this.pokeballs[pokeballCode] <= 0)
+            this.pokeballs[pokeballCode] = 0;
+    }
+
+    public int getRemainingPokeball(PokeballCode pokeballCode)
+    {
+        return this.pokeballs[pokeballCode];
     }
 }

@@ -29,11 +29,12 @@ public class GameManager
     private int encounterChooser;
 
     //POOL MANAGER REFERENCES
+    private GameObject scriptsHolder;
     private GameObject poolManager;
     private PokemonPool pokemonPool;
     private TrainerPool trainerPool;
     private PokeballPool pokeballPool;
-    private GameObject placedPokemon;
+    [HideInInspector] public GameObject placedPokemon;
     private GameObject placedTrainer;
 
     // attribute fields
@@ -42,6 +43,11 @@ public class GameManager
     // other scripts
     private GameObjectHandler GOHandler;
     private BattleSystem battleSystem;
+    public UIPanelController panelController;
+    public UIAnimController animController;
+
+    // encounter checker
+    private bool isEncounter = false;
 
     //CONSTRUCTOR
     private GameManager()
@@ -50,9 +56,12 @@ public class GameManager
         pokemonPool = poolManager.GetComponent<PokemonPool>();
         trainerPool = poolManager.GetComponent<TrainerPool>();
         pokeballPool = poolManager.GetComponent<PokeballPool>();
-        GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
+        scriptsHolder = GameObject.FindGameObjectWithTag("ScriptsHolder");
+        GOHandler = scriptsHolder.GetComponent<GameObjectHandler>();
         mainPlayerRef = new MainPlayer();
-        battleSystem = GameObject.FindObjectOfType<BattleSystem>();
+        battleSystem = GameObject.Find("Scripts").GetComponent<BattleSystem>();
+        panelController = scriptsHolder.GetComponent<UIPanelController>();
+        animController = scriptsHolder.GetComponent<UIAnimController>();
     }
 
     public void Encounter()
@@ -60,8 +69,7 @@ public class GameManager
         GOHandler.planeFinder.SetActive(false);
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
-
-        encounterChooser = 1;//Random.Range(1, 3);
+        encounterChooser = Random.Range(1, 3);
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;
@@ -93,13 +101,15 @@ public class GameManager
 
     private void pokemonEncounter()
     {
-        GameObject.FindObjectOfType<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+
+        scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+        panelController.Encounter();
 
         //add statement here that disables another encounter after this current one 
         //pokemonPool.itemPool.ReleasePoolable(placedPokemon, new StructHandler.OnReleaseStruct() {parent = pokemonPool.transform, position = pokemonPool.transform.position} );
 
-        //at the end, reenable step counter again
-        StepCount.Instance.gameObject.SetActive(true);
+        //reset encounter type to NONE
+        encounterType = EncounterType.NONE;
     }
 
     private void trainerEncounter()
@@ -109,23 +119,25 @@ public class GameManager
         //trainerPool.itemPool.ReleasePoolable(placedTrainer, new StructHandler.OnReleaseStruct() {parent = trainerPool.transform, position = trainerPool.transform.position} );
 
         // starts the battle with the player
-        battleSystem.StartBattle(mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
+        battleSystem.StartBattle(GameManager.Instance.mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
 
-        //at the end, reenable step counter again
-        StepCount.Instance.gameObject.SetActive(true);
+        //reset encounter type to NONE
+        encounterType = EncounterType.NONE;
+
+        //MAKE SURE TO SET StepCount.Instance.canCount to TRUE when the encounter is over
     }
 
     private PokemonCode pokemonSpawnRandomizer()
     {
         int pokemonMaxSize = Enum.GetValues(typeof(PokemonCode)).Length;
-        int chosenPokemon = Random.Range(0, pokemonMaxSize);
+        int chosenPokemon = Random.Range(0, pokemonMaxSize - 1);
         return (PokemonCode) chosenPokemon;
     }
 
     private TrainerCode trainerSpawnRandomizer()
     {
         int trainerMaxSize = Enum.GetValues(typeof(TrainerCode)).Length;
-        int chosenTrainerModel = Random.Range(0, trainerMaxSize);
+        int chosenTrainerModel = Random.Range(0, trainerMaxSize - 1);
         return (TrainerCode) chosenTrainerModel;
     }
 
