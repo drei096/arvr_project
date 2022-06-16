@@ -59,7 +59,7 @@ public class StepCount : MonoBehaviour
                 isWalk = false;
             old_steps = steps;
         }
-        
+        acc.text = "steps:" + steps;
     }
 
     void FixedUpdate()

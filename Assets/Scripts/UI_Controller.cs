@@ -44,7 +44,7 @@ public class UI_Controller : MonoBehaviour
     void Update()
     {
         //count steps, if it is a multiple of 10, do a UI alert of encounter
-        if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0)
+        if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0 && stepCounterReference.canCount == false)
         {
             //disable no encounter anim
             triggerNoEncounterAnim(false);
@@ -54,7 +54,7 @@ public class UI_Controller : MonoBehaviour
             triggerEncounterAnim(true);
 
         }
-        else
+        else if ((stepCounterReference.steps % 10 != 0 || stepCounterReference.steps == 0) && stepCounterReference.canCount == true)
         {
             //show UI alert that there is no encounter yet
             triggerEncounterAnim(false);

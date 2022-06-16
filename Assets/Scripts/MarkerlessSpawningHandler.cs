@@ -80,7 +80,6 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
     public void startEncounter()
     {
-        uiControllerReference.triggerEncounterAnim(false);
         gameManagerReference.Encounter(this);
     }
 }
