@@ -90,6 +90,7 @@ public class EncounterSystem : MonoBehaviour
         //TRIGGER A RUN PANEL?
 
         //REDIRECT BACK TO MAIN PANEL
+        UI_Controller.Instance.triggerEncounterAnim(false);
         GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<UIPanelController>().ReturnToMenu();
 
     }
