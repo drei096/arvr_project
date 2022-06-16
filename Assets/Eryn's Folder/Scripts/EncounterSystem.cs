@@ -54,7 +54,7 @@ public class EncounterSystem : MonoBehaviour
     public void ThrownPokeball(PokeballCode pokeballCode)
     {
         releasePokeball();
-        inventory.removePokeball(pokeballCode, 1);
+        Debug.Log(inventory.getRemainingPokeball(pokeballCode));
     }
 
     public bool catchPokemon(PokeballCode pokeballCode)

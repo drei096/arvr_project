@@ -31,6 +31,12 @@ public class UIPanelController : MonoBehaviour
     [Header("Info Controller")]
     public InfoPanelController info;
 
+
+    [Space]
+
+    [Header("Text UI")]
+    public Text remainingPokeball;
+
     int previousPanelIndex;
 
     List<GameObject> panelOrder = new List<GameObject>();
@@ -48,6 +54,11 @@ public class UIPanelController : MonoBehaviour
         info = pokemonPanel.GetComponent<InfoPanelController>();
 
         Debug.Log(panelOrder.Count);
+    }
+
+    void Update()
+    {
+        remainingPokeball.text = GameManager.Instance.mainPlayerRef.inventory.getRemainingPokeball(PokeballCode.GREATBALL).ToString();
     }
 
     //sets all to inactive

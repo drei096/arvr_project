@@ -170,6 +170,8 @@ public class Pokeball : APoolable
         holding = false;
         thrown = true;
 
+        GameManager.Instance.mainPlayerRef.inventory.removePokeball(this.pokeballCode, 1);
+
         Invoke("Reset", 5.0f);
     }
 
