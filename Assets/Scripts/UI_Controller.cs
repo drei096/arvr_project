@@ -51,12 +51,14 @@ public class UI_Controller : MonoBehaviour
             triggerLookingForAnim(false);
 
             //prompt to tap
+            encounterAnim.gameObject.SetActive(true);
             triggerEncounterAnim(true);
 
         }
         else if ((stepCounterReference.steps % 10 != 0 || stepCounterReference.steps == 0) && stepCounterReference.canCount == true)
         {
             //show UI alert that there is no encounter yet
+            encounterAnim.gameObject.SetActive(false);
             triggerEncounterAnim(false);
             triggerLookingForAnim(true);
         }
