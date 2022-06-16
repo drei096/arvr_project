@@ -1246,8 +1246,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8769565899335266897}
   - component: {fileID: 4932627574149339895}
+  - component: {fileID: -366802088660587549}
   m_Layer: 0
-  m_Name: tr0040_00_fi
+  m_Name: Giovanni
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,6 +1290,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-366802088660587549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879091793500917008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5097328bfcc431e42a13afa6cbaf00d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 2
+  trainerCode: 3
 --- !u!1 &8031013304069115391
 GameObject:
   m_ObjectHideFlags: 0
