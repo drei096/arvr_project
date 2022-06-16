@@ -44,6 +44,7 @@ public class GameManager
     private GameObjectHandler GOHandler;
     private BattleSystem battleSystem;
     public UIPanelController panelController;
+    public UIAnimController animController;
 
     // encounter checker
     private bool isEncounter = false;
@@ -60,6 +61,7 @@ public class GameManager
         mainPlayerRef = new MainPlayer();
         battleSystem = GameObject.Find("Scripts").GetComponent<BattleSystem>();
         panelController = scriptsHolder.GetComponent<UIPanelController>();
+        animController = scriptsHolder.GetComponent<UIAnimController>();
     }
 
     public void Encounter()

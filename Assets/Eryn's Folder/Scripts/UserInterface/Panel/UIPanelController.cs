@@ -5,15 +5,30 @@ using UnityEngine.UI;
 
 public class UIPanelController : MonoBehaviour
 {
+    [Header("Main Panels")]
+    //main panels
     public GameObject mainPanel;
     public GameObject mainOptionsPanel;
     public GameObject pokedexPanel;
     public GameObject pokemonPanel;
     public GameObject settingsPanel;
 
+    [Space]
+
+    [Header("Encounter Panels")]
+    //encounter panels
     public GameObject encounterPanel;
     public GameObject battlePanel;
 
+    [Space]
+
+    //pokemon encounter panels (Extras)
+    [Header("Pokemon Encounter Panels")]
+    public GameObject catchPanel;
+
+    [Space]
+
+    [Header("Info Controller")]
     public InfoPanelController info;
 
     int previousPanelIndex;
@@ -107,6 +122,7 @@ public class UIPanelController : MonoBehaviour
     {
         setAllInactive();
         encounterPanel.SetActive(true);
+        GameManager.Instance.animController.triggerAnim(GameManager.Instance.animController.startEncounter);
     }
 
     public void Battle()
@@ -119,6 +135,16 @@ public class UIPanelController : MonoBehaviour
     {
         setAllInactive();
         mainPanel.SetActive(true);
+    }
+
+    public void setUIPanelInactive(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+    public void setUIPanelActive(GameObject panel)
+    {
+        panel.SetActive(true);
     }
 
     //for finding index of previous panel opened
