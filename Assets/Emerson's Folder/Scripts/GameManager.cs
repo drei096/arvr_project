@@ -64,7 +64,7 @@ public class GameManager
         animController = scriptsHolder.GetComponent<UIAnimController>();
     }
 
-    public void Encounter()
+    public void Encounter(MonoBehaviour mono)
     {
         GOHandler.planeFinder.SetActive(false);
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
@@ -82,7 +82,7 @@ public class GameManager
             Debug.Log("encounter called");
 
             //CALL FUNCTION FOR POKEMON ENCOUNTERS
-            pokemonEncounter();
+            pokemonEncounter(mono);
 
         }
         else if (encounterChooser == 2)
@@ -99,10 +99,10 @@ public class GameManager
         }
     }
 
-    private void pokemonEncounter()
+    private void pokemonEncounter(MonoBehaviour mono)
     {
-
-        scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+        mono.StartCoroutine(delayPokeballSpawn());
+        
         panelController.Encounter();
 
         //add statement here that disables another encounter after this current one 
@@ -110,6 +110,12 @@ public class GameManager
 
         //reset encounter type to NONE
         encounterType = EncounterType.NONE;
+    }
+
+    IEnumerator delayPokeballSpawn()
+    {
+        yield return new WaitForSeconds(5.0f);
+        scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
     }
 
     private void trainerEncounter()

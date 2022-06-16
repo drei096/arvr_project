@@ -65,6 +65,7 @@ public class Pokeball : APoolable
         if (thrown)
             return;
 
+        /*
         if (Input.GetMouseButtonDown(0))
         { //for pc = if(Input.GetButtonDown(0)){
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //for pc = Input.mousePosition
@@ -88,6 +89,13 @@ public class Pokeball : APoolable
                 throwball2();
                 //ThrowBall(Input.GetTouch(0).position);
             }
+        }
+        */
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            transform.LookAt(GOHandler.opPokemonPos);
+            throwball2();
         }
 
         if (Input.touchCount == 1)

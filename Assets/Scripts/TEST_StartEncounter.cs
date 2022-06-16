@@ -18,6 +18,6 @@ public class TEST_StartEncounter : MonoBehaviour
 
     public void startEncounter()
     {
-        GameManager.Instance.Encounter();
+        //GameManager.Instance.Encounter();
     }
 }

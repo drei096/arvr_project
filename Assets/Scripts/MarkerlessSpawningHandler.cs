@@ -80,6 +80,7 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
     public void startEncounter()
     {
-        gameManagerReference.Encounter();
+
+        gameManagerReference.Encounter(this);
     }
 }
