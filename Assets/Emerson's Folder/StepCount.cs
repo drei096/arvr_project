@@ -40,6 +40,7 @@ public class StepCount : MonoBehaviour
 
         avgAcc = Input.acceleration.magnitude; // initialize avg filter
         old_steps = steps;
+        acc.text = "steps:" + Input.acceleration.ToString();
     }
 
     void Update()
@@ -58,6 +59,7 @@ public class StepCount : MonoBehaviour
                 isWalk = false;
             old_steps = steps;
         }
+        
     }
 
     void FixedUpdate()
@@ -74,7 +76,7 @@ public class StepCount : MonoBehaviour
                 { // only goes high if input > hiLim
                     stateH = true;
                     steps++; // count step when comp goes high 
-                    acc.text = "steps:" + steps;
+                    acc.text = "steps:" + Input.acceleration.ToString();
                 }
             }
             else
