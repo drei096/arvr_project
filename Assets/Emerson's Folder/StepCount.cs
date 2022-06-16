@@ -10,19 +10,19 @@ public class StepCount : MonoBehaviour
 
 	public Text acc;
 
-    public float loLim = 0.005f; // level to fall to the low state 
-    public float hiLim = 0.1f; // level to go to high state (and detect step) 
+    [HideInInspector] public float loLim = 0.005f; // level to fall to the low state 
+    [HideInInspector] public float hiLim = 0.1f; // level to go to high state (and detect step) 
     public int steps = 0; // step counter - counts when comp state goes high private 
     bool stateH = false; // comparator state
     bool isWalk = false;
     public bool canCount = true;
 
-    public float fHigh = 10.0f; // noise filter control - reduces frequencies above fHigh private 
-    public float curAcc = 0f; // noise filter 
-    public float fLow = 0.1f; // average gravity filter control - time constant about 1/fLow 
+    [HideInInspector] public float fHigh = 10.0f; // noise filter control - reduces frequencies above fHigh private 
+    [HideInInspector] public float curAcc = 0f; // noise filter 
+    [HideInInspector] public float fLow = 0.1f; // average gravity filter control - time constant about 1/fLow 
     float avgAcc = 0f;
 
-    public int wait_time = 30;
+    [HideInInspector] public int wait_time = 30;
     private int old_steps;
     private int counter = 30;
 
@@ -40,7 +40,7 @@ public class StepCount : MonoBehaviour
 
         avgAcc = Input.acceleration.magnitude; // initialize avg filter
         old_steps = steps;
-        acc.text = "steps:" + Input.acceleration.ToString();
+        acc.text = "steps:" + steps;
     }
 
     void Update()
@@ -76,7 +76,7 @@ public class StepCount : MonoBehaviour
                 { // only goes high if input > hiLim
                     stateH = true;
                     steps++; // count step when comp goes high 
-                    acc.text = "steps:" + Input.acceleration.ToString();
+                    acc.text = "steps:" + steps;
                 }
             }
             else
