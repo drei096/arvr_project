@@ -28,11 +28,8 @@ public class UIPanelController : MonoBehaviour
 
     [Space]
 
-    [Header("Info Controller")]
+    [HideInInspector]
     public InfoPanelController info;
-
-
-    [Space]
 
     [Header("Text UI")]
     public Text remainingPokeball;
@@ -140,6 +137,7 @@ public class UIPanelController : MonoBehaviour
     {
         setAllInactive();
         battlePanel.SetActive(true);
+        GameManager.Instance.animController.triggerAnim(GameManager.Instance.animController.battleStart);
     }
 
     public void ReturnToMenu()

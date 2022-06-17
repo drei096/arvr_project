@@ -124,6 +124,8 @@ public class GameManager
         //add statement here that disables another encounter after this current one
         //trainerPool.itemPool.ReleasePoolable(placedTrainer, new StructHandler.OnReleaseStruct() {parent = trainerPool.transform, position = trainerPool.transform.position} );
 
+        panelController.Battle();
+
         // starts the battle with the player
         battleSystem.StartBattle(GameManager.Instance.mainPlayerRef, placedTrainer.GetComponent<AITrainer>());
 
