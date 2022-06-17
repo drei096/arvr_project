@@ -4,6 +4,7 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
+
     public Sound[] sounds;
 
     void Awake()
@@ -12,7 +13,6 @@ public class AudioManager : MonoBehaviour
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
-
             sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
@@ -21,13 +21,14 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-
+        Play(SoundCode.CRY_BULBASAUR);
     }
 
-    public void Play(string name)
+    public void Play(SoundCode code)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.code == code);
         if (s == null) return;
         s.source.Play();
     }
+
 }
