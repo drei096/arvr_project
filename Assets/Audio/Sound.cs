@@ -41,6 +41,9 @@ public enum SoundCode
     MOVE_HEADBUTT,
     MOVE_BONE_CLUB,
     EFF_BLANK,
+    BGM_EXPLORING,
+    BGM_ENCOUNTER_START,
+    BGM_ENCOUNTER,
 }
 
 [System.Serializable]
