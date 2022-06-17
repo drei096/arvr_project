@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play(SoundCode.CRY_BULBASAUR);
+        
     }
 
     public void Play(SoundCode code)
