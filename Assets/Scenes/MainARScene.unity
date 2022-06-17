@@ -3899,7 +3899,7 @@ MonoBehaviour:
   loLim: 0.005
   hiLim: 0.1
   steps: 0
-  canCount: 0
+  canCount: 1
   fHigh: 10
   curAcc: 0
   fLow: 0.1
