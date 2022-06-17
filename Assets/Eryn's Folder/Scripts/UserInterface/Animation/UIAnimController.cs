@@ -8,6 +8,7 @@ public class UIAnimController : MonoBehaviour
 
     public Animator startEncounter;
     public Animator catchPokemon;
+    public Animator battleStart;
 
     public void triggerAnim(Animator anim)
     {
