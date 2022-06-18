@@ -103,6 +103,7 @@ public class EnumsHandler
 {
     // Singleton
     private static EnumsHandler instance = null;
+    private static int HP_MULTIPLIER = 5;
 
     public static EnumsHandler Instance
     {
@@ -122,7 +123,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.BULBASAUR,
             type = "Grass",
             typeCode = TypeCode.GRASS,
-            healthPoints = 45,
+            healthPoints = 45 * HP_MULTIPLIER,
             description = "A strange seed was planted on its back at birth. The plant sprouts and grows with this POKÈMON.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.TACKLE].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.VINE_WHIP]
@@ -135,7 +136,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.CHARMANDER,
             type = "Fire",
             typeCode = TypeCode.FIRE,
-            healthPoints = 45,
+            healthPoints = 45 * HP_MULTIPLIER,
             description = "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.SCRATCH].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.EMBER].ShallowCopy()
@@ -148,7 +149,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.SQUIRTLE,
             type = "Water",
             typeCode = TypeCode.WATER,
-            healthPoints = 44,
+            healthPoints = 44 * HP_MULTIPLIER,
             description = "After birth, its back swells and hardens into a shell. Powerfully sprays foam from its mouth.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.TACKLE].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.WATER_GUN].ShallowCopy()
@@ -161,7 +162,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.PIDGEY,
             type = "Flying",
             typeCode = TypeCode.FLYING,
-            healthPoints = 40,
+            healthPoints = 40 * HP_MULTIPLIER,
             description = "A common sight in forests and woods. It flaps its wings at ground level to kick up blinding sand",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.TACKLE].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.GUST].ShallowCopy()
@@ -174,7 +175,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.PIKACHU,
             type = "Electric",
             typeCode = TypeCode.ELECTRIC,
-            healthPoints = 400,
+            healthPoints = 40 * HP_MULTIPLIER,
             description = "When several of these POKÈMON gather, their electricity could build and cause lightning storms.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.THUNDER_SHOCK].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].ShallowCopy()
@@ -187,7 +188,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.NIDORANF,
             type = "Poison",
             typeCode = TypeCode.POISON,
-            healthPoints = 55,
+            healthPoints = 55 * HP_MULTIPLIER,
             description = "Although small, its venomous barbs render this POKÈMON dangerous. The female has smaller horns.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.POISON_STING].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.LOW_KICK].ShallowCopy()
@@ -200,7 +201,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.VULPIX,
             type = "Fire",
             typeCode = TypeCode.FIRE,
-            healthPoints = 38,
+            healthPoints = 38 * HP_MULTIPLIER,
             description = "At the time of birth, it has just one tail. The tail splits from its tip as it grows older.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.EMBER].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].ShallowCopy()
@@ -213,7 +214,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.ODDISH,
             type = "Grass",
             typeCode = TypeCode.GRASS,
-            healthPoints = 45,
+            healthPoints = 45 * HP_MULTIPLIER,
             description = "During the day, it keeps its face buried in the ground. At night, it wanders around sowing its seeds.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.ABSORB].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.ACID].ShallowCopy()
@@ -226,7 +227,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.PSYDUCK,
             type = "Water",
             typeCode = TypeCode.WATER,
-            healthPoints = 50,
+            healthPoints = 50 * HP_MULTIPLIER,
             description = "While lulling its enemies with its vacant look, this wily POKÈMON will use psychokinetic powers.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.SCRATCH].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.CONFUSION].ShallowCopy()
@@ -239,7 +240,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.GROWLITHE,
             type = "Fire",
             typeCode = TypeCode.FIRE,
-            healthPoints = 55,
+            healthPoints = 55 * HP_MULTIPLIER,
             description = "Very protective of its territory. It will bark and bite to repel intruders from its space.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.EMBER].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.BITE].ShallowCopy()
@@ -252,7 +253,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.POLIWAG,
             type = "Water",
             typeCode = TypeCode.WATER,
-            healthPoints = 40,
+            healthPoints = 40 * HP_MULTIPLIER,
             description = "For Poliwag, swimming is easier than walking. The swirl pattern on its belly is actually part of the PokÈmonís innards showing through the skin. ",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.WATER_GUN].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.POUND].ShallowCopy()
@@ -265,7 +266,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.MACHOP,
             type = "Fighting",
             typeCode = TypeCode.FIGHTING,
-            healthPoints = 70,
+            healthPoints = 70 * HP_MULTIPLIER,
             description = "Loves to build its muscles. It trains in all styles of martial arts to become even stronger.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.KARATE_CHOP].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.LOW_KICK].ShallowCopy()
@@ -278,7 +279,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.FARFETCHD,
             type = "Flying",
             typeCode = TypeCode.FLYING,
-            healthPoints = 52,
+            healthPoints = 52 * HP_MULTIPLIER,
             description = "The sprig of green onions it holds is its weapon. It is used much like a metal sword.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.PECK].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.FURY_ATTACK].ShallowCopy()
@@ -291,7 +292,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.SEEL,
             type = "Water",
             typeCode = TypeCode.WATER,
-            healthPoints = 62,
+            healthPoints = 62 * HP_MULTIPLIER,
             description = "The protruding horn on its head is very hard. It is used for bashing through thick ice.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.HEADBUTT].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.WATER_GUN].ShallowCopy()
@@ -304,7 +305,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.CUEBONE,
             type = "Ground",
             typeCode = TypeCode.GROUND,
-            healthPoints = 50,
+            healthPoints = 50 * HP_MULTIPLIER,
             description = "Because it never removes its skull helmet, no one has ever seen this POKÈMONís real face.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.HEADBUTT].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.BONE_CLUB].ShallowCopy()
@@ -317,7 +318,7 @@ public class EnumsHandler
             pokemonCode = PokemonCode.EEVEE,
             type = "Normal",
             typeCode = TypeCode.NORMAL,
-            healthPoints = 55,
+            healthPoints = 55 * HP_MULTIPLIER,
             description = "Its genetic code is irregular. It may mutate if it is exposed to radiation from element STONEs.",
             move1 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.TACKLE].ShallowCopy(),
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].ShallowCopy()
@@ -599,9 +600,9 @@ public class EnumsHandler
             description = "The user sticks its head out and rams."
         };
         moveInfo.Add(MoveCode.HEADBUTT, temp);
-        moveInfo[MoveCode.FURY_ATTACK].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
+        moveInfo[MoveCode.HEADBUTT].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
-            x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.FURY_ATTACK].damage);
+            x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.HEADBUTT].damage);
         };
 
         temp = new StructHandler.MoveInfo()

@@ -69,7 +69,16 @@ public class GameManager
         GOHandler.planeFinder.SetActive(false);
         //GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
 
-        encounterChooser = Random.Range(1, 3);
+        // if the mainPlayer does not have a pokemon yet, then no trainer encounter first
+        if (mainPlayerRef.pokemonParty.Count < 1)
+        {
+            encounterChooser = 1;
+        }
+        else
+        {
+            encounterChooser = Random.Range(1, 3);
+        }
+        
         if (encounterChooser == 1)
         {
             encounterType = EncounterType.POKEMON_ENCOUNTER;

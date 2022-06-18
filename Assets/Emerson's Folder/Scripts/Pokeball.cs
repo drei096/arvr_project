@@ -221,6 +221,11 @@ public class Pokeball : APoolable
         if (isCaught)
         {
             Debug.Log("POKEMON CAUGHT");
+            // Add pokemon to the 'caughtPokemon' list
+            Pokedex.Instance.caughtPokemon[pokemon.GetComponent<Pokemon>().pokemonCode] = true;
+            // Add pokemon to party
+            GameManager.Instance.mainPlayerRef.AddPokemonToParty(pokemon.GetComponent<Pokemon>().pokemonCode);
+
             StepCount.Instance.canCount = true;
             StepCount.Instance.steps++;
             GameManager.Instance.panelController.setUIPanelActive(GameManager.Instance.panelController.catchPanel);

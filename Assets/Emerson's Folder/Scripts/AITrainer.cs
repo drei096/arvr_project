@@ -34,7 +34,8 @@ public class AITrainer : APoolable
     }
     public void RandomPokemonParty()
     {
-        for (int i = 0; i < GameManager.MAX_PARTY_SIZE; i++)
+        // party size should always be equal to mainPlayer's party
+        for (int i = 0; i < GameManager.Instance.mainPlayerRef.pokemonParty.Count; i++)
         {
             int pokemonMaxSize = Enum.GetValues(typeof(PokemonCode)).Length;
             int chosenPokemon = Random.Range(0, pokemonMaxSize - 1);

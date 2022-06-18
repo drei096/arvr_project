@@ -25,7 +25,9 @@ public class BattleSystem : MonoBehaviour
     private GameObjectHandler GOHandler;
 
     void Start()
-    {
+    { 
+        playerCurrentPokemon = 0; 
+        opponentCurrentPokemon = 0;
         GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
         AttackButton.onClick.AddListener(AssignMoves);
         AttackButton.onClick.AddListener(() => Debug.LogError($"Click 'Attack'!"));
@@ -43,8 +45,15 @@ public class BattleSystem : MonoBehaviour
         */
     }
 
+    private void ResetBattleStats()
+    {
+        playerCurrentPokemon = 0; 
+        opponentCurrentPokemon = 0;
+    }
+
     public void StartBattle(MainPlayer mainPl, AITrainer aiTrainer)
     {
+        ResetBattleStats();
         this.mainPlayer = mainPl;
         this.opponent = aiTrainer;
         playerParty = mainPl.pokemonParty;
@@ -87,7 +96,9 @@ public class BattleSystem : MonoBehaviour
 
     private void AiRandomMove()
     {
-        CheckOpponentPokemonParty();
+        // check if Battle is over; if '1', then terminate battle
+        if (CheckOpponentPokemonParty() == 1)
+            return;
 
         // randomly selects a move from the 2 moves
         int randMove = Random.Range(0, 2);
@@ -113,8 +124,10 @@ public class BattleSystem : MonoBehaviour
                 .PerformMove(ref playerParty, playerCurrentPokemon);
             Debug.LogError($"Opponent Attack 'Move2' : {playerParty[playerCurrentPokemon].healthPoints}");
         }
-
-        CheckPlayerPokemonParty();
+        
+        // check if Battle is over; if '1', then terminate battle
+        if (CheckPlayerPokemonParty() == 1)
+            return;
 
         // after activating move, reset the button events
         buttonsUI[0].onClick.RemoveAllListeners();
@@ -122,10 +135,14 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[1].onClick.RemoveAllListeners();
     }
 
-    private void CheckPlayerPokemonParty()
+    private int CheckPlayerPokemonParty()
     {
-        if (playerParty[opponentCurrentPokemon].healthPoints <= 0)
+        Debug.LogError($"Check Player PokemonIndex : {playerCurrentPokemon}");
+        Debug.LogError($"Check Player CurrentPokemon : {playerParty[playerCurrentPokemon].name}");
+        Debug.LogError($"Check Player Pokemon Health : {playerParty[playerCurrentPokemon].healthPoints}");
+        if (playerParty[playerCurrentPokemon].healthPoints <= 0)
         {
+            Debug.LogError($"Player Pokemon Dead!!");
             // if the opponent's pokemon is dead, release it
             FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(playerPokemon,
                 new StructHandler.OnReleaseStruct()
@@ -134,27 +151,48 @@ public class BattleSystem : MonoBehaviour
                     position = GOHandler.PoolManager.transform.position
                 });
             // check if there are no more pokemon in the party    
-            if (++playerCurrentPokemon >= GameManager.MAX_PARTY_SIZE || playerParty.Count < playerCurrentPokemon)
+            if (++playerCurrentPokemon >= GameManager.MAX_PARTY_SIZE || playerParty.Count < playerCurrentPokemon + 1)
             {
+                Debug.LogError($"No More Pokemon in Player!! : {playerCurrentPokemon}");
                 // finish battle, proceed with walking; disable the buttons
-
+                // Release trainer
+                FindObjectOfType<TrainerPool>().itemPool.ReleasePoolable(opponent.gameObject,
+                    new StructHandler.OnReleaseStruct()
+                    {
+                        parent = GOHandler.PoolManager.transform,
+                        position = GOHandler.PoolManager.transform.position
+                    });
+                // Release Player Pokemon
+                FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(opponentPokemon,
+                    new StructHandler.OnReleaseStruct()
+                    {
+                        parent = GOHandler.PoolManager.transform,
+                        position = GOHandler.PoolManager.transform.position
+                    });
+                playerParty.Clear();
                 // terminate battle system
-                return;
+                return 1;
             }
             // spawns the next pokemon
-            FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(playerParty[playerCurrentPokemon].pokemonCode,
+            playerPokemon = FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(playerParty[playerCurrentPokemon].pokemonCode,
                 new StructHandler.OnRequestStruct()
                 {
                     parent = GOHandler.plPokemonPos.transform,
                     position = GOHandler.plPokemonPos.transform.position
                 });
         }
+
+        return 0;
     }
 
-    private void CheckOpponentPokemonParty()
+    private int CheckOpponentPokemonParty()
     {
+        Debug.LogError($"Check Opponent PokemonIndex : {opponentCurrentPokemon}");
+        Debug.LogError($"Check Opponent CurrentPokemon : {opponentParty[opponentCurrentPokemon].name}");
+        Debug.LogError($"Check Opponent Pokemon Health : {opponentParty[opponentCurrentPokemon].healthPoints}");
         if (opponentParty[opponentCurrentPokemon].healthPoints <= 0)
         {
+            Debug.LogError($"Opponent Pokemon Dead!!");
             // if the opponent's pokemon is dead, release it
             FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(opponentPokemon,
                 new StructHandler.OnReleaseStruct()
@@ -163,25 +201,37 @@ public class BattleSystem : MonoBehaviour
                     position = GOHandler.PoolManager.transform.position
                 });
             // check if there are no more pokemon in the party    
-            if (++opponentCurrentPokemon >= GameManager.MAX_PARTY_SIZE || opponentParty.Count < opponentCurrentPokemon)
+            if (++opponentCurrentPokemon >= GameManager.MAX_PARTY_SIZE || opponentParty.Count < opponentCurrentPokemon + 1)
             {
+                Debug.LogError($"No More Pokemon in Opponent!! : {opponentCurrentPokemon}");
                 // finish battle, proceed with walking; disable the buttons
+                // Release trainer
                 FindObjectOfType<TrainerPool>().itemPool.ReleasePoolable(opponent.gameObject,
                     new StructHandler.OnReleaseStruct()
                     {
                         parent = GOHandler.PoolManager.transform,
                         position = GOHandler.PoolManager.transform.position
                     });
+                // Release Player Pokemon
+                FindObjectOfType<PokemonPool>().itemPool.ReleasePoolable(playerPokemon,
+                    new StructHandler.OnReleaseStruct()
+                    {
+                        parent = GOHandler.PoolManager.transform,
+                        position = GOHandler.PoolManager.transform.position
+                    });
                 // terminate battle system
-                return;
+                return 1;
             }
             // spawns the next pokemon
-            FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(opponentParty[opponentCurrentPokemon].pokemonCode,
+            opponentPokemon = FindObjectOfType<PokemonPool>().itemPool.RequestPoolable(opponentParty[opponentCurrentPokemon].pokemonCode,
                 new StructHandler.OnRequestStruct()
                 {
                     parent = GOHandler.opPokemonPos.transform,
                     position = GOHandler.opPokemonPos.transform.position
                 });
         }
+
+        return 0;
     }
+    
 }
