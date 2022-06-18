@@ -220,6 +220,9 @@ public class Pokeball : APoolable
         bool isCaught = encounterSystemRef.catchPokemon(this.pokeballCode);
         if (isCaught)
         {
+            AudioManager.Instance.Stop(SoundCode.BGM_ENCOUNTER_START);
+            AudioManager.Instance.Play(SoundCode.BGM_VICTORY);
+
             Debug.Log("POKEMON CAUGHT");
             // Add pokemon to the 'caughtPokemon' list
             Pokedex.Instance.caughtPokemon[pokemon.GetComponent<Pokemon>().pokemonCode] = true;

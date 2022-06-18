@@ -76,6 +76,8 @@ public class UIPanelController : MonoBehaviour
     //for extra main menu options to main panel
     public void mainOptionsInactive()
     {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
+
         previousPanelIndex = 1;
         mainOptionsPanel.SetActive(false);
         Debug.Log(previousPanelIndex);
@@ -84,6 +86,8 @@ public class UIPanelController : MonoBehaviour
     //for pokedex and pokemon info
     public void setActive(GameObject obj)
     {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
+
         setAllInactive();
         previousPanelIndex = FindIndex(obj) - 1;
         panelOrder[previousPanelIndex + 1].SetActive(true);
@@ -93,6 +97,8 @@ public class UIPanelController : MonoBehaviour
     //for pokedex and pokemon info
     public void setInactive(GameObject obj)
     {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
+
         setAllInactive();
         previousPanelIndex = FindIndex(obj);
         obj.SetActive(false);
@@ -108,18 +114,22 @@ public class UIPanelController : MonoBehaviour
     //for settings
     public void openSettings()
     {
+        AudioManager.Instance.Play(SoundCode.SFX_MENU_ACCESS);
         settingsPanel.SetActive(true);
     }
 
     //for settings
     public void closeSettings()
     {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
         settingsPanel.SetActive(false);
     }
 
     //for pokemon info
     public void openPokemonInfo(int pokemonCode)
     {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
+
         PokemonCode code = (PokemonCode)pokemonCode;
         info.setInfo(code);
         info.pokemonImage.sprite = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
@@ -150,6 +160,11 @@ public class UIPanelController : MonoBehaviour
                 currentSelectedGameObject.transform.parent.parent.gameObject.SetActive(false);
         }
         setAllInactive();
+
+        //DISABLE VICTORY MUSIC, GO BACK TO EXPLORING MUSIC
+        AudioManager.Instance.Stop(SoundCode.BGM_VICTORY);
+        AudioManager.Instance.Play(SoundCode.BGM_EXPLORING);
+
         mainPanel.SetActive(true);
     }
 

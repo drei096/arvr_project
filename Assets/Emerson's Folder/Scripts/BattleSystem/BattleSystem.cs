@@ -178,6 +178,10 @@ public class BattleSystem : MonoBehaviour
             if (++opponentCurrentPokemon >= GameManager.MAX_PARTY_SIZE || opponentParty.Count < opponentCurrentPokemon + 1)
             {
                 Debug.LogError($"No More Pokemon in Opponent!! : {opponentCurrentPokemon}");
+
+                AudioManager.Instance.Stop(SoundCode.BGM_ENCOUNTER_START);
+                AudioManager.Instance.Play(SoundCode.BGM_VICTORY);
+
                 // Release trainer
                 FindObjectOfType<TrainerPool>().itemPool.ReleasePoolable(opponent.gameObject,
                     new StructHandler.OnReleaseStruct()

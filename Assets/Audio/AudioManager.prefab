@@ -260,3 +260,27 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - code: 37
+    clip: {fileID: 8300000, guid: 7c05e2123aacbcf4e8a2c99505756375, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - code: 38
+    clip: {fileID: 8300000, guid: 8a97e607d67fe4d4b9b8c78e6ab93aa2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - code: 39
+    clip: {fileID: 8300000, guid: 810cdb1cc0d4d184c8fc08fe0e9eab3e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - code: 40
+    clip: {fileID: 8300000, guid: 084d2ea723f4ef4408b959bf48beed3b, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

@@ -43,7 +43,10 @@ public enum SoundCode
     EFF_BLANK,
     BGM_EXPLORING,
     BGM_ENCOUNTER_START,
-    BGM_ENCOUNTER,
+    BGM_VICTORY,
+    SFX_ENCOUNTER_ALERT,
+    SFX_MENU_ACCESS,
+    SFX_UI_CLICK
 }
 
 [System.Serializable]

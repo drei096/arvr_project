@@ -39,6 +39,9 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
        groundPlaneGO = GameObject.Find("Ground Plane Stage");
        planeFinderGO = GameObject.Find("Plane Finder");
+
+       //PLAY EXPLORING MUSIC
+       AudioManager.Instance.Play(SoundCode.BGM_EXPLORING);
     }
 
     // Update is called once per frame
@@ -52,6 +55,9 @@ public class MarkerlessSpawningHandler : MonoBehaviour
         //IF THE STEPS IS A MULTIPLE OF 10
         if (stepCounterReference.steps % 10 == 0 && stepCounterReference.steps != 0 && stepCounterReference.canCount == true)
         {
+            //PLAY ENCOUNTER SFX
+            AudioManager.Instance.Play(SoundCode.SFX_ENCOUNTER_ALERT);
+
             //ENABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(true);
             planeFinderGO.SetActive(true);
@@ -61,6 +67,8 @@ public class MarkerlessSpawningHandler : MonoBehaviour
         //ELSE IF STEPS IS NOT A MULTIPLE OF 10 OR IS ZERO
         else if ((stepCounterReference.steps % 10 != 0 || stepCounterReference.steps == 0) && stepCounterReference.canCount == true)
         {
+            
+
             //DISABLE GROUND PLANE DETECTION
             groundPlaneGO.SetActive(false);
             planeFinderGO.SetActive(false);
@@ -80,6 +88,11 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
     public void startEncounter()
     {
+        //STOP EXPLORING MUSIC AND SFX, PLAY ENCOUNTER MUSIC
+        AudioManager.Instance.Stop(SoundCode.BGM_EXPLORING);
+        AudioManager.Instance.Stop(SoundCode.SFX_ENCOUNTER_ALERT);
+        AudioManager.Instance.Play(SoundCode.BGM_ENCOUNTER_START);
+
         gameManagerReference.Encounter(this);
     }
 }
