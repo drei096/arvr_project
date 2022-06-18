@@ -40,7 +40,10 @@ public class BattleSystem : MonoBehaviour
 
     public void StartBattle(MainPlayer mainPl, AITrainer aiTrainer)
     {
+        // Reset stats
         ResetBattleStats();
+        mainPl.RestorePartyHealth();
+        // assign field references
         this.mainPlayer = mainPl;
         this.opponent = aiTrainer;
         playerParty = mainPl.pokemonParty;
@@ -141,7 +144,6 @@ public class BattleSystem : MonoBehaviour
                         parent = GOHandler.PoolManager.transform,
                         position = GOHandler.PoolManager.transform.position
                     });
-                playerParty.Clear();
                 // finish battle, proceed with walking; disable the buttons
                 StepCount.Instance.EnableCanCount();
                 // terminate battle system
