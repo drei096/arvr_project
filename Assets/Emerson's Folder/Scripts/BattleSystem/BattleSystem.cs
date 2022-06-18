@@ -30,19 +30,6 @@ public class BattleSystem : MonoBehaviour
         opponentCurrentPokemon = 0;
         GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
         AttackButton.onClick.AddListener(AssignMoves);
-        AttackButton.onClick.AddListener(() => Debug.LogError($"Click 'Attack'!"));
-        // Temporary code; note that this is always requesting an AItrainer
-        /*AttackButton.onClick.AddListener(() =>
-            StartBattle(GameManager.Instance.mainPlayerRef,
-                    GameObject.FindObjectOfType<TrainerPool>().itemPool.RequestPoolable(TrainerCode.Joey,
-                        new StructHandler.OnRequestStruct()
-                        {
-                            parent = GOHandler.opTrainerPos.transform,
-                            position = GOHandler.opTrainerPos.transform.position
-                        }).GetComponent<AITrainer>()
-                )
-        );
-        */
     }
 
     private void ResetBattleStats()
@@ -80,16 +67,12 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[0].onClick.AddListener(() => playerParty[playerCurrentPokemon].move1.PerformMove
             (ref opponentParty, opponentCurrentPokemon)
         );
-        buttonsUI[0].onClick.AddListener(() => Debug.LogError($"Click 'Move1' : " +
-                                                              $"{opponentParty[opponentCurrentPokemon].healthPoints}"));
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[0].onClick.AddListener(AiRandomMove);
         // assigns the move2 function of the current pokemon use by the player to the second button
         buttonsUI[1].onClick.AddListener(() => playerParty[playerCurrentPokemon].move2.PerformMove
             (ref opponentParty, opponentCurrentPokemon)
         );
-        buttonsUI[1].onClick.AddListener(() => Debug.LogError($"Click 'Move2' : " +
-                                                              $"{opponentParty[opponentCurrentPokemon].healthPoints}"));
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[1].onClick.AddListener(AiRandomMove);
     }
@@ -105,24 +88,14 @@ public class BattleSystem : MonoBehaviour
         // opponent attack using move1
         if (randMove == 0)
         {
-            Debug.LogError($"IS POKEMON1 NULL: {opponentParty[opponentCurrentPokemon] == null}");
-            Debug.LogError($"IS MOVE1 NULL: {opponentParty[opponentCurrentPokemon].move1 == null}");
-            Debug.LogError($"POKEMON NAME: {opponentParty[opponentCurrentPokemon].name}");
-            Debug.LogError($"MOVE NAME: {opponentParty[opponentCurrentPokemon].move1.name}");
             opponentParty[opponentCurrentPokemon].move1
-            .PerformMove(ref playerParty, playerCurrentPokemon);
-            Debug.LogError($"Opponent Attack 'Move1' : {playerParty[playerCurrentPokemon].healthPoints}");
+                .PerformMove(ref playerParty, playerCurrentPokemon);
         }
         // opponent attack using move2
         else if (randMove == 1)
         {
-            Debug.LogError($"IS POKEMON1 NULL: {opponentParty[opponentCurrentPokemon] == null}");
-            Debug.LogError($"IS MOVE2 NULL: {opponentParty[opponentCurrentPokemon].move1 == null}");
-            Debug.LogError($"POKEMON NAME: {opponentParty[opponentCurrentPokemon].name}");
-            Debug.LogError($"MOVE NAME: {opponentParty[opponentCurrentPokemon].move2.name}");
             opponentParty[opponentCurrentPokemon].move2
                 .PerformMove(ref playerParty, playerCurrentPokemon);
-            Debug.LogError($"Opponent Attack 'Move2' : {playerParty[playerCurrentPokemon].healthPoints}");
         }
         
         // check if Battle is over; if '1', then terminate battle
@@ -154,7 +127,6 @@ public class BattleSystem : MonoBehaviour
             if (++playerCurrentPokemon >= GameManager.MAX_PARTY_SIZE || playerParty.Count < playerCurrentPokemon + 1)
             {
                 Debug.LogError($"No More Pokemon in Player!! : {playerCurrentPokemon}");
-                // finish battle, proceed with walking; disable the buttons
                 // Release trainer
                 FindObjectOfType<TrainerPool>().itemPool.ReleasePoolable(opponent.gameObject,
                     new StructHandler.OnReleaseStruct()
@@ -170,6 +142,8 @@ public class BattleSystem : MonoBehaviour
                         position = GOHandler.PoolManager.transform.position
                     });
                 playerParty.Clear();
+                // finish battle, proceed with walking; disable the buttons
+                StepCount.Instance.EnableCanCount();
                 // terminate battle system
                 return 1;
             }
@@ -204,7 +178,6 @@ public class BattleSystem : MonoBehaviour
             if (++opponentCurrentPokemon >= GameManager.MAX_PARTY_SIZE || opponentParty.Count < opponentCurrentPokemon + 1)
             {
                 Debug.LogError($"No More Pokemon in Opponent!! : {opponentCurrentPokemon}");
-                // finish battle, proceed with walking; disable the buttons
                 // Release trainer
                 FindObjectOfType<TrainerPool>().itemPool.ReleasePoolable(opponent.gameObject,
                     new StructHandler.OnReleaseStruct()
@@ -219,6 +192,8 @@ public class BattleSystem : MonoBehaviour
                         parent = GOHandler.PoolManager.transform,
                         position = GOHandler.PoolManager.transform.position
                     });
+                // finish battle, proceed with walking; disable the buttons
+                StepCount.Instance.EnableCanCount();
                 // terminate battle system
                 return 1;
             }

@@ -43,6 +43,12 @@ public class StepCount : MonoBehaviour
         acc.text = "steps:" + steps;
     }
 
+    public void EnableCanCount()
+    {
+        StepCount.Instance.canCount = true;
+        StepCount.Instance.steps++;
+    }
+
     void Update()
     {
         if (canCount)

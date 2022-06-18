@@ -84,8 +84,7 @@ public class EncounterSystem : MonoBehaviour
         releasePokeball();
 
         //ENABLE STEP COUNTER AGAIN
-        StepCount.Instance.canCount = true;
-        StepCount.Instance.steps++;
+        StepCount.Instance.EnableCanCount();
 
         //TRIGGER A RUN PANEL?
 

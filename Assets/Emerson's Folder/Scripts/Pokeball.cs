@@ -226,8 +226,8 @@ public class Pokeball : APoolable
             // Add pokemon to party
             GameManager.Instance.mainPlayerRef.AddPokemonToParty(pokemon.GetComponent<Pokemon>().pokemonCode);
 
-            StepCount.Instance.canCount = true;
-            StepCount.Instance.steps++;
+            StepCount.Instance.EnableCanCount();
+
             GameManager.Instance.panelController.setUIPanelActive(GameManager.Instance.panelController.catchPanel);
             GameManager.Instance.animController.openAnim(GameManager.Instance.animController.catchPokemon);
             yield break;
