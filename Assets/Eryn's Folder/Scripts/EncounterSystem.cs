@@ -12,6 +12,9 @@ public class EncounterSystem : MonoBehaviour
 
     private GameObject ballTemp;
 
+    //current pokeball
+    private PokeballCode currentPokeballCode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +32,10 @@ public class EncounterSystem : MonoBehaviour
 
     public void requestPokeball(PokeballCode pokeballCode)
     {
+        currentPokeballCode = pokeballCode;
+
         Debug.Log("Request Pokeball!");
-        ballTemp = GameObject.FindObjectOfType<PokeballPool>().itemPool.RequestPoolable(pokeballCode,
+        ballTemp = GameObject.FindObjectOfType<PokeballPool>().itemPool.RequestPoolable(currentPokeballCode,
         new StructHandler.OnRequestStruct()
         {
             parent = GOHandler.pokeballPos.transform,
@@ -38,6 +43,13 @@ public class EncounterSystem : MonoBehaviour
     }) ;
 
         ballTemp.SendMessage("Reset");
+    }
+
+    public void switchPokeball(int pokeballCode)
+    {
+        PokeballCode toEnumCode = (PokeballCode) pokeballCode;
+        releasePokeball();
+        requestPokeball(toEnumCode);
     }
 
     private void releasePokeball()

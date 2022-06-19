@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 1
-  pokeballCode: 0
+  pokeballCode: 1
   throwSpeed: 35

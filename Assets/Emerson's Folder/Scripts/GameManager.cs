@@ -110,7 +110,9 @@ public class GameManager
 
     private void pokemonEncounter(MonoBehaviour mono)
     {
-        mono.StartCoroutine(delayPokeballSpawn());
+        PokeballCode defaultPokeball = PokeballCode.POKEBALL;
+
+        mono.StartCoroutine(delayPokeballSpawn(defaultPokeball));
         
         panelController.Encounter();
 
@@ -121,10 +123,10 @@ public class GameManager
         encounterType = EncounterType.NONE;
     }
 
-    IEnumerator delayPokeballSpawn()
+    IEnumerator delayPokeballSpawn(PokeballCode pokeballCode)
     {
         yield return new WaitForSeconds(5.0f);
-        scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(PokeballCode.GREATBALL);
+        scriptsHolder.GetComponent<EncounterSystem>().requestPokeball(pokeballCode);
     }
 
     private void trainerEncounter()

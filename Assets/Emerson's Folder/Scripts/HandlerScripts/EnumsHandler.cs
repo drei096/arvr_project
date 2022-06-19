@@ -55,8 +55,8 @@ public enum PokeballCode
 {
     // Write here Pokeball Names
     NONE = -1,
-    GREATBALL,
     POKEBALL,
+    GREATBALL,
     MASTER_BALL
 };
 
