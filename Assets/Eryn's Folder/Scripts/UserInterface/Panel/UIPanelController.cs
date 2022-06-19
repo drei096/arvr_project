@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIPanelController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIPanelController : MonoBehaviour
     public GameObject mainOptionsPanel;
     public GameObject pokedexPanel;
     public GameObject pokemonPanel;
+    public GameObject pokemonCollectionPanel;
     public GameObject settingsPanel;
 
     [Space]
@@ -33,6 +35,7 @@ public class UIPanelController : MonoBehaviour
 
     [HideInInspector]
     public InfoPanelController info;
+    public CollectionPanel collection;
 
     [Header("Text UI")]
     public Text remainingPokeball;
@@ -43,7 +46,12 @@ public class UIPanelController : MonoBehaviour
 
     int previousPanelIndex;
 
+
     List<GameObject> panelOrder = new List<GameObject>();
+
+    public delegate void pokemonInfo(int pokemonCode);
+
+    public pokemonInfo PokemonInfo;
 
     void Start()
     {
@@ -51,13 +59,20 @@ public class UIPanelController : MonoBehaviour
         panelOrder.Add(mainOptionsPanel);
         panelOrder.Add(pokedexPanel);
         panelOrder.Add(pokemonPanel);
+        panelOrder.Add(pokemonCollectionPanel);
         panelOrder.Add(settingsPanel);
         panelOrder.Add(encounterPanel);
         panelOrder.Add(battlePanel);
 
         info = pokemonPanel.GetComponent<InfoPanelController>();
+        collection = pokemonCollectionPanel.GetComponent<CollectionPanel>();
 
         Debug.Log(panelOrder.Count);
+
+        this.PokemonInfo += delegate (int pokemonCode)
+        {
+            openPokemonInfo(pokemonCode);
+        };
     }
 
     void Update()
@@ -107,12 +122,12 @@ public class UIPanelController : MonoBehaviour
         AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
 
         setAllInactive();
-        previousPanelIndex = FindIndex(obj);
-        obj.SetActive(false);
-        if (previousPanelIndex - 1 == 1)
+        if (previousPanelIndex == 3)
             panelOrder[0].SetActive(true);
-        else
-            panelOrder[previousPanelIndex - 1].SetActive(true);
+        else if(previousPanelIndex == 2 || previousPanelIndex == 4)
+            panelOrder[previousPanelIndex].SetActive(true);
+
+        previousPanelIndex = FindIndex(obj);
 
 
         Debug.Log(previousPanelIndex);
@@ -141,6 +156,22 @@ public class UIPanelController : MonoBehaviour
         info.setInfo(code);
         info.pokemonImage.sprite = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<Image>().sprite;
         setActive(pokemonPanel);
+    }
+
+    public void openCollection()
+    {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK); 
+        previousPanelIndex = FindIndex(pokemonCollectionPanel);
+
+        setActive(pokemonCollectionPanel);
+        collection.activateButtons();
+    }
+
+    public void Menu()
+    {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
+        setAllInactive();
+        mainPanel.SetActive(true);
     }
 
     public void Encounter()
