@@ -72,6 +72,15 @@ public class BattleSystem : MonoBehaviour
                     parent = GOHandler.opPokemonPos.transform,
                     position = GOHandler.opPokemonPos.transform.position
                 });
+
+
+        GameManager.Instance.panelController.PLPokemonName.text = playerParty[playerCurrentPokemon].name;
+        GameManager.Instance.panelController.OPPokemonName.text = opponentParty[opponentCurrentPokemon].name;
+
+        GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.PLPokemonHealth,
+             playerParty[playerCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[playerParty[playerCurrentPokemon].pokemonCode].healthPoints);
+        GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.OPPokemonHealth,
+             opponentParty[opponentCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[opponentParty[opponentCurrentPokemon].pokemonCode].healthPoints);
     }
     
     // FOR SCRIPT IMPLEMENTATION
@@ -81,6 +90,7 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[0].onClick.AddListener(() => playerParty[playerCurrentPokemon].move1.PerformMove
             (ref opponentParty, opponentCurrentPokemon)
         );
+        buttonsUI[0].GetComponentInChildren<Text>().text = playerParty[playerCurrentPokemon].move1.name;
         // play the move1 sound
         buttonsUI[0].onClick.AddListener(() => playerParty[playerCurrentPokemon].move1.PerformMoveSound());
         // instantly let the aiTrainer attack the player's pokemon
@@ -89,10 +99,14 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[1].onClick.AddListener(() => playerParty[playerCurrentPokemon].move2.PerformMove
             (ref opponentParty, opponentCurrentPokemon)
         );
+        buttonsUI[1].GetComponentInChildren<Text>().text = playerParty[playerCurrentPokemon].move2.name;
         // play the move2 sound
         buttonsUI[1].onClick.AddListener(() => playerParty[playerCurrentPokemon].move2.PerformMoveSound());
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[1].onClick.AddListener(AiRandomMove);
+
+        //Assign Health and Name in UI
+
     }
 
     // TEST FOR EDITOR BUTTON IMPLEMENTATION
@@ -149,6 +163,15 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[0].onClick.RemoveAllListeners();
         // after activating move, reset the button events
         buttonsUI[1].onClick.RemoveAllListeners();
+
+
+        GameManager.Instance.panelController.PLPokemonName.text = playerParty[playerCurrentPokemon].name;
+        GameManager.Instance.panelController.OPPokemonName.text = opponentParty[opponentCurrentPokemon].name;
+
+        GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.PLPokemonHealth,
+             playerParty[playerCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[playerParty[playerCurrentPokemon].pokemonCode].healthPoints);
+        GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.OPPokemonHealth,
+             opponentParty[opponentCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[opponentParty[opponentCurrentPokemon].pokemonCode].healthPoints);
     }
 
     private int CheckPlayerPokemonParty()
@@ -242,6 +265,8 @@ public class BattleSystem : MonoBehaviour
                     });
                 // finish battle, proceed with walking; disable the buttons
                 StepCount.Instance.EnableCanCount();
+                // setActive false for the battlePanel
+                FindObjectOfType<UIPanelController>().ReturnToMenu();
                 // terminate battle system
                 return 1;
             }

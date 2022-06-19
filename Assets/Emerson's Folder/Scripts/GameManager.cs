@@ -112,6 +112,8 @@ public class GameManager
     {
         PokeballCode defaultPokeball = PokeballCode.POKEBALL;
 
+        scriptsHolder.GetComponent<EncounterSystem>().CurrentPokeballCode = PokeballCode.POKEBALL;
+
         mono.StartCoroutine(delayPokeballSpawn(defaultPokeball));
         
         panelController.Encounter();

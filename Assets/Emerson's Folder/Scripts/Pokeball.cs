@@ -94,8 +94,8 @@ public class Pokeball : APoolable
 
         if (Input.GetMouseButtonDown(0))
         {
-            transform.LookAt(GOHandler.opPokemonPos);
-            throwball2();
+                transform.LookAt(GOHandler.opPokemonPos);
+                throwball2();
         }
 
         if (Input.touchCount == 1)

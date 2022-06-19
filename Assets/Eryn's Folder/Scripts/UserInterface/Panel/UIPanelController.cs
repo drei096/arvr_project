@@ -27,6 +27,7 @@ public class UIPanelController : MonoBehaviour
     //pokemon encounter panels (Extras)
     [Header("Pokemon Encounter Panels")]
     public GameObject catchPanel;
+    public GameObject pokeballInventory;
 
     [Space]
 
@@ -35,6 +36,10 @@ public class UIPanelController : MonoBehaviour
 
     [Header("Text UI")]
     public Text remainingPokeball;
+    public Text PLPokemonName;
+    public Slider PLPokemonHealth;
+    public Text OPPokemonName;
+    public Slider OPPokemonHealth;
 
     int previousPanelIndex;
 
@@ -57,7 +62,7 @@ public class UIPanelController : MonoBehaviour
 
     void Update()
     {
-        remainingPokeball.text = GameManager.Instance.mainPlayerRef.inventory.getRemainingPokeball(PokeballCode.GREATBALL).ToString();
+        remainingPokeball.text = GameManager.Instance.mainPlayerRef.inventory.getRemainingPokeball(this.gameObject.GetComponent<EncounterSystem>().CurrentPokeballCode).ToString();
     }
 
     //sets all to inactive
@@ -193,5 +198,11 @@ public class UIPanelController : MonoBehaviour
         }
 
         return 0;
+    }
+
+    public void sliderAssign(Slider slider, int health, int maxHealth)
+    {
+        slider.maxValue = maxHealth;
+        slider.value = health;
     }
 }

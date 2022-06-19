@@ -9,6 +9,7 @@ public class UIAnimController : MonoBehaviour
     public Animator startEncounter;
     public Animator catchPokemon;
     public Animator battleStart;
+    public Animator inventory;
 
     public void triggerAnim(Animator anim)
     {
@@ -23,5 +24,10 @@ public class UIAnimController : MonoBehaviour
     public void closeAnim(Animator anim)
     {
         anim.SetBool("Open", false);
+    }
+
+    public void singularButtonOpenClose(Animator anim)
+    {
+        anim.SetBool("Open", !anim.GetBool("Open"));
     }
 }

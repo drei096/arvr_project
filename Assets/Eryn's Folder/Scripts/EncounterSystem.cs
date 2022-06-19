@@ -106,5 +106,9 @@ public class EncounterSystem : MonoBehaviour
 
     }
 
-
+    public PokeballCode CurrentPokeballCode
+    {
+        get { return currentPokeballCode; }
+        set { currentPokeballCode = value; }
+    }
 }

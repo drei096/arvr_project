@@ -12,10 +12,9 @@ public class Inventory
     {
         // initialize dictionary
         pokeballs = new Dictionary<PokeballCode, int>();
-        foreach (var i in Enum.GetValues(typeof(PokeballCode)))
-        {
-            pokeballs.Add((PokeballCode)i, 99);
-        }
+        pokeballs.Add(PokeballCode.POKEBALL, 99);
+        pokeballs.Add(PokeballCode.GREATBALL, 30);
+        pokeballs.Add(PokeballCode.MASTER_BALL, 1);
     }
 
     public void addPokeball(PokeballCode pokeballCode, int amount)
