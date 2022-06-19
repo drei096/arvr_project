@@ -26,18 +26,19 @@ public class CollectionPanel : MonoBehaviour
 
     public void activateButtons()
     {
-        if(mainPlayerRef.pokemonParty.Count != 0)
+        if(GameManager.Instance.mainPlayerRef.pokemonParty.Count != 0)
         {
-            for (int i = 0; i < mainPlayerRef.pokemonParty.Count; i++)
+            for (int i = 0; i < GameManager.Instance.mainPlayerRef.pokemonParty.Count; i++)
             {
-                if (buttonsList[i].activeSelf == false)
-                {
-                    buttonsList[i].SetActive(true);
-                    activeButtons.Add(buttonsList[i]);
-                }
+                buttonsList[i].SetActive(true);
+                buttonsList[i].GetComponent<Image>().sprite = pokemonImage[(int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode];
+                Debug.Log((int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode);
+                buttonsList[i].GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.panelController.PokemonInfo((int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode));
+
+                    //activeButtons.Add(buttonsList[i]);
             }
 
-            setPokemon();
+            //setPokemon();
         }
     }
 
@@ -45,8 +46,8 @@ public class CollectionPanel : MonoBehaviour
     {
         for (int i = 0; i < activeButtons.Count; i++)
         {
-            activeButtons[i].GetComponent<Image>().sprite = pokemonImage[(int)mainPlayerRef.pokemonParty[i].pokemonCode];
-            activeButtons[i].GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.panelController.PokemonInfo((int)mainPlayerRef.pokemonParty[i].pokemonCode));
+            activeButtons[i].GetComponent<Image>().sprite = pokemonImage[(int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode];
+            activeButtons[i].GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.panelController.PokemonInfo((int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode));
         }
     }
 }
