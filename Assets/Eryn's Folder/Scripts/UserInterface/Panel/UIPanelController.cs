@@ -113,9 +113,17 @@ public class UIPanelController : MonoBehaviour
         AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
 
         setAllInactive();
-        previousPanelIndex = FindIndex(obj) - 1;
-        panelOrder[previousPanelIndex + 1].SetActive(true);
+        int tempIndex = FindIndex(obj);
+        panelOrder[tempIndex].SetActive(true);
         Debug.Log(previousPanelIndex);
+    }
+
+    public void openPokedex()
+    {
+        AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK);
+        setAllInactive();
+        pokedexPanel.SetActive(true);
+        previousPanelIndex = FindIndex(pokedexPanel);
     }
 
     //for pokedex and pokemon info
@@ -165,7 +173,8 @@ public class UIPanelController : MonoBehaviour
         AudioManager.Instance.Play(SoundCode.SFX_UI_CLICK); 
         previousPanelIndex = FindIndex(pokemonCollectionPanel);
 
-        setActive(pokemonCollectionPanel);
+        setAllInactive();
+        pokemonCollectionPanel.SetActive(true);
         collection.activateButtons();
     }
 

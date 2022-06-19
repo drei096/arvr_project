@@ -2290,7 +2290,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -12964,11 +12964,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1769829156}
         m_TargetAssemblyTypeName: UIPanelController, Assembly-CSharp
-        m_MethodName: setActive
-        m_Mode: 2
+        m_MethodName: openPokedex
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1943732191}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
