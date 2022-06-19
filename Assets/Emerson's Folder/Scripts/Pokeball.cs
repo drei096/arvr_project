@@ -92,7 +92,7 @@ public class Pokeball : APoolable
         }
         */
 
-        if (Input.GetMouseButtonDown(0))
+        if (GestureManager.Instance.canThrowBall == true)
         {
                 transform.LookAt(GOHandler.opPokemonPos);
                 throwball2();
