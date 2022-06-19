@@ -30,12 +30,16 @@ public class CollectionPanel : MonoBehaviour
         {
             for (int i = 0; i < GameManager.Instance.mainPlayerRef.pokemonParty.Count; i++)
             {
-                buttonsList[i].SetActive(true);
-                buttonsList[i].GetComponent<Image>().sprite = pokemonImage[(int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode];
-                Debug.Log((int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode);
-                buttonsList[i].GetComponent<Button>().onClick.AddListener(() => GameManager.Instance.panelController.PokemonInfo((int)GameManager.Instance.mainPlayerRef.pokemonParty[i].pokemonCode));
+                var i1 = i;
+                buttonsList[i1].SetActive(true);
+                buttonsList[i1].GetComponent<Image>().sprite = pokemonImage[
+                    (int)GameManager.Instance.mainPlayerRef.pokemonParty[i1].pokemonCode];
+                Debug.Log((int)GameManager.Instance.mainPlayerRef.pokemonParty[i1].pokemonCode);
+                buttonsList[i1].GetComponent<Button>().onClick.AddListener(() => 
+                    GameManager.Instance.panelController.PokemonInfo(
+                        (int)GameManager.Instance.mainPlayerRef.pokemonParty[i1].pokemonCode));
 
-                    //activeButtons.Add(buttonsList[i]);
+                    //activeButtons.Add(buttonsList[i1]);
             }
 
             //setPokemon();
