@@ -21660,7 +21660,7 @@ MonoBehaviour:
   StartEncounter: {fileID: 374876581}
   StartBattle: {fileID: 1320259501}
   catchPanel: {fileID: 1693071846}
-  pokeballInventory: {fileID: 0}
+  pokeballInventory: {fileID: 1496169113}
   combatOptions: {fileID: 1865668648}
   info: {fileID: 0}
   collection: {fileID: 0}

@@ -179,6 +179,7 @@ public class Pokeball : APoolable
         thrown = true;
 
         GameManager.Instance.mainPlayerRef.inventory.removePokeball(this.pokeballCode, 1);
+        GameManager.Instance.panelController.setUIPanelInactive(GameManager.Instance.panelController.pokeballInventory);
 
         Invoke("Reset", 5.0f);
     }
@@ -233,6 +234,7 @@ public class Pokeball : APoolable
 
             GameManager.Instance.panelController.setUIPanelActive(GameManager.Instance.panelController.catchPanel);
             GameManager.Instance.animController.openAnim(GameManager.Instance.animController.catchPokemon);
+            GameManager.Instance.panelController.setUIPanelActive(GameManager.Instance.panelController.pokeballInventory);
             yield break;
         }
         else
@@ -251,6 +253,8 @@ public class Pokeball : APoolable
                 parent = GOHandler.opPokemonPos.transform,
                 position = GOHandler.opPokemonPos.transform.position
             });
+
+        GameManager.Instance.panelController.setUIPanelActive(GameManager.Instance.panelController.pokeballInventory);
 
         yield break;
     }

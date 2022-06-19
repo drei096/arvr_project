@@ -81,6 +81,9 @@ public class BattleSystem : MonoBehaviour
              playerParty[playerCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[playerParty[playerCurrentPokemon].pokemonCode].healthPoints);
         GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.OPPokemonHealth,
              opponentParty[opponentCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[opponentParty[opponentCurrentPokemon].pokemonCode].healthPoints);
+
+
+        FindObjectOfType<UIPanelController>().combatOptions.SetActive(true);
     }
     
     // FOR SCRIPT IMPLEMENTATION
