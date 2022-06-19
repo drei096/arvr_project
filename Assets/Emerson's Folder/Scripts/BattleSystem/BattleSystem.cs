@@ -93,6 +93,11 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[0].GetComponentInChildren<Text>().text = playerParty[playerCurrentPokemon].move1.name;
         // play the move1 sound
         buttonsUI[0].onClick.AddListener(() => playerParty[playerCurrentPokemon].move1.PerformMoveSound());
+        // reduce hp
+        buttonsUI[0].onClick.AddListener(() => GameManager.Instance.panelController.
+            sliderAssign(GameManager.Instance.panelController.OPPokemonHealth,
+            opponentParty[opponentCurrentPokemon].healthPoints, 
+            Pokedex.Instance.pokemonInfo[opponentParty[opponentCurrentPokemon].pokemonCode].healthPoints));
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[0].onClick.AddListener(AiRandomMove);
         // assigns the move2 function of the current pokemon use by the player to the second button
@@ -102,8 +107,14 @@ public class BattleSystem : MonoBehaviour
         buttonsUI[1].GetComponentInChildren<Text>().text = playerParty[playerCurrentPokemon].move2.name;
         // play the move2 sound
         buttonsUI[1].onClick.AddListener(() => playerParty[playerCurrentPokemon].move2.PerformMoveSound());
+        // reduce hp
+        buttonsUI[1].onClick.AddListener(() => GameManager.Instance.panelController.
+            sliderAssign(GameManager.Instance.panelController.OPPokemonHealth,
+                opponentParty[opponentCurrentPokemon].healthPoints, 
+                Pokedex.Instance.pokemonInfo[opponentParty[opponentCurrentPokemon].pokemonCode].healthPoints));
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[1].onClick.AddListener(AiRandomMove);
+        
 
         //Assign Health and Name in UI
 
@@ -137,6 +148,17 @@ public class BattleSystem : MonoBehaviour
         // check if Battle is over; if '1', then terminate battle
         if (CheckOpponentPokemonParty() == 1)
             return;
+        
+        // SetActive true for the combatOptions
+        //FindObjectOfType<UIPanelController>().combatOptions.SetActive(false);
+
+        StartCoroutine("AiRandomMoveEnumerator");
+        
+    }
+
+    public IEnumerator AiRandomMoveEnumerator()
+    {
+        yield return new WaitForSeconds(2.5f);
 
         // randomly selects a move from the 2 moves
         int randMove = Random.Range(0, 2);
@@ -157,21 +179,22 @@ public class BattleSystem : MonoBehaviour
         
         // check if Battle is over; if '1', then terminate battle
         if (CheckPlayerPokemonParty() == 1)
-            return;
+            yield break;
 
         // after activating move, reset the button events
         buttonsUI[0].onClick.RemoveAllListeners();
         // after activating move, reset the button events
         buttonsUI[1].onClick.RemoveAllListeners();
 
-
         GameManager.Instance.panelController.PLPokemonName.text = playerParty[playerCurrentPokemon].name;
         GameManager.Instance.panelController.OPPokemonName.text = opponentParty[opponentCurrentPokemon].name;
 
         GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.PLPokemonHealth,
-             playerParty[playerCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[playerParty[playerCurrentPokemon].pokemonCode].healthPoints);
-        GameManager.Instance.panelController.sliderAssign(GameManager.Instance.panelController.OPPokemonHealth,
-             opponentParty[opponentCurrentPokemon].healthPoints, Pokedex.Instance.pokemonInfo[opponentParty[opponentCurrentPokemon].pokemonCode].healthPoints);
+            playerParty[playerCurrentPokemon].healthPoints, 
+            Pokedex.Instance.pokemonInfo[playerParty[playerCurrentPokemon].pokemonCode].healthPoints);
+
+        // SetActive true for the combatOptions
+        FindObjectOfType<UIPanelController>().combatOptions.SetActive(true);
     }
 
     private int CheckPlayerPokemonParty()

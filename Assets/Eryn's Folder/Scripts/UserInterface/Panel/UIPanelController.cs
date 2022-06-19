@@ -30,11 +30,13 @@ public class UIPanelController : MonoBehaviour
     [Header("Pokemon Encounter Panels")]
     public GameObject catchPanel;
     public GameObject pokeballInventory;
+    public GameObject combatOptions;
 
     [Space]
 
     [HideInInspector]
     public InfoPanelController info;
+    [HideInInspector]
     public CollectionPanel collection;
 
     [Header("Text UI")]
