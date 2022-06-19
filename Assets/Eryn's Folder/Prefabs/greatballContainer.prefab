@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6e78ed62a52e3f94fa60204f629718c3, type: 2}
+  - {fileID: 2100000, guid: 0668a38b05f77114d9ea68741f020069, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6013354616773629850}
   - component: {fileID: -8313852740509069551}
   m_Layer: 6
-  m_Name: pokeballContainer
+  m_Name: greatballContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolType: 1
-  pokeballCode: 1
+  pokeballCode: 0
   throwSpeed: 35

@@ -55,7 +55,9 @@ public enum PokeballCode
 {
     // Write here Pokeball Names
     NONE = -1,
-    GREATBALL
+    GREATBALL,
+    POKEBALL,
+    MASTER_BALL
 };
 
 public enum MoveCode
@@ -401,6 +403,26 @@ public class EnumsHandler
             description = "What a ball!"
         };
         pokeballInfo.Add(PokeballCode.GREATBALL, temp);
+
+        temp = new StructHandler.PokeballInfo()
+        {
+            name = "Poke Ball",
+            pokeballCode = PokeballCode.POKEBALL,
+            successRate = 0.25f,
+            typeSpecialty = TypeCode.NONE,
+            description = "What a ball!"
+        };
+        pokeballInfo.Add(PokeballCode.POKEBALL, temp);
+
+        temp = new StructHandler.PokeballInfo()
+        {
+            name = "Master Ball",
+            pokeballCode = PokeballCode.MASTER_BALL,
+            successRate = 1f,
+            typeSpecialty = TypeCode.NONE,
+            description = "What a ball!"
+        };
+        pokeballInfo.Add(PokeballCode.MASTER_BALL, temp);
     }
     // Write here the permanent data info
     public static void AddMoveData(ref Dictionary<MoveCode, StructHandler.MoveInfo> moveInfo)

@@ -18431,6 +18431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalObjs:
   - {fileID: 5565987648555522117, guid: b1066d754af0e354991082ac44e4157e, type: 3}
+  - {fileID: 5565987648555522117, guid: 199bdf274cb94dd4ab00d02db5c03050, type: 3}
+  - {fileID: 5565987648555522117, guid: 0c9bd2eac6d2d6640bcc4fa949ed30b8, type: 3}
   maxPoolSizePerObj: 5
   fixedAllocation: 1
 --- !u!114 &1902221961
