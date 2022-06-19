@@ -129,6 +129,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.VINE_WHIP]
         };
         pokemonInfo.Add(PokemonCode.BULBASAUR, temp);
+        pokemonInfo[PokemonCode.BULBASAUR].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_BULBASAUR);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -142,6 +146,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.EMBER].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.CHARMANDER, temp);
+        pokemonInfo[PokemonCode.CHARMANDER].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_CHARMANDER);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -155,6 +163,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.WATER_GUN].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.SQUIRTLE, temp);
+        pokemonInfo[PokemonCode.SQUIRTLE].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_SQUIRTLE);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -168,6 +180,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.GUST].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.PIDGEY, temp);
+        pokemonInfo[PokemonCode.PIDGEY].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_PIDGEY);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -181,6 +197,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.PIKACHU, temp);
+        pokemonInfo[PokemonCode.PIKACHU].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_PIKACHU);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -194,6 +214,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.LOW_KICK].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.NIDORANF, temp);
+        pokemonInfo[PokemonCode.NIDORANF].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_NIDORANF);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -207,6 +231,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.VULPIX, temp);
+        pokemonInfo[PokemonCode.VULPIX].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_VULPIX);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -220,6 +248,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.ACID].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.ODDISH, temp);
+        pokemonInfo[PokemonCode.ODDISH].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_ODDISH);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -233,6 +265,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.CONFUSION].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.PSYDUCK, temp);
+        pokemonInfo[PokemonCode.PSYDUCK].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_PSYDUCK);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -246,6 +282,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.BITE].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.GROWLITHE, temp);
+        pokemonInfo[PokemonCode.GROWLITHE].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_GROWLITHE);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -259,6 +299,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.POUND].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.POLIWAG, temp);
+        pokemonInfo[PokemonCode.POLIWAG].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_POLIWAG);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -272,6 +316,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.LOW_KICK].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.MACHOP, temp);
+        pokemonInfo[PokemonCode.MACHOP].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_MACHOP);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -285,6 +333,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.FURY_ATTACK].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.FARFETCHD, temp);
+        pokemonInfo[PokemonCode.FARFETCHD].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_FARFETCHD);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -298,6 +350,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.WATER_GUN].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.SEEL, temp);
+        pokemonInfo[PokemonCode.SEEL].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_SEEL);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -311,6 +367,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.BONE_CLUB].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.CUEBONE, temp);
+        pokemonInfo[PokemonCode.CUEBONE].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_CUEBONE);
+        };
 
         temp = new StructHandler.PokemonInfo()
         {
@@ -324,6 +384,10 @@ public class EnumsHandler
             move2 = (StructHandler.MoveInfo)Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].ShallowCopy()
         };
         pokemonInfo.Add(PokemonCode.EEVEE, temp);
+        pokemonInfo[PokemonCode.EEVEE].PerformCrySound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.CRY_EEVEE);
+        };
     }
 
     // Write here the permanent data info
@@ -354,6 +418,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.SCRATCH].damage);
         };
+        moveInfo[MoveCode.SCRATCH].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_SCRATCH);
+        };
 
         temp = new StructHandler.MoveInfo()
         {
@@ -367,6 +435,10 @@ public class EnumsHandler
         moveInfo[MoveCode.EMBER].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.EMBER].damage);
+        };
+        moveInfo[MoveCode.EMBER].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_EMBER);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -382,6 +454,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.TACKLE].damage);
         };
+        moveInfo[MoveCode.TACKLE].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_TACKLE);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -395,6 +471,10 @@ public class EnumsHandler
         moveInfo[MoveCode.WATER_GUN].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.WATER_GUN].damage);
+        };
+        moveInfo[MoveCode.WATER_GUN].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_WATER_GUN);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -410,6 +490,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.VINE_WHIP].damage);
         };
+        moveInfo[MoveCode.VINE_WHIP].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_VINE_WHIP);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -423,6 +507,10 @@ public class EnumsHandler
         moveInfo[MoveCode.GUST].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.GUST].damage);
+        };
+        moveInfo[MoveCode.GUST].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_GUST);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -438,6 +526,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.THUNDER_SHOCK].damage);
         };
+        moveInfo[MoveCode.THUNDER_SHOCK].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_THUNDER_SHOCK);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -451,6 +543,10 @@ public class EnumsHandler
         moveInfo[MoveCode.QUICK_ATTACK].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.QUICK_ATTACK].damage);
+        };
+        moveInfo[MoveCode.QUICK_ATTACK].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_QUICK_ATTACK);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -466,6 +562,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.POISON_STING].damage);
         };
+        moveInfo[MoveCode.POISON_STING].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_POISON_STING);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -479,6 +579,10 @@ public class EnumsHandler
         moveInfo[MoveCode.ABSORB].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.ABSORB].damage);
+        };
+        moveInfo[MoveCode.ABSORB].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_ABSORB);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -494,6 +598,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.ACID].damage);
         };
+        moveInfo[MoveCode.ACID].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_ACID);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -507,6 +615,10 @@ public class EnumsHandler
         moveInfo[MoveCode.CONFUSION].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.CONFUSION].damage);
+        };
+        moveInfo[MoveCode.CONFUSION].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_CONFUSION);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -522,6 +634,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.BITE].damage);
         };
+        moveInfo[MoveCode.BITE].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_BITE);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -535,6 +651,10 @@ public class EnumsHandler
         moveInfo[MoveCode.POUND].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.POUND].damage);
+        };
+        moveInfo[MoveCode.POUND].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_POUND);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -550,6 +670,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.KARATE_CHOP].damage);
         };
+        moveInfo[MoveCode.KARATE_CHOP].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_KARATE_CHOP);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -564,6 +688,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.LOW_KICK].damage);
         };
+        moveInfo[MoveCode.LOW_KICK].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_LOW_KICK);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -575,6 +703,10 @@ public class EnumsHandler
         moveInfo[MoveCode.PECK].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.PECK].damage);
+        };
+        moveInfo[MoveCode.PECK].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_PECK);
         };
         
         temp = new StructHandler.MoveInfo()
@@ -590,6 +722,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.FURY_ATTACK].damage);
         };
+        moveInfo[MoveCode.FURY_ATTACK].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_FURY_ATTACK);
+        };
         
         temp = new StructHandler.MoveInfo()
         {
@@ -604,6 +740,10 @@ public class EnumsHandler
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.HEADBUTT].damage);
         };
+        moveInfo[MoveCode.HEADBUTT].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_HEADBUTT);
+        };
 
         temp = new StructHandler.MoveInfo()
         {
@@ -617,6 +757,10 @@ public class EnumsHandler
         moveInfo[MoveCode.BONE_CLUB].PerformMove += delegate(ref List<StructHandler.PokemonInfo> x, int index)
         {
             x[index].SetHealth(Pokedex.Instance.moveInfo[MoveCode.BONE_CLUB].damage);
+        };
+        moveInfo[MoveCode.BONE_CLUB].PerformMoveSound += delegate()
+        {
+            AudioManager.Instance.Play(SoundCode.MOVE_BONE_CLUB);
         };
 
     }

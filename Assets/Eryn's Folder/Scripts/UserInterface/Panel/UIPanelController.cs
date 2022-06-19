@@ -19,6 +19,8 @@ public class UIPanelController : MonoBehaviour
     //encounter panels
     public GameObject encounterPanel;
     public GameObject battlePanel;
+    public GameObject StartEncounter;
+    public GameObject StartBattle;
 
     [Space]
 
@@ -140,6 +142,7 @@ public class UIPanelController : MonoBehaviour
     {
         setAllInactive();
         encounterPanel.SetActive(true);
+        StartEncounter.SetActive(true);
         GameManager.Instance.animController.triggerAnim(GameManager.Instance.animController.startEncounter);
     }
 
@@ -147,6 +150,7 @@ public class UIPanelController : MonoBehaviour
     {
         setAllInactive();
         battlePanel.SetActive(true);
+        StartBattle.SetActive(true);
         GameManager.Instance.animController.triggerAnim(GameManager.Instance.animController.battleStart);
     }
 
@@ -163,6 +167,7 @@ public class UIPanelController : MonoBehaviour
 
         //DISABLE VICTORY MUSIC, GO BACK TO EXPLORING MUSIC
         AudioManager.Instance.Stop(SoundCode.BGM_VICTORY);
+        AudioManager.Instance.Stop(SoundCode.BGM_ENCOUNTER_START);
         AudioManager.Instance.Play(SoundCode.BGM_EXPLORING);
 
         mainPanel.SetActive(true);

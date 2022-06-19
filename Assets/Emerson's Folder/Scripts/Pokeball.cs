@@ -238,6 +238,8 @@ public class Pokeball : APoolable
         else
         {
             Debug.Log("POKEMON NOT CAUGHT");
+            // call the cry sound of the pokemon
+            pokemon.GetComponent<Pokemon>().info.PerformCrySound();
             encounterSystemRef.requestPokeball(this.pokeballCode);
             Reset();
         }

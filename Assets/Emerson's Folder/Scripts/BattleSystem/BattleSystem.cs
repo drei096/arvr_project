@@ -24,12 +24,22 @@ public class BattleSystem : MonoBehaviour
     // other scripts
     private GameObjectHandler GOHandler;
 
+    void Awake()
+    {
+        // event on click; for script implementation
+        AttackButton.onClick.AddListener(AssignMoves);
+        // for button implementation
+        /*
+        buttonsUI[0].onClick.AddListener(Move1);
+        buttonsUI[1].onClick.AddListener(Move2);
+        */
+    }
+
     void Start()
     { 
         playerCurrentPokemon = 0; 
         opponentCurrentPokemon = 0;
         GOHandler = GameObject.FindGameObjectWithTag("ScriptsHolder").GetComponent<GameObjectHandler>();
-        AttackButton.onClick.AddListener(AssignMoves);
     }
 
     private void ResetBattleStats()
@@ -64,20 +74,48 @@ public class BattleSystem : MonoBehaviour
                 });
     }
     
+    // FOR SCRIPT IMPLEMENTATION
     private void AssignMoves()
     {
         // assigns the move1 function of the current pokemon use by the player to the first button
         buttonsUI[0].onClick.AddListener(() => playerParty[playerCurrentPokemon].move1.PerformMove
             (ref opponentParty, opponentCurrentPokemon)
         );
+        // play the move1 sound
+        buttonsUI[0].onClick.AddListener(() => playerParty[playerCurrentPokemon].move1.PerformMoveSound());
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[0].onClick.AddListener(AiRandomMove);
         // assigns the move2 function of the current pokemon use by the player to the second button
         buttonsUI[1].onClick.AddListener(() => playerParty[playerCurrentPokemon].move2.PerformMove
             (ref opponentParty, opponentCurrentPokemon)
         );
+        // play the move2 sound
+        buttonsUI[1].onClick.AddListener(() => playerParty[playerCurrentPokemon].move2.PerformMoveSound());
         // instantly let the aiTrainer attack the player's pokemon
         buttonsUI[1].onClick.AddListener(AiRandomMove);
+    }
+
+    // TEST FOR EDITOR BUTTON IMPLEMENTATION
+    public void Move1()
+    {
+        // assigns the move1 function of the current pokemon use by the player to the first button
+        playerParty[playerCurrentPokemon].move1.PerformMove
+            (ref opponentParty, opponentCurrentPokemon);
+        // play the move1 sound
+        playerParty[playerCurrentPokemon].move1.PerformMoveSound();
+        // instantly let the aiTrainer attack the player's pokemon
+        AiRandomMove();
+    }
+    // TEST FOR EDITOR BUTTON IMPLEMENTATION
+    public void Move2()
+    {
+        // assigns the move1 function of the current pokemon use by the player to the first button
+        playerParty[playerCurrentPokemon].move2.PerformMove
+            (ref opponentParty, opponentCurrentPokemon);
+        // play the move2 sound
+        playerParty[playerCurrentPokemon].move2.PerformMoveSound();
+        // instantly let the aiTrainer attack the player's pokemon
+        AiRandomMove();
     }
 
     private void AiRandomMove()
@@ -93,12 +131,14 @@ public class BattleSystem : MonoBehaviour
         {
             opponentParty[opponentCurrentPokemon].move1
                 .PerformMove(ref playerParty, playerCurrentPokemon);
+            opponentParty[opponentCurrentPokemon].move1.PerformMoveSound();
         }
         // opponent attack using move2
         else if (randMove == 1)
         {
             opponentParty[opponentCurrentPokemon].move2
                 .PerformMove(ref playerParty, playerCurrentPokemon);
+            opponentParty[opponentCurrentPokemon].move2.PerformMoveSound();
         }
         
         // check if Battle is over; if '1', then terminate battle
@@ -146,6 +186,8 @@ public class BattleSystem : MonoBehaviour
                     });
                 // finish battle, proceed with walking; disable the buttons
                 StepCount.Instance.EnableCanCount();
+                // setActive false for the battlePanel
+                FindObjectOfType<UIPanelController>().ReturnToMenu();
                 // terminate battle system
                 return 1;
             }

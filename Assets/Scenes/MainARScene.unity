@@ -6408,8 +6408,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 124.61538, y: -100}
-  m_SizeDelta: {x: 249.23076, y: 200}
+  m_AnchoredPosition: {x: 202.50002, y: -100}
+  m_SizeDelta: {x: 405.00003, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869386917
 MonoBehaviour:
@@ -13466,6 +13466,8 @@ MonoBehaviour:
   settingsPanel: {fileID: 1289343921}
   encounterPanel: {fileID: 781746386}
   battlePanel: {fileID: 1932898353}
+  StartEncounter: {fileID: 374876581}
+  StartBattle: {fileID: 1320259501}
   catchPanel: {fileID: 1693071846}
   info: {fileID: 0}
   remainingPokeball: {fileID: 1802106766}
@@ -14232,8 +14234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 373.84613, y: -100}
-  m_SizeDelta: {x: 249.23076, y: 200}
+  m_AnchoredPosition: {x: 607.50006, y: -100}
+  m_SizeDelta: {x: 405.00003, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836507737
 MonoBehaviour:
@@ -17312,7 +17314,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - code: 5
     clip: {fileID: 8300000, guid: b498f5fa30ca6fd459a3243f1cbd4757, type: 3}
-    volume: 0
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
@@ -17456,7 +17458,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - code: 16
     clip: {fileID: 8300000, guid: de7f58ee3d61d3e4fa96a81187633b62, type: 3}
-    volume: 0
+    volume: 1
     pitch: 0
     loop: 0
     source: {fileID: 0}
@@ -17486,25 +17488,25 @@ MonoBehaviour:
     source: {fileID: 0}
   - code: 37
     clip: {fileID: 8300000, guid: 7c05e2123aacbcf4e8a2c99505756375, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - code: 38
     clip: {fileID: 8300000, guid: 8a97e607d67fe4d4b9b8c78e6ab93aa2, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - code: 39
     clip: {fileID: 8300000, guid: 810cdb1cc0d4d184c8fc08fe0e9eab3e, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - code: 40
     clip: {fileID: 8300000, guid: 084d2ea723f4ef4408b959bf48beed3b, type: 3}
-    volume: 0.7
+    volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}

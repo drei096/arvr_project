@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class StructHandler
-{
+{ 
     public struct OnRequestStruct
 {
     public Transform parent;
@@ -26,6 +26,7 @@ public class MoveInfo
     public int damage;
 
     public DelegateMove PerformMove;
+    public DelegateMoveSound PerformMoveSound;
     public object ShallowCopy()
     {
         return this.MemberwiseClone();
@@ -42,6 +43,7 @@ public class PokemonInfo
     public int healthPoints;
     public MoveInfo move1;
     public MoveInfo move2;
+    public DelegateCrySound PerformCrySound;
 
     public void SetHealth(int damage)
     {
@@ -63,6 +65,8 @@ public class TrainerInfo
 }
 
 public delegate void DelegateMove(ref List<PokemonInfo> y, int index);
+public delegate void DelegateMoveSound();
+public delegate void DelegateCrySound();
     
 public class PokeballInfo
 {
