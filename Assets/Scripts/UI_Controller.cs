@@ -13,9 +13,9 @@ public class UI_Controller : MonoBehaviour
 
     //public Text noEncounterText;
     public Text stepsText;
-    [SerializeField] private Animator encounterAnim;
-    [SerializeField] private Animator noEncounterAnim;
-    [SerializeField] private Animator lookingForAnim;
+    public Animator encounterAnim;
+    public Animator noEncounterAnim;
+    public Animator lookingForAnim;
 
 
     private StepCount stepCounterReference;

@@ -75,6 +75,7 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                uiControllerReference.noEncounterAnim.gameObject.SetActive(true);
                 uiControllerReference.triggerNoEncounterAnim(true);
                 Invoke("disableNoEncounterAnim", 0.5f);
             }
@@ -83,6 +84,7 @@ public class MarkerlessSpawningHandler : MonoBehaviour
 
     private void disableNoEncounterAnim()
     {
+        uiControllerReference.noEncounterAnim.gameObject.SetActive(false);
         uiControllerReference.triggerNoEncounterAnim(false);
     }
 

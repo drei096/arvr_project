@@ -190,6 +190,7 @@ public class UIPanelController : MonoBehaviour
         setAllInactive();
         encounterPanel.SetActive(true);
         StartEncounter.SetActive(true);
+        pokeballInventory.SetActive(true);
         GameManager.Instance.animController.triggerAnim(GameManager.Instance.animController.startEncounter);
     }
 
@@ -246,5 +247,10 @@ public class UIPanelController : MonoBehaviour
     {
         slider.maxValue = maxHealth;
         slider.value = health;
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }
